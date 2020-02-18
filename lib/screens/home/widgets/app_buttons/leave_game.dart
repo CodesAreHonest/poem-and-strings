@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:flutter/services.dart';
 
 class LeaveGame extends StatelessWidget {
 
@@ -12,7 +13,9 @@ class LeaveGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-        onPressed: () {},
+        onPressed: () {
+          SystemNavigator.pop();
+        },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
