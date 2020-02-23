@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DifficultStageAppBar extends StatelessWidget {
+class DifficultStageAppBar extends StatelessWidget implements PreferredSizeWidget {
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -34,4 +35,7 @@ class DifficultStageAppBar extends StatelessWidget {
       ],
     );
   }
+
+  @override
+  Size get preferredSize => new Size.fromHeight(55.0);
 }
