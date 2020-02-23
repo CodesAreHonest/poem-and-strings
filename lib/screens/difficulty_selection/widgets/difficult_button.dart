@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 
 class DifficultButton extends StatelessWidget {
+
+  Future navigateToSubPage(context) async {
+    Navigator.pushNamed(context, '/DifficultStageSelection');
+  }
+
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-        onPressed: () {},
+        onPressed: () {
+          navigateToSubPage(context);
+        },
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0)
         ),
