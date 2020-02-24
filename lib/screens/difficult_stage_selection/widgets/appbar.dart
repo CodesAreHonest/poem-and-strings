@@ -22,9 +22,9 @@ class DifficultStageAppBar extends StatelessWidget implements PreferredSizeWidge
       actions: <Widget>[
         Container(
             child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 18.0),
+                padding: EdgeInsets.symmetric(horizontal: 18.0, vertical: 18.0),
                 child: Text(
-                    "1/10",
+                    "1/5",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 16.0
