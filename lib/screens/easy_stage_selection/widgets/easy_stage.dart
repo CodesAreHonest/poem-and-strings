@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
-import "./stage_rating.dart";
+import "package:poem_and_strings/widgets/stage_rating.dart";
 
-class Stage extends StatelessWidget {
-  const Stage({
+class EasyStage extends StatelessWidget {
+  const EasyStage({
     Key key,
     @required this.steps,
     @required this.titles,
@@ -19,7 +19,7 @@ class Stage extends StatelessWidget {
           elevation: 3.0,
           child: ListTile(
             leading: CircleAvatar(
-              backgroundColor: Colors.red[400],
+              backgroundColor: Colors.green[400],
               child: Text(
                   "$steps",
                   style: TextStyle(
