@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 
 class StarDisplay extends StatelessWidget {
-
   final int value;
   final Widget filledStar;
   final Widget unfilledStar;
@@ -25,7 +24,6 @@ class StarDisplay extends StatelessWidget {
 }
 
 class StageRating extends StatelessWidget {
-
   final int value;
   const StageRating({this.value = 0}) : assert(value != null);
 
