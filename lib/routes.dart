@@ -2,12 +2,14 @@ import "package:flutter/material.dart";
 import 'package:poem_and_strings/screens/difficult_stage_selection/index.dart';
 import "screens/home/index.dart";
 import "screens/difficulty_selection/index.dart";
+import "screens/easy_stage_selection/index.dart";
 
 class Routes {
   final routes = <String, WidgetBuilder> {
     '/Home': (BuildContext context) => Home(),
     '/DifficultySelection': (BuildContext context) => DifficultySelection(),
-    '/DifficultStageSelection': (BuildContext context) => DifficultStageSelection()
+    '/DifficultStageSelection': (BuildContext context) => DifficultStageSelection(),
+    '/EasyStageSelection': (BuildContext context) => EasyStageSelection(),
   };
 
   Routes() {
