@@ -26,6 +26,10 @@ class Character {
     this.character = character;
   }
 
+  void setLocation(int location) {
+    this.location = location;
+  }
+
   int getLocation() => this.location;
 
   String getCharacter() => this.character;
@@ -110,7 +114,11 @@ class _GameBodyState extends State<DifficultGameBody> {
       // swap characters
       String destinationCharacter = character.getCharacter();
       String targetCharacter = destination.getCharacter();
+      int destinationLocation = character.getLocation();
+      int targetLocation = destination.getLocation();
       destination.setCharacter(destinationCharacter);
+      destination.setLocation(destinationLocation);
+      character.setLocation(targetLocation);
       character.setCharacter(targetCharacter);
 
       await Future.delayed(const Duration(milliseconds: 500), () {
@@ -146,12 +154,7 @@ class _GameBodyState extends State<DifficultGameBody> {
 
       if (selected) {
         backgroundColor = Colors.blue[500];
-        borderColor = Colors.blue[500];
-      }
-
-      if (words.elementAt(i).getLocation() == i) {
-        backgroundColor = Colors.green[500];
-        borderColor = Colors.green[500];
+        borderColor = Colors.blue[200];
       }
 
       wordList.add(GestureDetector(
