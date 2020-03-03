@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'widgets/game_body_two.dart';
 import 'widgets/translation.dart';
 import "widgets/header.dart";
 import "widgets/game_body.dart";
@@ -12,7 +13,7 @@ class DifficultStageOne extends StatelessWidget {
                 child: Column(children: <Widget>[
       DifficultStageHeader(),
       DifficultStageTranslation(),
-      DifficultGameBody(),
+      DifficultGameBodyTwo(),
     ]))));
   }
 }
