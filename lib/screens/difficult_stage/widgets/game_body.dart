@@ -1,165 +1,124 @@
 import "package:flutter/material.dart";
-import 'package:flutter/painting.dart';
-import 'dart:async';
+import "package:flutter/painting.dart";
+import 'package:poem_and_strings/data/Character.dart';
+import 'package:poem_and_strings/data/EasyStage/EasyFirstStage.dart';
 
 class DifficultGameBody extends StatefulWidget {
   @override
-  _GameBodyState createState() => _GameBodyState();
+  _DifficultGameBodyState createState() => _DifficultGameBodyState();
 }
 
-class Character {
-  int x;
-  int y;
-  String character;
-  bool selected;
-  bool completed;
-  int location;
+class _DifficultGameBodyState extends State<DifficultGameBody> {
+  List<Widget> characters = [];
+  EasyFirstStage firstStage;
 
-  Character(this.x, this.y, this.character, this.selected, this.completed,
-      this.location);
-
-  void setSelected(bool selected) {
-    this.selected = selected;
+  _DifficultGameBodyState() {
+    this.firstStage = EasyFirstStage();
   }
 
-  void setCharacter(String character) {
-    this.character = character;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    this.renderCharacters(firstStage.getRandomShuffledData());
   }
 
-  void setLocation(int location) {
-    this.location = location;
+  Color characterBorderColor(bool isSelected, bool isCompleted) {
+    Color borderColor = Colors.blue[700];
+
+    if (isSelected) {
+      borderColor = Colors.blue[200];
+    }
+
+    if (isCompleted) {
+      borderColor = Colors.green[700];
+    }
+
+    return borderColor;
   }
 
-  int getLocation() => this.location;
+  Color characterBackgroundColor(bool isSelected, bool isCompleted) {
+    Color backgroundColor = Colors.blue[700];
 
-  String getCharacter() => this.character;
-}
+    if (isSelected) {
+      backgroundColor = Colors.blue[500];
+    }
 
-class _GameBodyState extends State<DifficultGameBody> {
-  List<Character> data = [
-    Character(0, 0, "爆", false, false, 0),
-    Character(1, 0, "竹", false, false, 1),
-    Character(2, 0, "声", false, false, 2),
-    Character(3, 0, "中", false, false, 3),
-    Character(4, 0, "一", false, false, 4),
-    Character(5, 0, "声", false, false, 5),
-    Character(6, 0, "爆", false, false, 6),
-    Character(0, 1, "春", false, false, 7),
-    Character(1, 1, "风", false, false, 8),
-    Character(2, 1, "送", false, false, 9),
-    Character(3, 1, "暖", false, false, 10),
-    Character(4, 1, "入", false, false, 11),
-    Character(5, 1, "屠", false, false, 12),
-    Character(6, 1, "苏", false, false, 13),
-    Character(0, 2, "千", false, false, 14),
-    Character(1, 2, "门", false, false, 15),
-    Character(2, 2, "万", false, false, 16),
-    Character(3, 2, "户", false, false, 17),
-    Character(4, 2, "曈", false, false, 18),
-    Character(5, 2, "曈", false, false, 19),
-    Character(6, 2, "日", false, false, 20),
-    Character(0, 3, "总", false, false, 21),
-    Character(1, 3, "把", false, false, 22),
-    Character(2, 3, "新", false, false, 23),
-    Character(3, 3, "桃", false, false, 24),
-    Character(4, 3, "换", false, false, 25),
-    Character(5, 3, "旧", false, false, 26),
-    Character(6, 3, "符", false, false, 27)
-  ];
+    if (isCompleted) {
+      backgroundColor = Colors.green[700];
+    }
 
-  int targetElement;
+    return backgroundColor;
+  }
 
-  void swapCharacter(Character character) async {
-    List<Character> characterData = data;
-    int elementPosition = characterData.indexOf(character);
+  void swapCharacters(Character character) async {
+    // the first touch of user will always lighten up the character.
+    int characterPosition = firstStage.getCharacterLocation(character);
     character.setSelected(true);
 
-    if (targetElement == null) {
-      characterData.removeAt(elementPosition);
-      characterData.insert(elementPosition, character);
+    if (firstStage.getTargetElementPosition() == null) {
+      firstStage.updateCharacter(character);
+      firstStage.setTargetElementPosition(characterPosition);
 
-      setState(() {
-        data = characterData;
-        targetElement = elementPosition;
-      });
-
+      // get all stage data again.
+      this.renderCharacters(firstStage.getCurrentStageData());
       return;
     }
 
-    Character destination = characterData.elementAt(targetElement);
-    bool isSameTarget = identical(character, destination);
+    int previousTargetPosition = firstStage.getTargetElementPosition();
+    Character previousTarget =
+        firstStage.getCharacterAtPosition(previousTargetPosition);
+    bool isSameTarget = identical(character, previousTarget);
 
+    // if both tap are same target, remove the first coloured character.
     if (isSameTarget == true) {
       character.setSelected(false);
-      characterData.removeAt(elementPosition);
-      characterData.insert(elementPosition, character);
+      firstStage.updateCharacter(character);
+      firstStage.setTargetElementPosition(null);
 
-      setState(() {
-        data = characterData;
-        targetElement = null;
-      });
-
+      this.renderCharacters(firstStage.getCurrentStageData());
       return;
     }
 
     if (isSameTarget == false) {
-      // set secondary selected colours
-      characterData.removeAt(elementPosition);
-      characterData.insert(elementPosition, character);
+      // render second item as selected
+      firstStage.updateCharacter(character);
+      this.renderCharacters(firstStage.getCurrentStageData());
 
-      setState(() {
-        data = characterData;
-      });
-
-      // swap characters
-      String destinationCharacter = character.getCharacter();
-      String targetCharacter = destination.getCharacter();
-      int destinationLocation = character.getLocation();
-      int targetLocation = destination.getLocation();
-      destination.setCharacter(destinationCharacter);
-      destination.setLocation(destinationLocation);
-      character.setLocation(targetLocation);
-      character.setCharacter(targetCharacter);
-
-      await Future.delayed(const Duration(milliseconds: 500), () {
-        destination.setSelected(false);
+      await Future.delayed(const Duration(milliseconds: 300), () {
+        previousTarget.setSelected(false);
         character.setSelected(false);
-
-        // swap position
-        characterData.removeAt(elementPosition);
-        characterData.insert(elementPosition, character);
-        characterData.removeAt(targetElement);
-        characterData.insert(targetElement, destination);
+        firstStage.updateCharacter(character);
+        firstStage.updateCharacter(previousTarget);
+        firstStage.swapCharacter(previousTarget, character);
       });
 
-      setState(() {
-        data = characterData;
-        targetElement = null;
-      });
-
-      return;
+      firstStage.setTargetElementPosition(null);
+      this.renderCharacters(firstStage.getCurrentStageData());
     }
+
+    return;
   }
 
-  List<Widget> renderCharacters(List<Character> words, int index) {
-    List<Widget> wordList = new List<Widget>();
-    List<Character> row =
-        words.where((Character item) => item.y == index).toList();
+  void renderCharacters(List<Character> stageData) {
+    List<Widget> rowWidgets = [];
+    List<Widget> gameCharacters = [];
+    int numOfRows = firstStage.getTotalStageItems();
+    double itemsPerRow = firstStage.getItemsPerRow();
 
-    for (int i = 0; i < row.length; i++) {
-      String character = row[i].character;
-      bool selected = row[i].selected;
-      Color borderColor = Colors.blue[700];
-      Color backgroundColor = Colors.blue[700];
+    for (int item = 0; item < numOfRows; item++) {
+      String character = stageData[item].getCharacter();
+      bool isSelected = stageData[item].getSelected();
+      bool isCompleted = stageData[item].getCompleted();
+      Color borderColor = this.characterBorderColor(isSelected, isCompleted);
+      Color backgroundColor =
+          this.characterBackgroundColor(isSelected, isCompleted);
 
-      if (selected) {
-        backgroundColor = Colors.blue[500];
-        borderColor = Colors.blue[200];
-      }
-
-      wordList.add(GestureDetector(
+      // map words into character widgets.
+      GestureDetector characterWidget = GestureDetector(
         onTap: () {
-          swapCharacter(row[i]);
+          Character specificCharacter = stageData[item];
+          this.swapCharacters(specificCharacter);
         },
         child: Container(
             decoration: BoxDecoration(
@@ -169,12 +128,28 @@ class _GameBodyState extends State<DifficultGameBody> {
             padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
             child: Text(character,
                 style: TextStyle(color: Colors.white, fontSize: 16.0))),
-      ));
+      );
+      rowWidgets.add(characterWidget);
+
+      // when item position reach specific count, split to another row.
+      int itemPosition = item + 1;
+      if (itemPosition % itemsPerRow == 0) {
+        Widget rowOfCharacters = Container(
+          padding: EdgeInsets.symmetric(vertical: 4.0),
+          child: Wrap(
+            spacing: 8.0,
+            children: [...rowWidgets],
+          ),
+        );
+
+        gameCharacters.add(rowOfCharacters);
+        rowWidgets.clear();
+      }
     }
 
-//    wordList.shuffle();
-
-    return wordList;
+    setState(() {
+      characters = gameCharacters;
+    });
   }
 
   @override
@@ -184,36 +159,7 @@ class _GameBodyState extends State<DifficultGameBody> {
       padding: EdgeInsets.all(16.0),
       child: Container(
         child: Column(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 4.0),
-              child: Wrap(
-                spacing: 8.0,
-                children: renderCharacters(data, 0),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 4.0),
-              child: Wrap(
-                spacing: 8.0,
-                children: renderCharacters(data, 1),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 4.0),
-              child: Wrap(
-                spacing: 8.0,
-                children: renderCharacters(data, 2),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 4.0),
-              child: Wrap(
-                spacing: 8.0,
-                children: renderCharacters(data, 3),
-              ),
-            )
-          ],
+          children: characters,
         ),
       ),
     ));

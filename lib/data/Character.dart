@@ -18,9 +18,15 @@ class Character {
     this.location = location;
   }
 
+  void setCompleted(bool completed) {
+    this.completed = completed;
+  }
+
   int getLocation() => this.location;
 
   String getCharacter() => this.character;
 
   bool getSelected() => this.selected;
+
+  bool getCompleted() => this.completed;
 }
