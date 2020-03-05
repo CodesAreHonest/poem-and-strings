@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter/painting.dart";
 import 'package:poem_and_strings/data/Character.dart';
-import 'package:poem_and_strings/data/EasyStage/EasyFirstStage.dart';
+import 'package:poem_and_strings/data/DifficultStage/DifficultFirstStage.dart';
 
 class DifficultGameBody extends StatefulWidget {
   @override
@@ -10,15 +10,14 @@ class DifficultGameBody extends StatefulWidget {
 
 class _DifficultGameBodyState extends State<DifficultGameBody> {
   List<Widget> characters = [];
-  EasyFirstStage firstStage;
+  DifficultFirstStage firstStage;
 
   _DifficultGameBodyState() {
-    this.firstStage = EasyFirstStage();
+    this.firstStage = DifficultFirstStage();
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     this.renderCharacters(firstStage.getRandomShuffledData());
   }
@@ -66,8 +65,7 @@ class _DifficultGameBodyState extends State<DifficultGameBody> {
     }
 
     int previousTargetPosition = firstStage.getTargetElementPosition();
-    Character previousTarget =
-        firstStage.getCharacterAtPosition(previousTargetPosition);
+    Character previousTarget = firstStage.getCharacterAtPosition(previousTargetPosition);
     bool isSameTarget = identical(character, previousTarget);
 
     // if both tap are same target, remove the first coloured character.
@@ -111,8 +109,7 @@ class _DifficultGameBodyState extends State<DifficultGameBody> {
       bool isSelected = stageData[item].getSelected();
       bool isCompleted = stageData[item].getCompleted();
       Color borderColor = this.characterBorderColor(isSelected, isCompleted);
-      Color backgroundColor =
-          this.characterBackgroundColor(isSelected, isCompleted);
+      Color backgroundColor = this.characterBackgroundColor(isSelected, isCompleted);
 
       // map words into character widgets.
       GestureDetector characterWidget = GestureDetector(
@@ -120,14 +117,7 @@ class _DifficultGameBodyState extends State<DifficultGameBody> {
           Character specificCharacter = stageData[item];
           this.swapCharacters(specificCharacter);
         },
-        child: Container(
-            decoration: BoxDecoration(
-                color: backgroundColor,
-                border: Border.all(
-                    color: borderColor, width: 2.0, style: BorderStyle.solid)),
-            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-            child: Text(character,
-                style: TextStyle(color: Colors.white, fontSize: 16.0))),
+        child: Container(decoration: BoxDecoration(color: backgroundColor, border: Border.all(color: borderColor, width: 2.0, style: BorderStyle.solid)), padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0), child: Text(character, style: TextStyle(color: Colors.white, fontSize: 16.0))),
       );
       rowWidgets.add(characterWidget);
 

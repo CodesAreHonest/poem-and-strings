@@ -1,17 +1,18 @@
 import "package:flutter/material.dart";
-import 'package:poem_and_strings/data/EasyStage/EasyFirstStage.dart';
+import "package:poem_and_strings/data/DifficultStage/DifficultStage.dart";
 
 class DifficultStageHeader extends StatefulWidget {
+  final DifficultStage stage;
+
+  DifficultStageHeader(this.stage);
+
   @override
-  _DifficultStageHeaderState createState() => _DifficultStageHeaderState();
+  _DifficultStageHeaderState createState() => _DifficultStageHeaderState(stage);
 }
 
 class _DifficultStageHeaderState extends State<DifficultStageHeader> {
-  EasyFirstStage firstStage;
-
-  _DifficultStageHeaderState() {
-    this.firstStage = EasyFirstStage();
-  }
+  DifficultStage firstStage;
+  _DifficultStageHeaderState(this.firstStage);
 
   @override
   Widget build(BuildContext context) {
