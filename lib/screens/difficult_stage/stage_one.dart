@@ -5,15 +5,13 @@ import 'widgets/translation.dart';
 import "widgets/header.dart";
 
 class DifficultStageOne extends StatelessWidget {
-  final DifficultFirstStage firstStage = DifficultFirstStage();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
             child: Container(
                 child: Column(children: <Widget>[
-      DifficultStageHeader(firstStage),
+      DifficultStageHeader(),
       DifficultStageTranslation(),
       DifficultGameBody(),
     ]))));
