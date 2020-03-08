@@ -12,7 +12,7 @@ class DifficultStageOne extends StatelessWidget {
                 child: Column(children: <Widget>[
       DifficultStageHeader(),
       DifficultStageTranslation(),
-      DifficultGameBody(),
+//      DifficultGameBody(),
     ]))));
   }
 }

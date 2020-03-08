@@ -1,11 +1,12 @@
-import 'package:poem_and_strings/actions/actions.dart';
-import 'package:poem_and_strings/models/models.dart';
+import 'package:poem_and_strings/actions/stage_actions.dart';
+import 'package:poem_and_strings/states/states.dart';
 import "package:redux/redux.dart";
 
-final stageReducer =
-    combineReducers<List<Character>>([TypedReducer(_getStage)]);
+final stageReducer = combineReducers<StageState>([TypedReducer(_getStage)]);
 
-List<Character> _getStage(
-    List<Character> stageData, GetStageDataAction action) {
-  return action.getStageData();
+StageState _getStage(StageState stageState, GetStageDataAction action) {
+  return stageState.copyWith(
+      data: action.getStageData(),
+      itemPerRow: action.getItemsPerRow(),
+      numOfRow: action.getNumberOfRow());
 }

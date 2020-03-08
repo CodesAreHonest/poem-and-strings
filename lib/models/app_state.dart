@@ -1,16 +1,16 @@
-import 'package:poem_and_strings/models/character.dart';
+import 'package:poem_and_strings/states/states.dart';
 
 class AppState {
-  final List<Character> stageData;
+  final StageState stageState;
 
-  AppState({this.stageData = const []});
+  AppState({this.stageState = const StageState(data: [])});
 
-  AppState copyWith({List<Character> stageData}) {
-    return AppState(stageData: stageData ?? this.stageData);
+  AppState copyWith({StageState stageState}) {
+    return AppState(stageState: stageState ?? this.stageState);
   }
 
   @override
   String toString() {
-    return 'AppState{stageData: $stageData}';
+    return 'AppState{stageState: $stageState}';
   }
 }

@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:poem_and_strings/presentations/easy_stage/easy_stage_one.dart';
 import 'package:poem_and_strings/presentations/home/home.dart';
 import 'package:poem_and_strings/routes.dart';
 import "package:redux/redux.dart";
@@ -14,7 +15,7 @@ class ReduxApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreProvider(
         store: store,
-        child:
-            MaterialApp(title: "诗词串串乐", routes: Routes().routes, home: Home()));
+        child: MaterialApp(
+            title: "诗词串串乐", routes: Routes().routes, home: EasyStageOne()));
   }
 }

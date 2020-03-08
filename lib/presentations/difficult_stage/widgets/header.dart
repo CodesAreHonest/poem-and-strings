@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:poem_and_strings/data/DifficultStage/DifficultStage.dart";
 
 class DifficultStageHeader extends StatefulWidget {
   DifficultStageHeader();

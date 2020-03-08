@@ -35,6 +35,8 @@ class Stage {
 
   int getSteps() => this.stepUsed;
 
+  int numberOfRowRendered() => this.numOfRows;
+
   void incrementStep() => ++this.stepUsed;
 
   List<Character> getRandomShuffledData() {
