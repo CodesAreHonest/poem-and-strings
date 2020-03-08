@@ -1,13 +1,21 @@
 import "package:flutter/material.dart";
 import "package:flutter/painting.dart";
 import "package:poem_and_strings/models/models.dart";
+import 'package:poem_and_strings/selectors/stage_selectors.dart';
 
 class GameBody extends StatefulWidget {
   List<Character> stageData = [];
   double itemPerRow = 0;
   int numOfRow = 0;
+  final Function(Character) onUpdateCharacter;
+  final Function(List<Character>, Character, Character) onSwapCharacter;
 
-  GameBody({this.stageData, this.itemPerRow, this.numOfRow});
+  GameBody(
+      {this.stageData,
+      this.itemPerRow,
+      this.numOfRow,
+      this.onUpdateCharacter,
+      this.onSwapCharacter});
 
   @override
   _GameBodyState createState() => _GameBodyState();
@@ -15,6 +23,7 @@ class GameBody extends StatefulWidget {
 
 class _GameBodyState extends State<GameBody> {
   List<Widget> characters = [];
+  int previousTargetPosition;
 
   @override
   void initState() {
@@ -51,6 +60,60 @@ class _GameBodyState extends State<GameBody> {
     return backgroundColor;
   }
 
+  void swapCharacter(Character currentCharacter) {
+    int characterPosition =
+        characterPositionSelector(widget.stageData, currentCharacter);
+    currentCharacter.setSelected(true);
+
+    if (previousTargetPosition == null) {
+      selectCharacter(currentCharacter, characterPosition);
+      return;
+    }
+
+    Character previousTarget =
+        widget.stageData.elementAt(previousTargetPosition);
+    bool isSameTarget = identical(currentCharacter, previousTarget);
+
+    if (isSameTarget == true) {
+      unSelectCharacter(currentCharacter);
+      return;
+    }
+
+    selectCharacter(currentCharacter, characterPosition);
+    onSwapCharacter(previousTarget, currentCharacter);
+    return;
+  }
+
+  void selectCharacter(Character currentCharacter, int characterPosition) {
+    widget.onUpdateCharacter(currentCharacter);
+    previousTargetPosition = characterPosition;
+    renderCharacters(widget.stageData);
+  }
+
+  void unSelectCharacter(Character currentCharacter) {
+    currentCharacter.setSelected(false);
+    widget.onUpdateCharacter(currentCharacter);
+    previousTargetPosition = null;
+    renderCharacters(widget.stageData);
+    return;
+  }
+
+  void onSwapCharacter(
+      Character previousCharacter, Character currentCharacter) async {
+    await Future.delayed(const Duration(milliseconds: 300), () {
+      previousCharacter.setSelected(false);
+      currentCharacter.setSelected(false);
+      widget.onUpdateCharacter(previousCharacter);
+      widget.onUpdateCharacter(currentCharacter);
+      widget.onSwapCharacter(
+          widget.stageData, previousCharacter, currentCharacter);
+      previousTargetPosition = null;
+    });
+
+    renderCharacters(widget.stageData);
+    return;
+  }
+
   void renderCharacters(List<Character> stageData) {
     List<Widget> rowWidgets = [];
     List<Widget> gameCharacters = [];
@@ -70,7 +133,7 @@ class _GameBodyState extends State<GameBody> {
       GestureDetector characterWidget = GestureDetector(
         onTap: () {
           Character specificCharacter = stageData[item];
-//          this.swapCharacters(specificCharacter);
+          this.swapCharacter(specificCharacter);
         },
         child: Container(
             decoration: BoxDecoration(

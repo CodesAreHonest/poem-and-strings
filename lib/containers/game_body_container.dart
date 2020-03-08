@@ -28,7 +28,9 @@ class GameBodyState extends State<GameBodyContainer> {
         return GameBody(
             stageData: vm.stageData,
             numOfRow: vm.numOfRow,
-            itemPerRow: vm.itemPerRow);
+            itemPerRow: vm.itemPerRow,
+            onUpdateCharacter: vm.onUpdateCharacter,
+            onSwapCharacter: vm.onSwapCharacter);
       },
       converter: (store) => _ViewModel.from(store),
     );
@@ -39,17 +41,27 @@ class _ViewModel {
   final List<Character> stageData;
   final int numOfRow;
   final double itemPerRow;
+  final Function(Character) onUpdateCharacter;
+  final Function(List<Character>, Character, Character) onSwapCharacter;
 
-  _ViewModel({
-    @required this.stageData,
-    @required this.numOfRow,
-    @required this.itemPerRow,
-  });
+  _ViewModel(
+      {@required this.stageData,
+      @required this.numOfRow,
+      @required this.itemPerRow,
+      @required this.onUpdateCharacter,
+      @required this.onSwapCharacter});
 
   factory _ViewModel.from(Store<AppState> store) {
     return _ViewModel(
         stageData: store.state.stageState.data,
         numOfRow: store.state.stageState.numOfRow,
-        itemPerRow: store.state.stageState.itemPerRow);
+        itemPerRow: store.state.stageState.itemPerRow,
+        onUpdateCharacter: (character) {
+          store.dispatch(UpdateCharacterAction(character));
+        },
+        onSwapCharacter: (data, previousCharacter, currentCharacter) {
+          store.dispatch(
+              SwapCharacterAction(data, previousCharacter, currentCharacter));
+        });
   }
 }
