@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
-import "widgets/appbar.dart";
-import "widgets/easy_stage.dart";
+import 'widgets/appbar.dart';
+import 'widgets/easy_stage.dart';
 
 class EasyStageSelection extends StatelessWidget {
   final titles = ['诗经 • 关唯', 'test', 'test', 'test', 'test'];

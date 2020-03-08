@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
-import "./widgets/easy_button.dart";
-import "./widgets/difficult_button.dart";
+import 'widgets/easy_button.dart';
+import 'widgets/difficult_button.dart';
 
 class DifficultySelection extends StatefulWidget {
   @override

@@ -1,4 +1,4 @@
-import 'package:poem_and_strings/data/Character.dart';
+import 'package:poem_and_strings/models/character.dart';
 
 class Stage {
   final int numOfRows = 2;

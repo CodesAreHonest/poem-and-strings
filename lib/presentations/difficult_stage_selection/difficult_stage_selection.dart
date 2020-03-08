@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import "widgets/appbar.dart";
-import "widgets/difficult_stage.dart";
+import 'widgets/appbar.dart';
+import 'widgets/difficult_stage.dart';
 
 class DifficultStageSelection extends StatelessWidget {
-
-  final titles = ['诗经 • 关唯', 'test', 'test', 'test',
-    'test'];
+  final titles = ['诗经 • 关唯', 'test', 'test', 'test', 'test'];
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +14,6 @@ class DifficultStageSelection extends StatelessWidget {
         child: ListView.builder(
           itemCount: titles.length,
           itemBuilder: (context, index) {
-
             int steps = index + 1;
 
             return DifficultStage(steps: steps, titles: titles[index]);
