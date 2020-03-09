@@ -28,8 +28,10 @@ StageState _swapCharacter(StageState stageState, SwapCharacterAction action) {
   List<Character> stageData = stageState.data;
   Character currentCharacter = action.currentCharacter;
   Character previousCharacter = action.previousCharacter;
+  int incrementedStep = action.incrementStep(stageState.step);
 
   return stageState.copyWith(
       data:
-          action.swapCharacter(stageData, currentCharacter, previousCharacter));
+          action.swapCharacter(stageData, currentCharacter, previousCharacter),
+      step: incrementedStep);
 }

@@ -90,6 +90,8 @@ class SwapCharacterAction {
     return data;
   }
 
+  int incrementStep(int step) => step + 1;
+
   @override
   String toString() {
     return "SwapCharacterAction{previousCharacter: $previousCharacter, currentCharacter: $currentCharacter, data: $data}";

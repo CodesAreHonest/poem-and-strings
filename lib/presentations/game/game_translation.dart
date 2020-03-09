@@ -1,10 +1,6 @@
 import "package:flutter/material.dart";
 
-class DifficultStageTranslation extends StatelessWidget {
-  const DifficultStageTranslation({
-    Key key,
-  }) : super(key: key);
-
+class GameTranslation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

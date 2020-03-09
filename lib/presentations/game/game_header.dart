@@ -1,14 +1,10 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
-class DifficultStageHeader extends StatefulWidget {
-  DifficultStageHeader();
+class GameHeader extends StatelessWidget {
+  final int step;
 
-  @override
-  _DifficultStageHeaderState createState() => _DifficultStageHeaderState();
-}
-
-class _DifficultStageHeaderState extends State<DifficultStageHeader> {
-  _DifficultStageHeaderState();
+  GameHeader({@required this.step});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +15,7 @@ class _DifficultStageHeaderState extends State<DifficultStageHeader> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text('第二关'),
-          Text("1/10 步"),
+          Text("$step/10 步"),
           Text('Coin: 57'),
         ],
       ),

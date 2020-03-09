@@ -3,7 +3,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:poem_and_strings/actions/stage_actions.dart';
 import 'package:poem_and_strings/models/character.dart';
 import 'package:poem_and_strings/models/models.dart';
-import 'package:poem_and_strings/presentations/game_body.dart';
+import 'package:poem_and_strings/presentations/game/game_body.dart';
+import 'package:poem_and_strings/selectors/stage_selectors.dart';
 import 'package:redux/redux.dart';
 import 'package:poem_and_strings/models/app_state.dart';
 import "package:flutter/foundation.dart";
@@ -16,7 +17,6 @@ class GameBodyContainer extends StatefulWidget {
 class GameBodyState extends State<GameBodyContainer> {
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
     super.didChangeDependencies();
     StoreProvider.of<AppState>(context).dispatch(GetStageDataAction(Stage()));
   }
@@ -30,6 +30,7 @@ class GameBodyState extends State<GameBodyContainer> {
             numOfRow: vm.numOfRow,
             itemPerRow: vm.itemPerRow,
             onUpdateCharacter: vm.onUpdateCharacter,
+            isStageCompleted: vm.isStageCompleted,
             onSwapCharacter: vm.onSwapCharacter);
       },
       converter: (store) => _ViewModel.from(store),
@@ -42,12 +43,14 @@ class _ViewModel {
   final int numOfRow;
   final double itemPerRow;
   final Function(Character) onUpdateCharacter;
+  final bool isStageCompleted;
   final Function(List<Character>, Character, Character) onSwapCharacter;
 
   _ViewModel(
       {@required this.stageData,
       @required this.numOfRow,
       @required this.itemPerRow,
+      @required this.isStageCompleted,
       @required this.onUpdateCharacter,
       @required this.onSwapCharacter});
 
@@ -56,6 +59,7 @@ class _ViewModel {
         stageData: store.state.stageState.data,
         numOfRow: store.state.stageState.numOfRow,
         itemPerRow: store.state.stageState.itemPerRow,
+        isStageCompleted: isStageCompletedSelector(store.state.stageState.data),
         onUpdateCharacter: (character) {
           store.dispatch(UpdateCharacterAction(character));
         },

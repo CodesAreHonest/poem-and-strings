@@ -7,6 +7,7 @@ class GameBody extends StatefulWidget {
   List<Character> stageData = [];
   double itemPerRow = 0;
   int numOfRow = 0;
+  final bool isStageCompleted;
   final Function(Character) onUpdateCharacter;
   final Function(List<Character>, Character, Character) onSwapCharacter;
 
@@ -14,6 +15,7 @@ class GameBody extends StatefulWidget {
       {this.stageData,
       this.itemPerRow,
       this.numOfRow,
+      this.isStageCompleted,
       this.onUpdateCharacter,
       this.onSwapCharacter});
 
@@ -27,10 +29,42 @@ class _GameBodyState extends State<GameBody> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     renderCharacters(widget.stageData);
   }
+
+  @override
+  void didUpdateWidget(GameBody oldWidget) {
+    if (oldWidget.isStageCompleted != widget.isStageCompleted) {
+      print('completed');
+    }
+
+    if (oldWidget.stageData != widget.stageData) {
+      print('stage data changed');
+      renderCharacters(widget.stageData);
+    }
+
+    super.didUpdateWidget(oldWidget);
+  }
+
+//  createSuccessDialog(BuildContext context) {
+//    return showDialog(
+//        context: context,
+//        builder: (context) {
+//          return AlertDialog(
+//              title: Text('恭喜你'),
+//              content: Text('你获得了多少钱'),
+//              actions: <Widget>[
+//                MaterialButton(
+//                  elevation: 5.0,
+//                  child: Text('OK'),
+//                  onPressed: () {
+//                    print('yea');
+//                  },
+//                )
+//              ]);
+//        });
+//  }
 
   Color characterBorderColor(bool isSelected, bool isCompleted) {
     Color borderColor = Colors.blue[700];
@@ -64,6 +98,13 @@ class _GameBodyState extends State<GameBody> {
     int characterPosition =
         characterPositionSelector(widget.stageData, currentCharacter);
     currentCharacter.setSelected(true);
+
+    bool isCompleted = currentCharacter.completed;
+
+    // if the target is at the right place, shall not able to swap.
+    if (isCompleted) {
+      return;
+    }
 
     if (previousTargetPosition == null) {
       selectCharacter(currentCharacter, characterPosition);
