@@ -1,44 +1,47 @@
 import "package:flutter/material.dart";
-import 'package:poem_and_strings/models/easy_stage/easy_stage_one.dart';
 import 'package:poem_and_strings/models/models.dart';
 import 'package:poem_and_strings/presentations/game/game.dart';
 import "package:poem_and_strings/widgets/stage_rating.dart";
 
 class EasyStage extends StatelessWidget {
-  const EasyStage({
-    Key key,
-    @required this.steps,
-    @required this.title,
-    @required this.author,
-    @required this.starRating,
-  }) : super(key: key);
+  EasyStage(
+      {Key key,
+      @required this.stage,
+      @required this.starRating,
+      @required this.level})
+      : super(key: key);
 
-  final int steps;
-  final String title;
-  final String author;
+  final dynamic stage;
+  final int level;
   final int starRating;
 
   @override
   Widget build(BuildContext context) {
+    String title = stage.title;
+    String author = stage.dynastyWithAuthor;
+    int numOfRows = stage.numOfRows;
+    List<Character> stageData = stage.stageData;
+    String stageCount = stage.stageCount;
+    int maximumSteps = stage.maximumSteps;
+
     return Column(
       children: <Widget>[
         Card(
-          //
           elevation: 3.0,
           child: ListTile(
             leading: CircleAvatar(
               backgroundColor: Colors.green[400],
-              child: Text("$steps",
+              child: Text("$level",
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w400)),
             ),
             title: Row(
               children: <Widget>[
-                Text(this.title,
+                Text(title,
                     style:
                         TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
                 SizedBox(width: 8.0),
-                Text(this.author,
+                Text(author,
                     style: TextStyle(
                         fontSize: 13.0, fontWeight: FontWeight.normal))
               ],
@@ -51,10 +54,10 @@ class EasyStage extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => Game(
                           stage: Stage(
-                              numOfRows: EasyStageOne().numOfRows,
-                              stageData: EasyStageOne().stageData,
-                              stageCount: EasyStageOne().stageCount,
-                              maximumSteps: EasyStageOne().maximumSteps))));
+                              numOfRows: numOfRows,
+                              stageData: stageData,
+                              stageCount: stageCount,
+                              maximumSteps: maximumSteps))));
             },
             contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
           ),
