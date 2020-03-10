@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import "widgets/game_title.dart";
-import "widgets/poem_found.dart";
-import "widgets/app_buttons/index.dart";
+import 'widgets/game_title.dart';
+import 'widgets/poem_found.dart';
+import 'widgets/app_buttons/index.dart';
 
 class Home extends StatelessWidget {
   @override
