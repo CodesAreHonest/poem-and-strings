@@ -1,7 +1,7 @@
 import 'package:poem_and_strings/models/character.dart';
 import 'package:poem_and_strings/models/models.dart';
 
-class EasyStageTwo {
+class DifficultStageTwo {
   final List<Character> stageData = [
     Character("遥", false, false, 0),
     Character("望", false, false, 1),
@@ -20,7 +20,7 @@ class EasyStageTwo {
   ];
 
   final int numOfRows = 2;
-  final int maximumSteps = 10;
+  final int maximumSteps = 8;
   final String stageCount = '第二关';
   final String title = '望洞庭';
   final String dynastyWithAuthor = '唐·刘禹锡';
@@ -29,5 +29,5 @@ class EasyStageTwo {
   final String background =
       "《望洞庭》是在长庆四年（公元824年）秋天写的，刘禹锡被贬逐南荒，二十年里来去洞庭六次。其中一次，刘禹锡要到和州做官，经过洞庭湖，观望洞庭湖的景色而写下了这首诗。";
 
-  EasyStageTwo();
+  DifficultStageTwo();
 }
