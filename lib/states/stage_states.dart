@@ -8,14 +8,21 @@ class StageState {
   final int numOfRow;
   final int step;
 
-  const StageState(
-      {this.data = const [],
-      this.itemPerRow = 0,
-      this.numOfRow = 0,
-      this.step = 0});
+  const StageState({
+    this.data = const [],
+    this.itemPerRow = 0,
+    this.numOfRow = 0,
+    this.step = 0,
+  });
 
   StageState copyWith(
-      {List<Character> data, double itemPerRow, int numOfRow, int step}) {
+      {List<Character> data,
+      double itemPerRow,
+      int numOfRow,
+      int step,
+      int maximumStep,
+      String translation,
+      String background}) {
     return StageState(
         data: data ?? this.data,
         itemPerRow: itemPerRow ?? this.itemPerRow,

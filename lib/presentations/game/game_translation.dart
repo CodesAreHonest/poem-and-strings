@@ -1,6 +1,10 @@
 import "package:flutter/material.dart";
 
 class GameTranslation extends StatelessWidget {
+  final String translation;
+
+  GameTranslation({@required this.translation});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,10 +27,7 @@ class GameTranslation extends StatelessWidget {
                         fontSize: 16,
                         letterSpacing: 1.2)),
                 SizedBox(height: 8.0),
-                Text(
-                    '“元日”  是农历正月初一，也就是现在的春节。'
-                    '这是一首写古代迎接新年的即景之作。'
-                    '歌颂春节的诗很多。',
+                Text(this.translation,
                     style: TextStyle(
                         color: Colors.white, fontSize: 12, letterSpacing: 1.2))
               ],

@@ -23,6 +23,8 @@ class EasyStage extends StatelessWidget {
     List<Character> stageData = stage.stageData;
     String stageCount = stage.stageCount;
     int maximumSteps = stage.maximumSteps;
+    String translation = stage.translation;
+    String background = stage.background;
 
     return Column(
       children: <Widget>[
@@ -57,7 +59,9 @@ class EasyStage extends StatelessWidget {
                               numOfRows: numOfRows,
                               stageData: stageData,
                               stageCount: stageCount,
-                              maximumSteps: maximumSteps))));
+                              maximumSteps: maximumSteps,
+                              translation: translation,
+                              background: background))));
             },
             contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
           ),

@@ -3,18 +3,19 @@ import 'package:flutter/foundation.dart';
 
 class Stage {
   final int numOfRows;
-
   final int maximumSteps;
-
   final String stageCount;
-
   final List<Character> stageData;
+  final String translation;
+  final String background;
 
   Stage(
       {@required this.numOfRows,
       @required this.stageData,
       @required this.stageCount,
-      @required this.maximumSteps});
+      @required this.maximumSteps,
+      @required this.translation,
+      @required this.background});
 
   double getItemsPerRow() => stageData.length / this.numOfRows;
 

@@ -3,8 +3,9 @@ import 'package:flutter/foundation.dart';
 
 class GameHeader extends StatelessWidget {
   final int step;
+  final String stageCount;
 
-  GameHeader({@required this.step});
+  GameHeader({@required this.step, @required this.stageCount});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class GameHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text('第二关'),
+          Text(this.stageCount),
           Text("$step/10 步"),
           Text('Coin: 57'),
         ],

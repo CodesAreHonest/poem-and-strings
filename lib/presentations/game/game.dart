@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:poem_and_strings/actions/stage_actions.dart';
-import 'package:poem_and_strings/containers/game_body_container.dart';
 import 'package:poem_and_strings/models/app_state.dart';
 import 'package:poem_and_strings/models/models.dart';
 import 'package:poem_and_strings/presentations/game/game_body.dart';
@@ -30,6 +29,9 @@ class _GameState extends State<Game> {
 
   @override
   Widget build(BuildContext context) {
+    String gameTranslation = widget.stage.translation;
+    String gameStageCount = widget.stage.stageCount;
+
     return StoreConnector<AppState, _ViewModel>(
         converter: (store) => _ViewModel.from(store, widget.stage),
         builder: (BuildContext context, _ViewModel vm) {
@@ -38,8 +40,8 @@ class _GameState extends State<Game> {
                   child: Container(
                       child: Column(
             children: <Widget>[
-              GameHeader(step: vm.step),
-              GameTranslation(),
+              GameHeader(step: vm.step, stageCount: gameStageCount),
+              GameTranslation(translation: gameTranslation),
               GameBody(
                   stageData: vm.stageData,
                   numOfRow: vm.numOfRow,
