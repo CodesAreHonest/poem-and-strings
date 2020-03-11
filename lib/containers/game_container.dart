@@ -11,16 +11,16 @@ import 'package:poem_and_strings/presentations/game/game_translation.dart';
 import 'package:poem_and_strings/selectors/stage_selectors.dart';
 import 'package:redux/redux.dart';
 
-class Game extends StatefulWidget {
+class GameContainer extends StatefulWidget {
   final dynamic stage;
 
-  Game({this.stage});
+  GameContainer({this.stage});
 
   @override
   _GameState createState() => _GameState();
 }
 
-class _GameState extends State<Game> {
+class _GameState extends State<GameContainer> {
   void didChangeDependencies() {
     StoreProvider.of<AppState>(context)
         .dispatch(GetStageDataAction(widget.stage));

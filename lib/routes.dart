@@ -11,7 +11,7 @@ class Routes {
     '/DifficultySelection': (BuildContext context) => DifficultySelection(),
     '/DifficultStageSelection': (BuildContext context) =>
         DifficultStageSelection(),
-    '/Game': (BuildContext context) => Game(),
+    '/Game': (BuildContext context) => GameContainer(),
     '/EasyStageSelection': (BuildContext context) => EasyStageSelection(),
   };
 }
