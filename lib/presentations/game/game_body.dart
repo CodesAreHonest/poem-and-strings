@@ -4,44 +4,34 @@ import "package:poem_and_strings/models/models.dart";
 import 'package:poem_and_strings/selectors/stage_selectors.dart';
 
 class GameBody extends StatefulWidget {
-  List<Character> stageData = [];
-  double itemPerRow = 0;
-  int numOfRow = 0;
+  final List<Character> stageData;
+  final double itemPerRow;
+  final int numOfRow;
   final bool isStageCompleted;
   final Function(Character) onUpdateCharacter;
   final Function(List<Character>, Character, Character) onSwapCharacter;
 
   GameBody(
-      {this.stageData,
+      {Key key,
+      this.stageData,
       this.itemPerRow,
       this.numOfRow,
       this.isStageCompleted,
       this.onUpdateCharacter,
-      this.onSwapCharacter});
+      this.onSwapCharacter})
+      : super(key: key);
 
   @override
   _GameBodyState createState() => _GameBodyState();
 }
 
 class _GameBodyState extends State<GameBody> {
-  List<Widget> characters = [];
   int previousTargetPosition;
-
-  @override
-  void initState() {
-    super.initState();
-    renderCharacters(widget.stageData);
-  }
 
   @override
   void didUpdateWidget(GameBody oldWidget) {
     if (oldWidget.isStageCompleted != widget.isStageCompleted) {
       print('completed');
-    }
-
-    if (oldWidget.stageData != widget.stageData) {
-      print('stage data changed');
-      renderCharacters(widget.stageData);
     }
 
     super.didUpdateWidget(oldWidget);
@@ -128,14 +118,12 @@ class _GameBodyState extends State<GameBody> {
   void selectCharacter(Character currentCharacter, int characterPosition) {
     widget.onUpdateCharacter(currentCharacter);
     previousTargetPosition = characterPosition;
-    renderCharacters(widget.stageData);
   }
 
   void unSelectCharacter(Character currentCharacter) {
     currentCharacter.setSelected(false);
     widget.onUpdateCharacter(currentCharacter);
     previousTargetPosition = null;
-    renderCharacters(widget.stageData);
     return;
   }
 
@@ -151,11 +139,10 @@ class _GameBodyState extends State<GameBody> {
       previousTargetPosition = null;
     });
 
-    renderCharacters(widget.stageData);
     return;
   }
 
-  void renderCharacters(List<Character> stageData) {
+  List<Widget> renderCharacters(List<Character> stageData) {
     List<Widget> rowWidgets = [];
     List<Widget> gameCharacters = [];
     int totalItems = stageData.length;
@@ -203,9 +190,7 @@ class _GameBodyState extends State<GameBody> {
       }
     }
 
-    setState(() {
-      characters = gameCharacters;
-    });
+    return gameCharacters;
   }
 
   @override
@@ -215,7 +200,7 @@ class _GameBodyState extends State<GameBody> {
       padding: EdgeInsets.all(16.0),
       child: Container(
         child: Column(
-          children: characters,
+          children: renderCharacters(widget.stageData),
         ),
       ),
     ));

@@ -97,3 +97,24 @@ class SwapCharacterAction {
     return "SwapCharacterAction{previousCharacter: $previousCharacter, currentCharacter: $currentCharacter, data: $data}";
   }
 }
+
+class ResetStageDataAction {
+  final dynamic stage;
+
+  ResetStageDataAction(this.stage);
+
+  List<Character> getStageData() {
+    return stage.getRandomShuffledData();
+  }
+
+  double getItemsPerRow() {
+    return stage.getTotalStageItems() / stage.numberOfRowRendered();
+  }
+
+  int getNumberOfRow() => stage.numberOfRowRendered();
+
+  @override
+  String toString() {
+    return "GetStageDataAction{stage: $stage}";
+  }
+}

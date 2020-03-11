@@ -7,6 +7,7 @@ final stageReducer = combineReducers<StageState>([
   TypedReducer<StageState, GetStageDataAction>(_getStage),
   TypedReducer<StageState, UpdateCharacterAction>(_updateCharacter),
   TypedReducer<StageState, SwapCharacterAction>(_swapCharacter),
+  TypedReducer<StageState, ResetStageDataAction>(_resetCharacter),
 ]);
 
 StageState _getStage(StageState stageState, GetStageDataAction action) {
@@ -34,4 +35,12 @@ StageState _swapCharacter(StageState stageState, SwapCharacterAction action) {
       data:
           action.swapCharacter(stageData, currentCharacter, previousCharacter),
       step: incrementedStep);
+}
+
+StageState _resetCharacter(StageState stageState, ResetStageDataAction action) {
+  return stageState.copyWith(
+      data: action.getStageData(),
+      itemPerRow: action.getItemsPerRow(),
+      numOfRow: action.getNumberOfRow(),
+      step: 0);
 }

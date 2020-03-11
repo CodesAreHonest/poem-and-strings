@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:poem_and_strings/models/models.dart';
-import 'package:poem_and_strings/presentations/game/game.dart';
+import 'package:poem_and_strings/containers/game_container.dart';
 import "package:poem_and_strings/widgets/stage_rating.dart";
 
 class EasyStage extends StatelessWidget {

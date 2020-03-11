@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:poem_and_strings/actions/stage_actions.dart';
+import 'package:poem_and_strings/core/ArcKeys.dart';
 import 'package:poem_and_strings/models/app_state.dart';
 import 'package:poem_and_strings/models/models.dart';
 import 'package:poem_and_strings/presentations/game/game_body.dart';
@@ -29,9 +30,6 @@ class _GameState extends State<Game> {
 
   @override
   Widget build(BuildContext context) {
-    String gameTranslation = widget.stage.translation;
-    String gameStageCount = widget.stage.stageCount;
-
     return StoreConnector<AppState, _ViewModel>(
         converter: (store) => _ViewModel.from(store, widget.stage),
         builder: (BuildContext context, _ViewModel vm) {
@@ -40,9 +38,10 @@ class _GameState extends State<Game> {
                   child: Container(
                       child: Column(
             children: <Widget>[
-              GameHeader(step: vm.step, stageCount: gameStageCount),
-              GameTranslation(translation: gameTranslation),
+              GameHeader(step: vm.step, stageCount: widget.stage.stageCount),
+              GameTranslation(translation: widget.stage.translation),
               GameBody(
+                  key: ArcKeys.easyStageBody(widget.stage.stageCount),
                   stageData: vm.stageData,
                   numOfRow: vm.numOfRow,
                   itemPerRow: vm.itemPerRow,
@@ -93,7 +92,7 @@ class _ViewModel {
               SwapCharacterAction(data, previousCharacter, currentCharacter));
         },
         onRefreshStage: () {
-          store.dispatch(GetStageDataAction(currentStage));
+          store.dispatch(ResetStageDataAction(currentStage));
         });
   }
 }

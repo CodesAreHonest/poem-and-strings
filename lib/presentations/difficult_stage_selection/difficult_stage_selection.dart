@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:poem_and_strings/core/ArcKeys.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_five.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_four.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_one.dart';
@@ -17,15 +18,30 @@ class DifficultStageSelection extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               DifficultStage(
-                  stage: DifficultStageOne(), starRating: 1, level: 1),
+                  key: ArcKeys.difficultStageList('firstStage'),
+                  stage: DifficultStageOne(),
+                  starRating: 1,
+                  level: 1),
               DifficultStage(
-                  stage: DifficultStageTwo(), starRating: 1, level: 2),
+                  key: ArcKeys.difficultStageList('secondStage'),
+                  stage: DifficultStageTwo(),
+                  starRating: 1,
+                  level: 2),
               DifficultStage(
-                  stage: DifficultStageThree(), starRating: 1, level: 3),
+                  key: ArcKeys.difficultStageList('thirdStage'),
+                  stage: DifficultStageThree(),
+                  starRating: 1,
+                  level: 3),
               DifficultStage(
-                  stage: DifficultStageFour(), starRating: 1, level: 4),
+                  key: ArcKeys.difficultStageList('fourStage'),
+                  stage: DifficultStageFour(),
+                  starRating: 1,
+                  level: 4),
               DifficultStage(
-                  stage: DifficultStageFive(), starRating: 1, level: 5),
+                  key: ArcKeys.difficultStageList('fiveStage'),
+                  stage: DifficultStageFive(),
+                  starRating: 1,
+                  level: 5),
             ],
           )),
     );

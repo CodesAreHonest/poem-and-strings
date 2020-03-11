@@ -26,6 +26,7 @@ class Stage {
   int numberOfRowRendered() => this.numOfRows;
 
   List<Character> getRandomShuffledData() {
+    resetCompletedData();
     stageData.shuffle();
 
     for (int i = 0; i < stageData.length; i++) {
@@ -42,6 +43,14 @@ class Stage {
   }
 
   List<Character> getCurrentStageData() => this.stageData;
+
+  void resetCompletedData() {
+    for (int i = 0; i < stageData.length; i++) {
+      Character currentItem = stageData[i];
+      currentItem.setCompleted(false);
+      currentItem.setSelected(false);
+    }
+  }
 
   void updateCharacter(Character character) {
     int characterPosition = this.getCharacterLocation(character);
