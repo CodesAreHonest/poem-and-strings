@@ -85,8 +85,7 @@ class _GameBodyState extends State<GameBody> {
   }
 
   void swapCharacter(Character currentCharacter) {
-    int characterPosition =
-        characterPositionSelector(widget.stageData, currentCharacter);
+    int characterPosition = characterPositionSelector(widget.stageData, currentCharacter);
     currentCharacter.setSelected(true);
 
     bool isCompleted = currentCharacter.completed;
@@ -101,8 +100,7 @@ class _GameBodyState extends State<GameBody> {
       return;
     }
 
-    Character previousTarget =
-        widget.stageData.elementAt(previousTargetPosition);
+    Character previousTarget = widget.stageData.elementAt(previousTargetPosition);
     bool isSameTarget = identical(currentCharacter, previousTarget);
 
     if (isSameTarget == true) {
@@ -127,15 +125,13 @@ class _GameBodyState extends State<GameBody> {
     return;
   }
 
-  void onSwapCharacter(
-      Character previousCharacter, Character currentCharacter) async {
+  void onSwapCharacter(Character previousCharacter, Character currentCharacter) async {
     await Future.delayed(const Duration(milliseconds: 300), () {
       previousCharacter.setSelected(false);
       currentCharacter.setSelected(false);
       widget.onUpdateCharacter(previousCharacter);
       widget.onUpdateCharacter(currentCharacter);
-      widget.onSwapCharacter(
-          widget.stageData, previousCharacter, currentCharacter);
+      widget.onSwapCharacter(widget.stageData, previousCharacter, currentCharacter);
       previousTargetPosition = null;
     });
 
@@ -154,8 +150,7 @@ class _GameBodyState extends State<GameBody> {
       bool isCompleted = stageData[item].getCompleted();
 
       Color borderColor = this.characterBorderColor(isSelected, isCompleted);
-      Color backgroundColor =
-          this.characterBackgroundColor(isSelected, isCompleted);
+      Color backgroundColor = this.characterBackgroundColor(isSelected, isCompleted);
 
       // map words into character widgets.
       GestureDetector characterWidget = GestureDetector(
@@ -166,11 +161,9 @@ class _GameBodyState extends State<GameBody> {
         child: Container(
             decoration: BoxDecoration(
                 color: backgroundColor,
-                border: Border.all(
-                    color: borderColor, width: 2.0, style: BorderStyle.solid)),
+                border: Border.all(color: borderColor, width: 2.0, style: BorderStyle.solid)),
             padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-            child: Text(character,
-                style: TextStyle(color: Colors.white, fontSize: 16.0))),
+            child: Text(character, style: TextStyle(color: Colors.white, fontSize: 16.0))),
       );
       rowWidgets.add(characterWidget);
 

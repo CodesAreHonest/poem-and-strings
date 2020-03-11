@@ -22,8 +22,7 @@ class GameContainer extends StatefulWidget {
 
 class _GameState extends State<GameContainer> {
   void didChangeDependencies() {
-    StoreProvider.of<AppState>(context)
-        .dispatch(GetStageDataAction(widget.stage));
+    StoreProvider.of<AppState>(context).dispatch(GetStageDataAction(widget.stage));
 
     super.didChangeDependencies();
   }
@@ -40,14 +39,7 @@ class _GameState extends State<GameContainer> {
             children: <Widget>[
               GameHeader(step: vm.step, stageCount: widget.stage.stageCount),
               GameTranslation(translation: widget.stage.translation),
-              GameBody(
-                  key: ArcKeys.easyStageBody(widget.stage.stageCount),
-                  stageData: vm.stageData,
-                  numOfRow: vm.numOfRow,
-                  itemPerRow: vm.itemPerRow,
-                  onUpdateCharacter: vm.onUpdateCharacter,
-                  isStageCompleted: vm.isStageCompleted,
-                  onSwapCharacter: vm.onSwapCharacter),
+              GameBody(key: ArcKeys.easyStageBody(widget.stage.stageCount), stageData: vm.stageData, numOfRow: vm.numOfRow, itemPerRow: vm.itemPerRow, onUpdateCharacter: vm.onUpdateCharacter, isStageCompleted: vm.isStageCompleted, onSwapCharacter: vm.onSwapCharacter),
               GameFooter(
                 onRefreshStage: vm.onRefreshStage,
               )
@@ -67,15 +59,7 @@ class _ViewModel {
   final Function(List<Character>, Character, Character) onSwapCharacter;
   final Function onRefreshStage;
 
-  _ViewModel(
-      {@required this.stageData,
-      @required this.numOfRow,
-      @required this.step,
-      @required this.itemPerRow,
-      @required this.isStageCompleted,
-      @required this.onUpdateCharacter,
-      @required this.onSwapCharacter,
-      @required this.onRefreshStage});
+  _ViewModel({@required this.stageData, @required this.numOfRow, @required this.step, @required this.itemPerRow, @required this.isStageCompleted, @required this.onUpdateCharacter, @required this.onSwapCharacter, @required this.onRefreshStage});
 
   factory _ViewModel.from(Store<AppState> store, dynamic currentStage) {
     return _ViewModel(
@@ -88,8 +72,7 @@ class _ViewModel {
           store.dispatch(UpdateCharacterAction(character));
         },
         onSwapCharacter: (data, previousCharacter, currentCharacter) {
-          store.dispatch(
-              SwapCharacterAction(data, previousCharacter, currentCharacter));
+          store.dispatch(SwapCharacterAction(data, previousCharacter, currentCharacter));
         },
         onRefreshStage: () {
           store.dispatch(ResetStageDataAction(currentStage));
