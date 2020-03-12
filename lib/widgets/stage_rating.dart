@@ -4,6 +4,7 @@ class StarDisplay extends StatelessWidget {
   final int value;
   final Widget filledStar;
   final Widget unfilledStar;
+
   const StarDisplay({
     Key key,
     this.value = 0,
@@ -25,14 +26,16 @@ class StarDisplay extends StatelessWidget {
 
 class StageRating extends StatelessWidget {
   final int value;
-  const StageRating({this.value = 0}) : assert(value != null);
+  final double size;
+
+  const StageRating({this.value = 0, this.size = 16}) : assert(value != null);
 
   @override
   Widget build(BuildContext context) {
     return IconTheme(
       data: IconThemeData(
         color: Colors.amber,
-        size: 16,
+        size: this.size,
       ),
       child: StarDisplay(
         value: value,
