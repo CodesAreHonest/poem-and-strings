@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:flutter/material.dart';
 import 'package:poem_and_strings/models/character.dart';
 import 'package:flutter/foundation.dart';
 
@@ -29,6 +32,8 @@ class Stage {
     resetCompletedData();
     stageData.shuffle();
 
+    int completedCount = 0;
+
     for (int i = 0; i < stageData.length; i++) {
       Character currentItem = stageData[i];
       bool isCompleted = this.isCompleted(currentItem);
@@ -36,7 +41,33 @@ class Stage {
       if (isCompleted) {
         currentItem.setCompleted(true);
         this.updateCharacter(currentItem);
+        completedCount++;
       }
+    }
+
+    /**
+     * If the completed count is less than 6,
+     *  1. randomly find an uncompleted element and swap with an uncompleted element.
+     *  2. obtain the intended location of target element and perform swapping.
+     *  3. perform the actions until 6 completed character are formed.
+     */
+    while (completedCount <= 6) {
+      List<Character> _uncompletedCharacter = stageData
+          .where((character) => character.getCompleted() == false)
+          .toList();
+
+      Random rand = new Random();
+
+      int randomIndex = rand.nextInt(_uncompletedCharacter.length);
+      Character randomElement = stageData.elementAt(randomIndex);
+
+      this.swapCharacterToComplete(randomElement);
+
+      List<Character> _completedCharacter = stageData
+          .where((character) => character.getCompleted() == true)
+          .toList();
+
+      completedCount = _completedCharacter.length;
     }
 
     return stageData;
@@ -63,5 +94,33 @@ class Stage {
     int dedicatedLocation = character.getLocation();
 
     return currentLocation == dedicatedLocation;
+  }
+
+  List<Character> swapCharacterToComplete(Character currentCharacter) {
+    int currentCharacterCompleteLocation = currentCharacter.getLocation();
+    int currentCharacterLocation = this.getCharacterLocation(currentCharacter);
+
+    Character targetCharacter =
+        stageData.elementAt(currentCharacterCompleteLocation);
+
+    this.updateCharacterWithPosition(
+        currentCharacter, currentCharacterCompleteLocation);
+    this.updateCharacterWithPosition(targetCharacter, currentCharacterLocation);
+
+    this.isCharacterCompleted(currentCharacter);
+    this.isCharacterCompleted(targetCharacter);
+
+    return stageData;
+  }
+
+  void updateCharacterWithPosition(Character character, int position) {
+    stageData.removeAt(position);
+    stageData.insert(position, character);
+  }
+
+  void isCharacterCompleted(Character character) {
+    bool isCharacterInCorrectPosition = this.isCompleted(character);
+    character.setCompleted(isCharacterInCorrectPosition);
+    this.updateCharacter(character);
   }
 }
