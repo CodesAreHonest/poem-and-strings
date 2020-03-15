@@ -80,7 +80,7 @@ class SuccessPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Image.asset('graphics/stack-of-coins.png', width: 150, height: 150),
+                    Image.asset('assets/stack-of-coins.png', width: 150, height: 150),
                     Text('x $goldObtained',
                         style: TextStyle(
                             fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold))

@@ -7,19 +7,19 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GameTitle(),
-                PoemFound(),
-                AppButtons(),
-              ],
-            ),
+        body: SafeArea(
+            child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            GameTitle(),
+            PoemFound(),
+            AppButtons(),
           ],
-        ))
-    );
+        ),
+      ],
+    )));
   }
 }
