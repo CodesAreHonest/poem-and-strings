@@ -4,11 +4,7 @@ import 'package:poem_and_strings/containers/game_container.dart';
 import "package:poem_and_strings/widgets/stage_rating.dart";
 
 class DifficultStage extends StatelessWidget {
-  DifficultStage(
-      {Key key,
-      @required this.stage,
-      @required this.starRating,
-      @required this.level})
+  DifficultStage({Key key, @required this.stage, @required this.starRating, @required this.level})
       : super(key: key);
 
   final dynamic stage;
@@ -25,6 +21,7 @@ class DifficultStage extends StatelessWidget {
     int maximumSteps = stage.maximumSteps;
     String translation = stage.translation;
     String background = stage.background;
+    String youtubeLink = stage.youtubeLink;
 
     return Column(
       children: <Widget>[
@@ -35,18 +32,13 @@ class DifficultStage extends StatelessWidget {
             leading: CircleAvatar(
               backgroundColor: Colors.red[400],
               child: Text("$level",
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w400)),
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
             ),
             title: Row(
               children: <Widget>[
-                Text(title,
-                    style:
-                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+                Text(title, style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
                 SizedBox(width: 8.0),
-                Text(author,
-                    style: TextStyle(
-                        fontSize: 13.0, fontWeight: FontWeight.normal))
+                Text(author, style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.normal))
               ],
             ),
             subtitle: StageRating(value: 1),
@@ -62,7 +54,8 @@ class DifficultStage extends StatelessWidget {
                               stageCount: stageCount,
                               maximumSteps: maximumSteps,
                               translation: translation,
-                              background: background))));
+                              background: background,
+                              youtubeLink: youtubeLink))));
             },
             contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
           ),

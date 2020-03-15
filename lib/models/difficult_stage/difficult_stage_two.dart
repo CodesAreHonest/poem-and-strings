@@ -9,7 +9,7 @@ class DifficultStageTwo {
     Character("庭", false, false, 3),
     Character("山", false, false, 4),
     Character("水", false, false, 5),
-    Character("翠", false, false, 6),
+    Character("'翠", false, false, 6),
     Character("白", false, false, 7),
     Character("银", false, false, 8),
     Character("盘", false, false, 9),
@@ -24,10 +24,10 @@ class DifficultStageTwo {
   final String stageCount = '第二关';
   final String title = '望洞庭';
   final String dynastyWithAuthor = '唐·刘禹锡';
-  final String translation =
-      "洞庭湖的水光与秋月交相融和，水面波平浪静就好像铜镜未磨。远远望去洞庭湖山水一片翠 绿，恰似白银盘子托着青青的田螺。";
+  final String translation = "洞庭湖的水光与秋月交相融和，水面波平浪静就好像铜镜未磨。远远望去洞庭湖山水一片翠 绿，恰似白银盘子托着青青的田螺。";
   final String background =
       "《望洞庭》是在长庆四年（公元824年）秋天写的，刘禹锡被贬逐南荒，二十年里来去洞庭六次。其中一次，刘禹锡要到和州做官，经过洞庭湖，观望洞庭湖的景色而写下了这首诗。";
+  final String youtubeLink = 'cN2WEAjBEuw';
 
   DifficultStageTwo();
 }

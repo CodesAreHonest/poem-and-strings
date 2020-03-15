@@ -36,25 +36,26 @@ class _YoutubePlayerState extends State<Youtube> {
 
   @override
   Widget build(BuildContext context) {
-    return YoutubePlayer(
-        controller: _controller,
-        showVideoProgressIndicator: true,
-        progressIndicatorColor: Colors.blue,
-        onReady: () async {
-          print('video ready');
-        },
-        onEnded: (meta) {
-          _controller
-            ..seekTo(Duration.zero)
-            ..pause();
-        },
-        bottomActions: <Widget>[
+    return SafeArea(
+        child: YoutubePlayer(
+            controller: _controller,
+            showVideoProgressIndicator: true,
+            progressIndicatorColor: Colors.blue,
+            onReady: () async {
+              print('video ready');
+            },
+            onEnded: (meta) {
+              _controller
+                ..seekTo(Duration.zero)
+                ..pause();
+            },
+            bottomActions: <Widget>[
           const SizedBox(width: 14.0),
           CurrentPosition(),
           const SizedBox(width: 8.0),
           ProgressBar(isExpanded: true),
           RemainingDuration(),
           const PlaybackSpeedButton(),
-        ]);
+        ]));
   }
 }
