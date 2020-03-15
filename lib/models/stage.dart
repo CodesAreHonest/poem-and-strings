@@ -11,6 +11,7 @@ class Stage {
   final List<Character> stageData;
   final String translation;
   final String background;
+  final String youtubeLink;
 
   Stage(
       {@required this.numOfRows,
@@ -18,7 +19,8 @@ class Stage {
       @required this.stageCount,
       @required this.maximumSteps,
       @required this.translation,
-      @required this.background});
+      @required this.background,
+      @required this.youtubeLink});
 
   double getItemsPerRow() => stageData.length / this.numOfRows;
 
@@ -52,9 +54,8 @@ class Stage {
      *  3. perform the actions until 6 completed character are formed.
      */
     while (completedCount <= 6) {
-      List<Character> _uncompletedCharacter = stageData
-          .where((character) => character.getCompleted() == false)
-          .toList();
+      List<Character> _uncompletedCharacter =
+          stageData.where((character) => character.getCompleted() == false).toList();
 
       Random rand = new Random();
 
@@ -63,9 +64,8 @@ class Stage {
 
       this.swapCharacterToComplete(randomElement);
 
-      List<Character> _completedCharacter = stageData
-          .where((character) => character.getCompleted() == true)
-          .toList();
+      List<Character> _completedCharacter =
+          stageData.where((character) => character.getCompleted() == true).toList();
 
       completedCount = _completedCharacter.length;
     }
@@ -100,11 +100,9 @@ class Stage {
     int currentCharacterCompleteLocation = currentCharacter.getLocation();
     int currentCharacterLocation = this.getCharacterLocation(currentCharacter);
 
-    Character targetCharacter =
-        stageData.elementAt(currentCharacterCompleteLocation);
+    Character targetCharacter = stageData.elementAt(currentCharacterCompleteLocation);
 
-    this.updateCharacterWithPosition(
-        currentCharacter, currentCharacterCompleteLocation);
+    this.updateCharacterWithPosition(currentCharacter, currentCharacterCompleteLocation);
     this.updateCharacterWithPosition(targetCharacter, currentCharacterLocation);
 
     this.isCharacterCompleted(currentCharacter);

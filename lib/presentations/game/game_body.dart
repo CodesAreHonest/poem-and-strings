@@ -15,6 +15,12 @@ class GameBody extends StatefulWidget {
   final Function onRefreshStage;
   final Function onResetStage;
 
+  final int step;
+  final int maximumSteps;
+  final String youtubeLink;
+  final String background;
+  final String stageCount;
+
   GameBody(
       {Key key,
       this.stageData,
@@ -25,7 +31,12 @@ class GameBody extends StatefulWidget {
       this.onSwapCharacter,
       this.onResetStage,
       this.isStageIncompleted = false,
-      this.onRefreshStage})
+      this.onRefreshStage,
+      this.step,
+      this.youtubeLink,
+      this.background,
+      this.maximumSteps,
+      this.stageCount})
       : super(key: key);
 
   @override
@@ -38,15 +49,30 @@ class _GameBodyState extends State<GameBody> {
   @override
   void didUpdateWidget(GameBody oldWidget) {
     if (widget.isStageCompleted == true) {
+      int stepRemaining = widget.maximumSteps - widget.step;
+      int goldObtained = stepRemaining;
+
+      int rating = ratingSelector(stepRemaining);
       Future.delayed(const Duration(milliseconds: 500), () {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SuccessPage()));
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => SuccessPage(
+                    youtubeLink: widget.youtubeLink,
+                    background: widget.background,
+                    goldObtained: goldObtained,
+                    rating: rating,
+                    stageCount: widget.stageCount,
+                    onRefreshStage: widget.onRefreshStage)));
         widget.onResetStage();
+        return;
       });
     }
 
     if (widget.isStageIncompleted == true) {
       Future.delayed(const Duration(milliseconds: 500), () {
         showGameIncompletedDialog(context);
+        return;
       });
     }
 

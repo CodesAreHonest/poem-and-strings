@@ -9,9 +9,8 @@ class Routes {
   final routes = <String, WidgetBuilder>{
     '/Home': (BuildContext context) => Home(),
     '/DifficultySelection': (BuildContext context) => DifficultySelection(),
-    '/DifficultStageSelection': (BuildContext context) =>
-        DifficultStageSelection(),
+    '/DifficultStageSelection': (BuildContext context) => DifficultStageSelection(),
     '/Game': (BuildContext context) => GameContainer(),
-    '/EasyStageSelection': (BuildContext context) => EasyStageSelection(),
+    '/EasyStageSelection': (BuildContext context) => EasyStageSelection()
   };
 }

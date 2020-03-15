@@ -53,6 +53,11 @@ class _GameState extends State<GameContainer> {
                   onSwapCharacter: vm.onSwapCharacter,
                   onRefreshStage: vm.onRefreshStage,
                   onResetStage: vm.onResetStage,
+                  step: vm.step,
+                  youtubeLink: widget.stage.youtubeLink,
+                  background: widget.stage.background,
+                  maximumSteps: widget.stage.maximumSteps,
+                  stageCount: widget.stage.stageCount,
                   isStageIncompleted:
                       isStageIncompletedSelector(vm.step, widget.stage.maximumSteps)),
               GameFooter(
