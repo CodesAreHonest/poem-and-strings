@@ -22,8 +22,7 @@ class GameContainer extends StatefulWidget {
 
 class _GameState extends State<GameContainer> {
   void didChangeDependencies() {
-    StoreProvider.of<AppState>(context)
-        .dispatch(GetStageDataAction(widget.stage));
+    StoreProvider.of<AppState>(context).dispatch(GetStageDataAction(widget.stage));
 
     super.didChangeDependencies();
   }
@@ -51,7 +50,11 @@ class _GameState extends State<GameContainer> {
                   itemPerRow: vm.itemPerRow,
                   onUpdateCharacter: vm.onUpdateCharacter,
                   isStageCompleted: vm.isStageCompleted,
-                  onSwapCharacter: vm.onSwapCharacter),
+                  onSwapCharacter: vm.onSwapCharacter,
+                  onRefreshStage: vm.onRefreshStage,
+                  onResetStage: vm.onResetStage,
+                  isStageIncompleted:
+                      isStageIncompletedSelector(vm.step, widget.stage.maximumSteps)),
               GameFooter(
                 onRefreshStage: vm.onRefreshStage,
               )
@@ -70,6 +73,7 @@ class _ViewModel {
   final bool isStageCompleted;
   final Function(List<Character>, Character, Character) onSwapCharacter;
   final Function onRefreshStage;
+  final Function onResetStage;
 
   _ViewModel(
       {@required this.stageData,
@@ -79,7 +83,8 @@ class _ViewModel {
       @required this.isStageCompleted,
       @required this.onUpdateCharacter,
       @required this.onSwapCharacter,
-      @required this.onRefreshStage});
+      @required this.onRefreshStage,
+      @required this.onResetStage});
 
   factory _ViewModel.from(Store<AppState> store, dynamic currentStage) {
     return _ViewModel(
@@ -92,11 +97,13 @@ class _ViewModel {
           store.dispatch(UpdateCharacterAction(character));
         },
         onSwapCharacter: (data, previousCharacter, currentCharacter) {
-          store.dispatch(
-              SwapCharacterAction(data, previousCharacter, currentCharacter));
+          store.dispatch(SwapCharacterAction(data, previousCharacter, currentCharacter));
         },
         onRefreshStage: () {
           store.dispatch(ResetStageDataAction(currentStage));
+        },
+        onResetStage: () {
+          store.dispatch(ResetStageAction(currentStage));
         });
   }
 }

@@ -9,17 +9,23 @@ class GameBody extends StatefulWidget {
   final double itemPerRow;
   final int numOfRow;
   final bool isStageCompleted;
+  final bool isStageIncompleted;
   final Function(Character) onUpdateCharacter;
   final Function(List<Character>, Character, Character) onSwapCharacter;
+  final Function onRefreshStage;
+  final Function onResetStage;
 
   GameBody(
       {Key key,
       this.stageData,
       this.itemPerRow,
       this.numOfRow,
-      this.isStageCompleted,
+      this.isStageCompleted = false,
       this.onUpdateCharacter,
-      this.onSwapCharacter})
+      this.onSwapCharacter,
+      this.onResetStage,
+      this.isStageIncompleted = false,
+      this.onRefreshStage})
       : super(key: key);
 
   @override
@@ -31,38 +37,56 @@ class _GameBodyState extends State<GameBody> {
 
   @override
   void didUpdateWidget(GameBody oldWidget) {
-    if (oldWidget.isStageCompleted != widget.isStageCompleted) {
+    if (widget.isStageCompleted == true) {
       Future.delayed(const Duration(milliseconds: 500), () {
-        this.navigateToSuccessPage();
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SuccessPage()));
+        widget.onResetStage();
+      });
+    }
+
+    if (widget.isStageIncompleted == true) {
+      Future.delayed(const Duration(milliseconds: 500), () {
+        showGameIncompletedDialog(context);
       });
     }
 
     super.didUpdateWidget(oldWidget);
   }
 
-  void navigateToSuccessPage() {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => SuccessPage()));
-  }
+  showGameIncompletedDialog(BuildContext context) {
+    // set up the button
+    Widget cancelButton = FlatButton(
+      child: Text("回到主页", style: TextStyle(color: Colors.red)),
+      onPressed: () {
+        widget.onResetStage();
+        Navigator.pushNamedAndRemoveUntil(context, '/EasyStageSelection', (e) => false);
+      },
+    );
+    Widget okButton = FlatButton(
+      child: Text("再试一次", style: TextStyle(color: Colors.green)),
+      onPressed: () {
+        widget.onRefreshStage();
+        Navigator.of(context, rootNavigator: true).pop('dialog');
+      },
+    );
 
-//  createSuccessDialog(BuildContext context) {
-//    return showDialog(
-//        context: context,
-//        builder: (context) {
-//          return AlertDialog(
-//              title: Text('恭喜你'),
-//              content: Text('你获得了多少钱'),
-//              actions: <Widget>[
-//                MaterialButton(
-//                  elevation: 5.0,
-//                  child: Text('OK'),
-//                  onPressed: () {
-//                    print('yea');
-//                  },
-//                )
-//              ]);
-//        });
-//  }
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("你已经用完了所有步数"),
+      content: Text("请问你还要再试多一次吗？"),
+      actions: [
+        cancelButton,
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) => WillPopScope(onWillPop: () async => false, child: alert),
+    );
+  }
 
   Color characterBorderColor(bool isSelected, bool isCompleted) {
     Color borderColor = Colors.blue[700];
@@ -93,8 +117,7 @@ class _GameBodyState extends State<GameBody> {
   }
 
   void swapCharacter(Character currentCharacter) {
-    int characterPosition =
-        characterPositionSelector(widget.stageData, currentCharacter);
+    int characterPosition = characterPositionSelector(widget.stageData, currentCharacter);
     currentCharacter.setSelected(true);
 
     bool isCompleted = currentCharacter.completed;
@@ -109,8 +132,7 @@ class _GameBodyState extends State<GameBody> {
       return;
     }
 
-    Character previousTarget =
-        widget.stageData.elementAt(previousTargetPosition);
+    Character previousTarget = widget.stageData.elementAt(previousTargetPosition);
     bool isSameTarget = identical(currentCharacter, previousTarget);
 
     if (isSameTarget == true) {
@@ -135,15 +157,13 @@ class _GameBodyState extends State<GameBody> {
     return;
   }
 
-  void onSwapCharacter(
-      Character previousCharacter, Character currentCharacter) async {
+  void onSwapCharacter(Character previousCharacter, Character currentCharacter) async {
     await Future.delayed(const Duration(milliseconds: 300), () {
       previousCharacter.setSelected(false);
       currentCharacter.setSelected(false);
       widget.onUpdateCharacter(previousCharacter);
       widget.onUpdateCharacter(currentCharacter);
-      widget.onSwapCharacter(
-          widget.stageData, previousCharacter, currentCharacter);
+      widget.onSwapCharacter(widget.stageData, previousCharacter, currentCharacter);
       previousTargetPosition = null;
     });
 
@@ -162,8 +182,7 @@ class _GameBodyState extends State<GameBody> {
       bool isCompleted = stageData[item].getCompleted();
 
       Color borderColor = this.characterBorderColor(isSelected, isCompleted);
-      Color backgroundColor =
-          this.characterBackgroundColor(isSelected, isCompleted);
+      Color backgroundColor = this.characterBackgroundColor(isSelected, isCompleted);
 
       // map words into character widgets.
       GestureDetector characterWidget = GestureDetector(
@@ -174,11 +193,9 @@ class _GameBodyState extends State<GameBody> {
         child: Container(
             decoration: BoxDecoration(
                 color: backgroundColor,
-                border: Border.all(
-                    color: borderColor, width: 2.0, style: BorderStyle.solid)),
+                border: Border.all(color: borderColor, width: 2.0, style: BorderStyle.solid)),
             padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-            child: Text(character,
-                style: TextStyle(color: Colors.white, fontSize: 16.0))),
+            child: Text(character, style: TextStyle(color: Colors.white, fontSize: 16.0))),
       );
       rowWidgets.add(characterWidget);
 

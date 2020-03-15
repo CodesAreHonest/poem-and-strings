@@ -8,21 +8,21 @@ final stageReducer = combineReducers<StageState>([
   TypedReducer<StageState, UpdateCharacterAction>(_updateCharacter),
   TypedReducer<StageState, SwapCharacterAction>(_swapCharacter),
   TypedReducer<StageState, ResetStageDataAction>(_resetCharacter),
+  TypedReducer<StageState, ResetStageAction>(_resetStage),
 ]);
 
 StageState _getStage(StageState stageState, GetStageDataAction action) {
   return stageState.copyWith(
       data: action.getStageData(),
       itemPerRow: action.getItemsPerRow(),
-      numOfRow: action.getNumberOfRow());
+      numOfRow: action.getNumberOfRow(),
+      step: 0);
 }
 
-StageState _updateCharacter(
-    StageState stageState, UpdateCharacterAction action) {
+StageState _updateCharacter(StageState stageState, UpdateCharacterAction action) {
   List<Character> stageData = stageState.data;
   Character character = action.character;
-  return stageState.copyWith(
-      data: action.updateCharacter(stageData, character));
+  return stageState.copyWith(data: action.updateCharacter(stageData, character));
 }
 
 StageState _swapCharacter(StageState stageState, SwapCharacterAction action) {
@@ -32,8 +32,7 @@ StageState _swapCharacter(StageState stageState, SwapCharacterAction action) {
   int incrementedStep = action.incrementStep(stageState.step);
 
   return stageState.copyWith(
-      data:
-          action.swapCharacter(stageData, currentCharacter, previousCharacter),
+      data: action.swapCharacter(stageData, currentCharacter, previousCharacter),
       step: incrementedStep);
 }
 
@@ -43,4 +42,8 @@ StageState _resetCharacter(StageState stageState, ResetStageDataAction action) {
       itemPerRow: action.getItemsPerRow(),
       numOfRow: action.getNumberOfRow(),
       step: 0);
+}
+
+StageState _resetStage(StageState stageState, ResetStageAction action) {
+  return stageState.reset();
 }
