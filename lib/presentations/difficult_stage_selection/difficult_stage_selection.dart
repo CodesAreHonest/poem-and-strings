@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:poem_and_strings/core/ArcKeys.dart';
+import 'package:poem_and_strings/data/ArcKeys.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_five.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_four.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_one.dart';

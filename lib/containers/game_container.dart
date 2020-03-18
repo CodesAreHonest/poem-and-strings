@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:poem_and_strings/actions/stage_actions.dart';
-import 'package:poem_and_strings/core/ArcKeys.dart';
+import 'package:poem_and_strings/data/ArcKeys.dart';
 import 'package:poem_and_strings/models/app_state.dart';
 import 'package:poem_and_strings/models/models.dart';
 import 'package:poem_and_strings/presentations/game/game_body.dart';
@@ -22,7 +22,8 @@ class GameContainer extends StatefulWidget {
 
 class _GameState extends State<GameContainer> {
   void didChangeDependencies() {
-    StoreProvider.of<AppState>(context).dispatch(GetStageDataAction(widget.stage));
+    StoreProvider.of<AppState>(context)
+        .dispatch(GetStageDataAction(widget.stage));
 
     super.didChangeDependencies();
   }
@@ -58,8 +59,8 @@ class _GameState extends State<GameContainer> {
                   background: widget.stage.background,
                   maximumSteps: widget.stage.maximumSteps,
                   stageCount: widget.stage.stageCount,
-                  isStageIncompleted:
-                      isStageIncompletedSelector(vm.step, widget.stage.maximumSteps)),
+                  isStageIncompleted: isStageIncompletedSelector(
+                      vm.step, widget.stage.maximumSteps)),
               GameFooter(
                 onRefreshStage: vm.onRefreshStage,
               )
@@ -102,7 +103,8 @@ class _ViewModel {
           store.dispatch(UpdateCharacterAction(character));
         },
         onSwapCharacter: (data, previousCharacter, currentCharacter) {
-          store.dispatch(SwapCharacterAction(data, previousCharacter, currentCharacter));
+          store.dispatch(
+              SwapCharacterAction(data, previousCharacter, currentCharacter));
         },
         onRefreshStage: () {
           store.dispatch(ResetStageDataAction(currentStage));

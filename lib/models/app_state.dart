@@ -10,7 +10,8 @@ class AppState {
 
   AppState copyWith({StageState stageState, MusicState musicState}) {
     return AppState(
-        stageState: stageState ?? this.stageState, musicState: musicState ?? this.musicState);
+        stageState: stageState ?? this.stageState,
+        musicState: musicState ?? this.musicState);
   }
 
   @override
