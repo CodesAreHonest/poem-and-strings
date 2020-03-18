@@ -4,7 +4,8 @@ class BackToHomeDialog extends StatelessWidget {
   Widget leaveButton(BuildContext context) => FlatButton(
         child: Text("回到主页", style: TextStyle(color: Colors.red)),
         onPressed: () {
-          Navigator.pushReplacementNamed(context, '/EasyStageSelection');
+          Navigator.pushNamedAndRemoveUntil(
+              context, '/EasyStageSelection', (e) => false);
         },
       );
 

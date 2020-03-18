@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:poem_and_strings/data/ArcKeys.dart';
 import 'package:poem_and_strings/models/models.dart';
-import 'package:poem_and_strings/containers/game_container.dart';
+import 'package:poem_and_strings/containers/easy_game_container.dart';
 import "package:poem_and_strings/widgets/stage_rating.dart";
 
 class EasyStage extends StatelessWidget {
@@ -37,16 +38,21 @@ class EasyStage extends StatelessWidget {
             leading: CircleAvatar(
               backgroundColor: Colors.green[400],
               child: Text("$level",
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold)),
             ),
             title: Row(
               children: <Widget>[
-                Text(title, style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+                Text(title,
+                    style:
+                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
                 SizedBox(width: 8.0),
-                Text(author, style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.normal))
+                Text(author,
+                    style: TextStyle(
+                        fontSize: 13.0, fontWeight: FontWeight.normal))
               ],
             ),
-            subtitle: StageRating(value: this.starRating),
+//            subtitle: StageRating(value: this.starRating),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
               this.pauseMusic();
@@ -63,7 +69,8 @@ class EasyStage extends StatelessWidget {
                               background: background,
                               youtubeLink: youtubeLink))));
             },
-            contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+            contentPadding:
+                EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
           ),
         ),
         SizedBox(height: 8.0)

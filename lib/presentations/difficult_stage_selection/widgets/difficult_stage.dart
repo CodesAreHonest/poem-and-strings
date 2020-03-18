@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:poem_and_strings/data/ArcKeys.dart';
 import 'package:poem_and_strings/models/models.dart';
-import 'package:poem_and_strings/containers/game_container.dart';
+import 'package:poem_and_strings/containers/easy_game_container.dart';
 import "package:poem_and_strings/widgets/stage_rating.dart";
 
 class DifficultStage extends StatelessWidget {
@@ -52,7 +53,7 @@ class DifficultStage extends StatelessWidget {
                         fontSize: 13.0, fontWeight: FontWeight.normal))
               ],
             ),
-            subtitle: StageRating(value: 1),
+//            subtitle: StageRating(value: 1),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
               this.pauseMusic();
@@ -69,7 +70,8 @@ class DifficultStage extends StatelessWidget {
                               background: background,
                               youtubeLink: youtubeLink))));
             },
-            contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+            contentPadding:
+                EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
           ),
         ),
         SizedBox(height: 8.0)

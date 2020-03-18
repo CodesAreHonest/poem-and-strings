@@ -29,7 +29,7 @@ class _EasyStageSelectionState extends State<EasyStageSelection> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: EasyStageAppBar(),
-      backgroundColor: Colors.green[200],
+      backgroundColor: Colors.grey[200],
       body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
           child: ListView(

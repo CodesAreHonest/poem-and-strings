@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:poem_and_strings/models/models.dart';
-import 'package:poem_and_strings/presentations/game/widgets/BackToHomeDialog.dart';
-import 'package:poem_and_strings/presentations/game/widgets/RestartGameDialog.dart';
-import 'package:poem_and_strings/presentations/game/widgets/ShowTipsDialog.dart';
+import 'package:poem_and_strings/presentations/easy_game/widgets/BackToHomeDialog.dart';
+import 'package:poem_and_strings/presentations/easy_game/widgets/RestartGameDialog.dart';
+import 'package:poem_and_strings/presentations/easy_game/widgets/ShowTipsDialog.dart';
 
 class GameFooter extends StatefulWidget {
   final Function onRefreshStage;

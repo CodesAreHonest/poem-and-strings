@@ -82,7 +82,7 @@ class _GameBodyState extends State<GameBody> {
   showGameIncompletedDialog(BuildContext context) {
     // set up the button
     Widget cancelButton = FlatButton(
-      child: Text("回到主页", style: TextStyle(color: Colors.red)),
+      child: Text("回到主页", style: TextStyle(color: Colors.grey)),
       onPressed: () {
         widget.onResetStage();
         Navigator.pushNamedAndRemoveUntil(
@@ -90,7 +90,8 @@ class _GameBodyState extends State<GameBody> {
       },
     );
     Widget okButton = FlatButton(
-      child: Text("按错了", style: TextStyle(color: Colors.grey)),
+      child: Text("再试一次！",
+          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold)),
       onPressed: () {
         widget.onRefreshStage();
         Navigator.of(context, rootNavigator: true).pop('dialog');

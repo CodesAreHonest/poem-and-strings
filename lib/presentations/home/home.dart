@@ -16,7 +16,6 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    // TODO: implement initState
     this.getTotalStageCompleted();
     super.initState();
   }
@@ -42,7 +41,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GameTitle(),
-              PoemFound(totalStageCompleted: totalStageCompleted),
+//              PoemFound(totalStageCompleted: totalStageCompleted),
               AppButtons(),
             ],
           ),

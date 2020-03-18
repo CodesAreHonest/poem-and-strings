@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DifficultStageAppBar extends StatelessWidget implements PreferredSizeWidget {
-
+class DifficultStageAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -9,29 +9,18 @@ class DifficultStageAppBar extends StatelessWidget implements PreferredSizeWidge
       title: Text("困难", style: TextStyle(color: Colors.white)),
       flexibleSpace: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: <Color>[
-                    Colors.red[800],
-                    Colors.red[700],
-                    Colors.red[600],
-                    Colors.red[500],
-                  ]
-              )
-          )
-      ),
+              gradient: LinearGradient(colors: <Color>[
+        Colors.red[800],
+        Colors.red[700],
+        Colors.red[600],
+        Colors.red[500],
+      ]))),
       actions: <Widget>[
         Container(
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 18.0, vertical: 18.0),
-                child: Text(
-                    "1/5",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0
-                    )
-                )
-            )
-        )
+                child: Text("",
+                    style: TextStyle(color: Colors.white, fontSize: 16.0))))
       ],
     );
   }
