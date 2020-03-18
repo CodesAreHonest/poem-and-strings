@@ -9,6 +9,7 @@ final stageReducer = combineReducers<StageState>([
   TypedReducer<StageState, SwapCharacterAction>(_swapCharacter),
   TypedReducer<StageState, ResetStageDataAction>(_resetCharacter),
   TypedReducer<StageState, ResetStageAction>(_resetStage),
+  TypedReducer<StageState, EnableDescriptionAction>(_enableDescription),
 ]);
 
 StageState _getStage(StageState stageState, GetStageDataAction action) {
@@ -16,13 +17,16 @@ StageState _getStage(StageState stageState, GetStageDataAction action) {
       data: action.getStageData(),
       itemPerRow: action.getItemsPerRow(),
       numOfRow: action.getNumberOfRow(),
-      step: 0);
+      step: 0,
+      enableDescription: false);
 }
 
-StageState _updateCharacter(StageState stageState, UpdateCharacterAction action) {
+StageState _updateCharacter(
+    StageState stageState, UpdateCharacterAction action) {
   List<Character> stageData = stageState.data;
   Character character = action.character;
-  return stageState.copyWith(data: action.updateCharacter(stageData, character));
+  return stageState.copyWith(
+      data: action.updateCharacter(stageData, character));
 }
 
 StageState _swapCharacter(StageState stageState, SwapCharacterAction action) {
@@ -32,7 +36,8 @@ StageState _swapCharacter(StageState stageState, SwapCharacterAction action) {
   int incrementedStep = action.incrementStep(stageState.step);
 
   return stageState.copyWith(
-      data: action.swapCharacter(stageData, currentCharacter, previousCharacter),
+      data:
+          action.swapCharacter(stageData, currentCharacter, previousCharacter),
       step: incrementedStep);
 }
 
@@ -41,9 +46,15 @@ StageState _resetCharacter(StageState stageState, ResetStageDataAction action) {
       data: action.getStageData(),
       itemPerRow: action.getItemsPerRow(),
       numOfRow: action.getNumberOfRow(),
-      step: 0);
+      step: 0,
+      enableDescription: false);
 }
 
 StageState _resetStage(StageState stageState, ResetStageAction action) {
   return stageState.reset();
+}
+
+StageState _enableDescription(
+    StageState stageState, EnableDescriptionAction action) {
+  return stageState.copyWith(enableDescription: true);
 }

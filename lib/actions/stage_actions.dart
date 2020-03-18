@@ -26,7 +26,8 @@ class UpdateCharacterAction {
 
   UpdateCharacterAction(this.character);
 
-  List<Character> updateCharacter(List<Character> stageData, Character character) {
+  List<Character> updateCharacter(
+      List<Character> stageData, Character character) {
     int characterPosition = stageData.indexOf(character);
     stageData.removeAt(characterPosition);
     stageData.insert(characterPosition, character);
@@ -73,12 +74,15 @@ class SwapCharacterAction {
     return currentLocation == dedicatedLocation;
   }
 
-  List<Character> swapCharacter(
-      List<Character> stageData, Character previousCharacter, Character currentCharacter) {
+  List<Character> swapCharacter(List<Character> stageData,
+      Character previousCharacter, Character currentCharacter) {
     int currentCharacterLocation = this.getCharacterLocation(currentCharacter);
-    int previousCharacterLocation = this.getCharacterLocation(previousCharacter);
-    this.updateCharacterWithPosition(currentCharacter, previousCharacterLocation);
-    this.updateCharacterWithPosition(previousCharacter, currentCharacterLocation);
+    int previousCharacterLocation =
+        this.getCharacterLocation(previousCharacter);
+    this.updateCharacterWithPosition(
+        currentCharacter, previousCharacterLocation);
+    this.updateCharacterWithPosition(
+        previousCharacter, currentCharacterLocation);
 
     this.isCharacterCompleted(previousCharacter);
     this.isCharacterCompleted(currentCharacter);
@@ -124,4 +128,11 @@ class ResetStageAction {
   String toString() {
     return "ResetStageAction{stage: $stage}";
   }
+}
+
+class EnableDescriptionAction {
+  EnableDescriptionAction();
+
+  @override
+  String toString() => "EnableDescriptionAction";
 }

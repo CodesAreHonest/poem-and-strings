@@ -2,13 +2,14 @@ import "package:flutter/material.dart";
 
 class GameTranslation extends StatelessWidget {
   final String translation;
+  final bool enableDescription;
 
-  GameTranslation({@required this.translation});
+  GameTranslation(
+      {@required this.translation, @required this.enableDescription});
 
-  @override
-  Widget build(BuildContext context) {
+  Widget description(context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.blue[200]),
+      decoration: BoxDecoration(color: Colors.white70),
       padding: EdgeInsets.all(16.0),
       width: MediaQuery.of(context).size.width,
       child: Container(
@@ -18,28 +19,43 @@ class GameTranslation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
+                padding: EdgeInsets.all(12.0),
                 child: Column(
-              children: <Widget>[
-                Text('[译文]',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white70,
-                        fontSize: 16,
-                        letterSpacing: 1.2)),
-                SizedBox(height: 8.0),
-                Text(this.translation,
-                    style: TextStyle(
-                        color: Colors.white, fontSize: 12, letterSpacing: 1.2))
-              ],
-            )),
+                  children: <Widget>[
+                    Text('[译文]',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                            fontSize: 20,
+                            letterSpacing: 1.2)),
+                    SizedBox(height: 12.0),
+                    Text(this.translation,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            letterSpacing: 1.2))
+                  ],
+                )),
           ],
         ),
         decoration: BoxDecoration(
-            color: Colors.blue[300],
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(8.0),
-                bottomRight: Radius.circular(8.0))),
+            color: Colors.blue[300], borderRadius: BorderRadius.circular(8)),
       ),
     );
+  }
+
+  Widget blankDescription(context) {
+    return Container(
+        decoration: BoxDecoration(color: Colors.white70),
+        padding: EdgeInsets.all(64.0),
+        width: MediaQuery.of(context).size.width,
+        child: Container());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return this.enableDescription
+        ? description(context)
+        : blankDescription(context);
   }
 }

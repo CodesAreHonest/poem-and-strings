@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:poem_and_strings/data/StageLevel.dart';
-
 class EasyStageRecord {
   final Map<String, int> easyStage;
 

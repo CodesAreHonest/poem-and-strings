@@ -27,6 +27,6 @@ class _ApplicationState extends State<Application> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: "诗词串串乐", routes: Routes().routes, home: Test());
+    return MaterialApp(title: "诗词串串乐", routes: Routes().routes, home: Home());
   }
 }
