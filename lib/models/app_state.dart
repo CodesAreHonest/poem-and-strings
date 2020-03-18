@@ -2,11 +2,15 @@ import 'package:poem_and_strings/states/states.dart';
 
 class AppState {
   final StageState stageState;
+  final MusicState musicState;
 
-  AppState({this.stageState = const StageState(data: [])});
+  AppState(
+      {this.stageState = const StageState(data: []),
+      this.musicState = const MusicState(assetsAudioPlayer: null)});
 
-  AppState copyWith({StageState stageState}) {
-    return AppState(stageState: stageState ?? this.stageState);
+  AppState copyWith({StageState stageState, MusicState musicState}) {
+    return AppState(
+        stageState: stageState ?? this.stageState, musicState: musicState ?? this.musicState);
   }
 
   @override

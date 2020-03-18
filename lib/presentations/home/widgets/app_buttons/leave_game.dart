@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:poem_and_strings/actions/music_actions.dart';
+import 'package:poem_and_strings/models/models.dart';
 
 class LeaveGame extends StatelessWidget {
-
   final redGradient = <Color>[
     Colors.red[800],
     Colors.red[700],
@@ -14,6 +16,7 @@ class LeaveGame extends StatelessWidget {
   Widget build(BuildContext context) {
     return RaisedButton(
         onPressed: () {
+          StoreProvider.of<AppState>(context).dispatch(StopMusicActions());
           SystemNavigator.pop();
         },
         shape: RoundedRectangleBorder(
@@ -24,16 +27,10 @@ class LeaveGame extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.0),
-            gradient: LinearGradient(
-                colors: redGradient
-            ),
+            gradient: LinearGradient(colors: redGradient),
           ),
           padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
-          child: Text(
-              '退出游戏',
-              style: TextStyle(fontSize: 24)
-          ),
-        )
-    );
+          child: Text('退出游戏', style: TextStyle(fontSize: 24)),
+        ));
   }
 }

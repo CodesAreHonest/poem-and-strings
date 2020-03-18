@@ -13,7 +13,7 @@ class GameFooter extends StatelessWidget {
       children: <Widget>[
         RawMaterialButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/Home');
+              Navigator.pushReplacementNamed(context, '/EasyStageSelection');
             },
             child: Icon(Icons.home, color: Colors.white, size: 32.0),
             shape: CircleBorder(),
@@ -31,8 +31,7 @@ class GameFooter extends StatelessWidget {
             padding: EdgeInsets.all(8.0)),
         RawMaterialButton(
             onPressed: () {},
-            child:
-                Icon(Icons.lightbulb_outline, color: Colors.white, size: 32.0),
+            child: Icon(Icons.lightbulb_outline, color: Colors.white, size: 32.0),
             shape: CircleBorder(),
             elevation: 2.0,
             fillColor: Colors.blue[400],
