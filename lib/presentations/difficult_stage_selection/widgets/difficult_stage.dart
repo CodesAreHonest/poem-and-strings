@@ -1,8 +1,6 @@
 import "package:flutter/material.dart";
-import 'package:poem_and_strings/data/ArcKeys.dart';
+import 'package:poem_and_strings/containers/difficult_game_container.dart';
 import 'package:poem_and_strings/models/models.dart';
-import 'package:poem_and_strings/containers/easy_game_container.dart';
-import "package:poem_and_strings/widgets/stage_rating.dart";
 
 class DifficultStage extends StatelessWidget {
   DifficultStage(
@@ -60,7 +58,7 @@ class DifficultStage extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => GameContainer(
+                      builder: (context) => DifficultGameContainer(
                           stage: Stage(
                               numOfRows: numOfRows,
                               stageData: stageData,

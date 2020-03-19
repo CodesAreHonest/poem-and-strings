@@ -59,7 +59,7 @@ class EasyStage extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => GameContainer(
+                      builder: (context) => EasyGameContainer(
                           stage: Stage(
                               numOfRows: numOfRows,
                               stageData: stageData,

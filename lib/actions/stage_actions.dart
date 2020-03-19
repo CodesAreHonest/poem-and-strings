@@ -21,6 +21,27 @@ class GetStageDataAction {
   }
 }
 
+class GetEasyStageDataAction {
+  final dynamic stage;
+
+  GetEasyStageDataAction(this.stage);
+
+  List<Character> getEasyStageData() {
+    return stage.getEasyRandomShuffledData();
+  }
+
+  double getItemsPerRow() {
+    return stage.getTotalStageItems() / stage.numberOfRowRendered();
+  }
+
+  int getNumberOfRow() => stage.numberOfRowRendered();
+
+  @override
+  String toString() {
+    return "GetEasyStageDataAction{stage: $stage}";
+  }
+}
+
 class UpdateCharacterAction {
   final Character character;
 
@@ -58,6 +79,7 @@ class SwapCharacterAction {
   void isCharacterCompleted(Character character) {
     bool isCharacterInCorrectPosition = this.isCompleted(character);
     character.setCompleted(isCharacterInCorrectPosition);
+
     this.updateCharacter(character);
   }
 
@@ -130,9 +152,122 @@ class ResetStageAction {
   }
 }
 
+class ResetEasyStageDataAction {
+  final dynamic stage;
+
+  ResetEasyStageDataAction(this.stage);
+
+  List<Character> getEasyStageData() {
+    return stage.getEasyRandomShuffledData();
+  }
+
+  double getItemsPerRow() {
+    return stage.getTotalStageItems() / stage.numberOfRowRendered();
+  }
+
+  int getNumberOfRow() => stage.numberOfRowRendered();
+
+  @override
+  String toString() {
+    return "ResetEasyStageDataAction{stage: $stage}";
+  }
+}
+
 class EnableDescriptionAction {
   EnableDescriptionAction();
 
   @override
   String toString() => "EnableDescriptionAction";
+}
+
+class SwapEasyCharacterAction {
+  final Character previousCharacter;
+  final Character currentCharacter;
+  final List<Character> data;
+
+  SwapEasyCharacterAction(
+      this.data, this.previousCharacter, this.currentCharacter);
+
+  int getCharacterLocation(Character character) => data.indexOf(character);
+
+  void updateCharacterWithPosition(Character character, int position) {
+    data.removeAt(position);
+    data.insert(position, character);
+  }
+
+  void isCharacterCompleted(Character character) {
+    bool isCharacterInCorrectPosition = this.isCompleted(character);
+    character.setCompleted(isCharacterInCorrectPosition);
+    this.updateCharacter(character);
+
+    if (character.getSpecial() && isCharacterInCorrectPosition) {
+      character.setSpecial(false);
+      if (character.getLocation() <= 7) {
+        for (int index = 0; index < 7; index++) {
+          Character targetCharacter = data[index];
+          this.swapCharacterToComplete(targetCharacter);
+        }
+      }
+
+      if (character.getLocation() <= 14) {
+        for (int index = 7; index < 14; index++) {
+          Character targetCharacter = data[index];
+          this.swapCharacterToComplete(targetCharacter);
+        }
+      }
+    }
+  }
+
+  void updateCharacter(Character character) {
+    int characterPosition = this.getCharacterLocation(character);
+    data.removeAt(characterPosition);
+    data.insert(characterPosition, character);
+  }
+
+  bool isCompleted(Character character) {
+    int currentLocation = this.getCharacterLocation(character);
+    int dedicatedLocation = character.getLocation();
+
+    return currentLocation == dedicatedLocation;
+  }
+
+  List<Character> swapCharacter(List<Character> stageData,
+      Character previousCharacter, Character currentCharacter) {
+    int currentCharacterLocation = this.getCharacterLocation(currentCharacter);
+    int previousCharacterLocation =
+        this.getCharacterLocation(previousCharacter);
+    this.updateCharacterWithPosition(
+        currentCharacter, previousCharacterLocation);
+    this.updateCharacterWithPosition(
+        previousCharacter, currentCharacterLocation);
+
+    this.isCharacterCompleted(previousCharacter);
+    this.isCharacterCompleted(currentCharacter);
+
+    return data;
+  }
+
+  List<Character> swapCharacterToComplete(Character currentCharacter) {
+    int currentCharacterCompleteLocation = currentCharacter.getLocation();
+    int currentCharacterLocation = this.getCharacterLocation(currentCharacter);
+
+    Character targetCharacter =
+        data.elementAt(currentCharacterCompleteLocation);
+
+    this.updateCharacterWithPosition(
+        currentCharacter, currentCharacterCompleteLocation);
+    this.updateCharacterWithPosition(targetCharacter, currentCharacterLocation);
+
+    this.isCharacterCompleted(currentCharacter);
+    this.isCharacterCompleted(targetCharacter);
+
+    return data;
+  }
+
+  int incrementStep(int step) => step + 1;
+
+  @override
+  String toString() {
+    return "SwapCharacterAction{previousCharacter: $previousCharacter, currentCharacter: $currentCharacter, data: $data}";
+  }
 }

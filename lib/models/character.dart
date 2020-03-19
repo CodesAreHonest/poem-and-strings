@@ -3,6 +3,7 @@ class Character {
   bool selected;
   bool completed;
   int location;
+  bool special = false;
 
   Character(this.character, this.selected, this.completed, this.location);
 
@@ -22,6 +23,10 @@ class Character {
     this.completed = completed;
   }
 
+  void setSpecial(bool special) {
+    this.special = special;
+  }
+
   int getLocation() => this.location;
 
   String getCharacter() => this.character;
@@ -29,4 +34,6 @@ class Character {
   bool getSelected() => this.selected;
 
   bool getCompleted() => this.completed;
+
+  bool getSpecial() => this.special;
 }

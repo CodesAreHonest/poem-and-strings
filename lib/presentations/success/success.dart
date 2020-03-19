@@ -157,7 +157,7 @@ class _SuccessPageState extends State<SuccessPage> {
                 child: RaisedButton.icon(
                     onPressed: () {
                       Navigator.pushNamedAndRemoveUntil(
-                          context, '/EasyStageSelection', (e) => false);
+                          context, '/DifficultySelection', (e) => false);
                     },
                     color: Colors.green[500],
                     icon: Icon(Icons.thumb_up, size: 12, color: Colors.white),

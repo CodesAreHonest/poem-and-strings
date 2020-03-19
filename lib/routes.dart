@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:poem_and_strings/containers/difficult_game_container.dart';
 import 'package:poem_and_strings/containers/difficult_stage_selection_container.dart';
 import 'package:poem_and_strings/containers/easy_game_container.dart';
 import 'package:poem_and_strings/containers/easy_stage_selection_container.dart';
@@ -12,7 +13,8 @@ class Routes {
     '/DifficultySelection': (BuildContext context) => DifficultySelection(),
     '/DifficultStageSelection': (BuildContext context) =>
         DifficultStageSelectionContainer(),
-    '/Game': (BuildContext context) => GameContainer(),
+    '/EasyGame': (BuildContext context) => EasyGameContainer(),
+    '/DifficultGame': (BuildContext context) => DifficultGameContainer(),
     '/EasyStageSelection': (BuildContext context) =>
         EasyStageSelectionContainer(),
     '/Test': (BuildContext context) => Test()

@@ -4,37 +4,35 @@ import 'package:poem_and_strings/actions/stage_actions.dart';
 import 'package:poem_and_strings/data/ArcKeys.dart';
 import 'package:poem_and_strings/models/app_state.dart';
 import 'package:poem_and_strings/models/models.dart';
-import 'package:poem_and_strings/presentations/easy_game/game_body.dart';
-import 'package:poem_and_strings/presentations/easy_game/game_footer.dart';
-import 'package:poem_and_strings/presentations/easy_game/game_header.dart';
-import 'package:poem_and_strings/presentations/easy_game/game_translation.dart';
+import 'package:poem_and_strings/presentations/difficult_game/game_body.dart';
+import 'package:poem_and_strings/presentations/difficult_game/game_footer.dart';
+import 'package:poem_and_strings/presentations/difficult_game/game_header.dart';
+import 'package:poem_and_strings/presentations/difficult_game/game_translation.dart';
 import 'package:poem_and_strings/selectors/stage_selectors.dart';
 import 'package:redux/redux.dart';
 
-class EasyGameContainer extends StatefulWidget {
+class DifficultGameContainer extends StatefulWidget {
   final dynamic stage;
 
-  EasyGameContainer({this.stage});
+  DifficultGameContainer({this.stage});
 
   @override
-  _EasyGameState createState() => _EasyGameState();
+  _DifficultGameContainerState createState() => _DifficultGameContainerState();
 }
 
-class _EasyGameState extends State<EasyGameContainer> {
+class _DifficultGameContainerState extends State<DifficultGameContainer> {
   @override
   void initState() {
     super.initState();
   }
 
-  @override
   void didChangeDependencies() {
     StoreProvider.of<AppState>(context)
-        .dispatch(GetEasyStageDataAction(widget.stage));
+        .dispatch(GetStageDataAction(widget.stage));
 
     super.didChangeDependencies();
   }
 
-  @override
   void dispose() {
     super.dispose();
   }
@@ -127,11 +125,11 @@ class _ViewModel {
           store.dispatch(UpdateCharacterAction(character));
         },
         onSwapCharacter: (data, previousCharacter, currentCharacter) {
-          store.dispatch(SwapEasyCharacterAction(
-              data, previousCharacter, currentCharacter));
+          store.dispatch(
+              SwapCharacterAction(data, previousCharacter, currentCharacter));
         },
         onRefreshStage: () {
-          store.dispatch(ResetEasyStageDataAction(currentStage));
+          store.dispatch(ResetStageDataAction(currentStage));
         },
         onResetStage: () {
           store.dispatch(ResetStageAction(currentStage));

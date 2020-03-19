@@ -5,7 +5,7 @@ class BackToHomeDialog extends StatelessWidget {
         child: Text("回到主页", style: TextStyle(color: Colors.red)),
         onPressed: () {
           Navigator.pushNamedAndRemoveUntil(
-              context, '/DifficultySelection', (e) => false);
+              context, '/EasyStageSelection', (e) => false);
         },
       );
 

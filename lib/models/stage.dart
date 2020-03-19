@@ -76,6 +76,64 @@ class Stage {
     return stageData;
   }
 
+  List<Character> getEasyRandomShuffledData() {
+    resetCompletedData();
+    stageData.shuffle();
+
+    int completedCount = 0;
+
+    for (int i = 0; i < stageData.length; i++) {
+      Character currentItem = stageData[i];
+      bool isCompleted = this.isCompleted(currentItem);
+
+      if (isCompleted) {
+        currentItem.setCompleted(true);
+        this.updateCharacter(currentItem);
+        completedCount++;
+      }
+    }
+
+    /**
+     * If the completed count is less than 6,
+     *  1. randomly find an uncompleted element and swap with an uncompleted element.
+     *  2. obtain the intended location of target element and perform swapping.
+     *  3. perform the actions until 6 completed character are formed.
+     */
+    while (completedCount <= 6) {
+      List<Character> _uncompletedCharacter = stageData
+          .where((character) => character.getCompleted() == false)
+          .toList();
+
+      Random rand = new Random();
+
+      int randomIndex = rand.nextInt(_uncompletedCharacter.length);
+      Character randomElement = stageData.elementAt(randomIndex);
+
+      this.swapCharacterToComplete(randomElement);
+
+      List<Character> _completedCharacter = stageData
+          .where((character) => character.getCompleted() == true)
+          .toList();
+
+      completedCount = _completedCharacter.length;
+    }
+
+    /**
+     * Assign special flower to this incomplete character
+     */
+    List<Character> _uncompletedCharacter = stageData
+        .where((character) => character.getCompleted() == false)
+        .toList();
+
+    Random rand = new Random();
+
+    int randomIndex = rand.nextInt(_uncompletedCharacter.length);
+    Character randomElement = _uncompletedCharacter.elementAt(randomIndex);
+    randomElement.setSpecial(true);
+
+    return stageData;
+  }
+
   List<Character> getCurrentStageData() => this.stageData;
 
   void resetCompletedData() {
@@ -83,6 +141,7 @@ class Stage {
       Character currentItem = stageData[i];
       currentItem.setCompleted(false);
       currentItem.setSelected(false);
+      currentItem.setSpecial(false);
     }
   }
 

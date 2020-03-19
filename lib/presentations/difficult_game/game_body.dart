@@ -53,7 +53,7 @@ class _GameBodyState extends State<GameBody> {
       int goldObtained = stepRemaining;
 
       int rating = ratingSelector(stepRemaining);
-      Future.delayed(const Duration(milliseconds: 1000), () {
+      Future.delayed(const Duration(milliseconds: 500), () {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -117,39 +117,29 @@ class _GameBodyState extends State<GameBody> {
     );
   }
 
-  Color characterBorderColor(
-      bool isSelected, bool isCompleted, bool isSpecial) {
+  Color characterBorderColor(bool isSelected, bool isCompleted) {
     Color borderColor = Colors.blue[700];
 
-    if (isCompleted) {
-      return Colors.green[700];
-    }
-
     if (isSelected) {
-      return Colors.blue[200];
+      borderColor = Colors.blue[200];
     }
 
-    if (isSpecial) {
-      borderColor = Colors.pink;
+    if (isCompleted) {
+      borderColor = Colors.green[700];
     }
 
     return borderColor;
   }
 
-  Color characterBackgroundColor(
-      bool isSelected, bool isCompleted, bool isSpecial) {
+  Color characterBackgroundColor(bool isSelected, bool isCompleted) {
     Color backgroundColor = Colors.blue[700];
 
-    if (isCompleted) {
-      return Colors.green[700];
-    }
-
     if (isSelected) {
-      return Colors.blue[500];
+      backgroundColor = Colors.blue[500];
     }
 
-    if (isSpecial) {
-      backgroundColor = Colors.pinkAccent;
+    if (isCompleted) {
+      backgroundColor = Colors.green[700];
     }
 
     return backgroundColor;
@@ -223,12 +213,10 @@ class _GameBodyState extends State<GameBody> {
       String character = stageData[item].getCharacter();
       bool isSelected = stageData[item].getSelected();
       bool isCompleted = stageData[item].getCompleted();
-      bool isSpecial = stageData[item].getSpecial();
 
-      Color borderColor =
-          this.characterBorderColor(isSelected, isCompleted, isSpecial);
+      Color borderColor = this.characterBorderColor(isSelected, isCompleted);
       Color backgroundColor =
-          this.characterBackgroundColor(isSelected, isCompleted, isSpecial);
+          this.characterBackgroundColor(isSelected, isCompleted);
 
       // map words into character widgets.
       GestureDetector characterWidget = GestureDetector(
