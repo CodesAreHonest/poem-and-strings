@@ -4,10 +4,10 @@ import 'package:poem_and_strings/actions/stage_actions.dart';
 import 'package:poem_and_strings/data/ArcKeys.dart';
 import 'package:poem_and_strings/models/app_state.dart';
 import 'package:poem_and_strings/models/models.dart';
-import 'package:poem_and_strings/presentations/difficult_game/game_body.dart';
-import 'package:poem_and_strings/presentations/difficult_game/game_footer.dart';
-import 'package:poem_and_strings/presentations/difficult_game/game_header.dart';
-import 'package:poem_and_strings/presentations/difficult_game/game_translation.dart';
+import 'package:poem_and_strings/presentations/game/game_body.dart';
+import 'package:poem_and_strings/presentations/game/game_footer.dart';
+import 'package:poem_and_strings/presentations/game/game_header.dart';
+import 'package:poem_and_strings/presentations/game/game_translation.dart';
 import 'package:poem_and_strings/selectors/stage_selectors.dart';
 import 'package:redux/redux.dart';
 
@@ -59,7 +59,7 @@ class _DifficultGameContainerState extends State<DifficultGameContainer> {
                     enableDescription: vm.enableDescription),
                 SizedBox(height: 18.0),
                 GameBody(
-                    key: ArcKeys.easyStageBody(widget.stage.stageCount),
+                    key: ArcKeys.difficultStageBody(widget.stage.stageCount),
                     stageData: vm.stageData,
                     numOfRow: vm.numOfRow,
                     itemPerRow: vm.itemPerRow,
