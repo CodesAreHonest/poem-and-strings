@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:poem_and_strings/models/models.dart';
-import 'package:poem_and_strings/widgets/youtube.dart';
+import 'package:poem_and_strings/presentations/success/success_poems.dart';
+import 'package:poem_and_strings/widgets/youtube_video.dart';
 import 'success_header.dart';
 import 'success_message.dart';
 import 'success_rating.dart';
@@ -13,6 +14,8 @@ class SuccessPage extends StatefulWidget {
   final String youtubeLink;
   final String background;
   final String stageCount;
+  final String originalText;
+  final String translation;
   final int goldObtained;
   final int rating;
   final Function onRefreshStage;
@@ -24,7 +27,9 @@ class SuccessPage extends StatefulWidget {
       @required this.goldObtained,
       @required this.rating,
       @required this.stageCount,
-      @required this.onRefreshStage});
+      @required this.onRefreshStage,
+      @required this.originalText,
+      @required this.translation});
 
   @override
   _SuccessPageState createState() => _SuccessPageState();
@@ -67,7 +72,8 @@ class _SuccessPageState extends State<SuccessPage> {
     Navigator.push(
         context,
         CupertinoPageRoute(
-            builder: (context) => Youtube(youtubeLink: widget.youtubeLink)));
+            builder: (context) =>
+                YoutubeVideo(youtubeLink: widget.youtubeLink)));
   }
 
   @override
@@ -85,6 +91,9 @@ class _SuccessPageState extends State<SuccessPage> {
             SuccessMessage(stageCount: stageCount),
             SuccessCoinAmount(goldObtained: goldObtained),
             SuccessRating(goldObtained: goldObtained),
+            SuccessPoems(
+                originalText: widget.originalText,
+                translation: widget.translation),
             Container(
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),

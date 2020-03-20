@@ -25,8 +25,8 @@ dependencies:
   youtube_player_flutter: ^6.1.0+4
   assets_audio_player: ^1.2.3
   shared_preferences: ^0.5.6+3
-
-
+  chewie: ^0.9.10
+  video_player: ^0.10.8+1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -60,6 +60,11 @@ flutter:
     - assets/stack-of-coins.png
     - assets/red-banner.png
     - assets/musics/background_music.mp3
+    - assets/video/easy_stage_one.mp4
+    - assets/video/easy_stage_two.mp4
+    - assets/video/easy_stage_three.mp4
+    - assets/video/easy_stage_four.mp4
+    - assets/video/easy_stage_five.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

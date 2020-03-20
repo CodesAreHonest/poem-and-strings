@@ -29,6 +29,7 @@ class EasyStage extends StatelessWidget {
     String translation = stage.translation;
     String background = stage.background;
     String youtubeLink = stage.youtubeLink;
+    String originalText = stage.originalText;
 
     return Column(
       children: <Widget>[
@@ -67,7 +68,8 @@ class EasyStage extends StatelessWidget {
                               maximumSteps: maximumSteps,
                               translation: translation,
                               background: background,
-                              youtubeLink: youtubeLink))));
+                              youtubeLink: youtubeLink,
+                              originalText: originalText))));
             },
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),

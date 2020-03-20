@@ -62,6 +62,8 @@ class _EasyGameState extends State<EasyGameContainer> {
                 SizedBox(height: 18.0),
                 GameBody(
                     key: ArcKeys.easyStageBody(widget.stage.stageCount),
+                    originalText: widget.stage.originalText,
+                    translation: widget.stage.translation,
                     stageData: vm.stageData,
                     numOfRow: vm.numOfRow,
                     itemPerRow: vm.itemPerRow,

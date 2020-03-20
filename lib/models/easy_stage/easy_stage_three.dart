@@ -28,7 +28,8 @@ class EasyStageThree {
       "冷雨连夜洒遍吴地江天，清晨送走你后，独自面对着楚山离愁无限！到了洛阳，如果洛阳亲友问起我来，就请转告他们，我的心依然像玉壶里的冰那样晶莹纯洁！";
   final String background =
       "此诗当作于天宝元年（公元742年），王昌龄当时为江宁丞。辛渐是王昌龄的朋友，这次拟由润州渡江，取道扬州，北上洛阳。王昌龄可能陪他从江宁到润州，然后在此分手。这首诗为在江边离别时所写。";
-  final String youtubeLink = '5Jb8dq9291E';
+  final String youtubeLink = 'assets/video/easy_stage_three.mp4';
+  final String originalText = '寒雨连江夜入吴，平明送客楚山孤。洛阳亲友如相问，一片冰心在玉壶。';
 
   EasyStageThree();
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:video_player/video_player.dart';
 
 class Youtube extends StatefulWidget {
   final String youtubeLink;
 
   Youtube({@required this.youtubeLink});
+
   @override
   _YoutubePlayerState createState() => _YoutubePlayerState();
 }
@@ -19,7 +21,8 @@ class _YoutubePlayerState extends State<Youtube> {
         [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     _controller = YoutubePlayerController(
         initialVideoId: widget.youtubeLink,
-        flags: YoutubePlayerFlags(autoPlay: false, mute: false, disableDragSeek: true));
+        flags: YoutubePlayerFlags(
+            autoPlay: false, mute: false, disableDragSeek: true));
 
     super.initState();
   }

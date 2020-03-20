@@ -12,6 +12,7 @@ class Stage {
   final String translation;
   final String background;
   final String youtubeLink;
+  final String originalText;
 
   Stage(
       {Key key,
@@ -21,7 +22,8 @@ class Stage {
       @required this.maximumSteps,
       @required this.translation,
       @required this.background,
-      @required this.youtubeLink});
+      @required this.youtubeLink,
+      @required this.originalText});
 
   double getItemsPerRow() => stageData.length / this.numOfRows;
 

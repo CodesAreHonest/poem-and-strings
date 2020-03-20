@@ -20,6 +20,8 @@ class GameBody extends StatefulWidget {
   final String youtubeLink;
   final String background;
   final String stageCount;
+  final String originalText;
+  final String translation;
 
   GameBody(
       {Key key,
@@ -36,7 +38,9 @@ class GameBody extends StatefulWidget {
       this.youtubeLink,
       this.background,
       this.maximumSteps,
-      this.stageCount})
+      this.stageCount,
+      this.translation,
+      this.originalText})
       : super(key: key);
 
   @override
@@ -63,7 +67,9 @@ class _GameBodyState extends State<GameBody> {
                     goldObtained: goldObtained,
                     rating: rating,
                     stageCount: widget.stageCount,
-                    onRefreshStage: widget.onRefreshStage)));
+                    onRefreshStage: widget.onRefreshStage,
+                    originalText: widget.originalText,
+                    translation: widget.translation)));
         widget.onResetStage();
         return;
       });
