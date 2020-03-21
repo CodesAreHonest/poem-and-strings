@@ -18,4 +18,8 @@ class ArcKeys {
 
   static Key difficultStageList(String stageType) =>
       Key('__DifficultStageList_${stageType}__');
+
+  // Page Indicator
+  static Key pageIndicator(int currentPage) =>
+      Key('__PageIndicator_${currentPage}__');
 }
