@@ -59,6 +59,7 @@ flutter:
   assets:
     - assets/stack-of-coins.png
     - assets/red-banner.png
+    - assets/icon/trophie.png
     - assets/musics/background_music.mp3
     - assets/video/easy_stage_one.mp4
     - assets/video/easy_stage_two.mp4
