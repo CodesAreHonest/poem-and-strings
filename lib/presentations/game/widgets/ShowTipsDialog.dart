@@ -10,7 +10,7 @@ class ShowTipsDialog extends StatelessWidget {
   Widget confirmButton(BuildContext context) => FlatButton(
         child: Text("显示提示", style: TextStyle(color: Colors.green[700])),
         onPressed: () {
-          player.decrementCoin(2);
+          player.decrementCoin(5);
           this.onEnableDescription();
           Navigator.of(context, rootNavigator: true).pop('dialog');
         },
@@ -27,7 +27,7 @@ class ShowTipsDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text("显示提示？"),
-      content: Text("需要花费 2 金币"),
+      content: Text("需要花费 5 金币"),
       actions: [
         cancelButton(context),
         confirmButton(context),

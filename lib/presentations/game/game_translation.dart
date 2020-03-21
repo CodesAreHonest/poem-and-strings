@@ -22,7 +22,7 @@ class GameTranslation extends StatelessWidget {
                 padding: EdgeInsets.all(12.0),
                 child: Column(
                   children: <Widget>[
-                    Text('[译文]',
+                    Text('译文',
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             color: Colors.white,

@@ -5,6 +5,7 @@ import 'package:poem_and_strings/containers/easy_game_container.dart';
 import 'package:poem_and_strings/containers/easy_stage_selection_container.dart';
 import 'package:poem_and_strings/presentations/home/index.dart';
 import 'package:poem_and_strings/presentations/difficulty_selection/difficulty_selection.dart';
+import 'package:poem_and_strings/presentations/revisions/stage_one.dart';
 import 'package:poem_and_strings/presentations/test.dart';
 
 class Routes {
@@ -17,6 +18,7 @@ class Routes {
     '/DifficultGame': (BuildContext context) => DifficultGameContainer(),
     '/EasyStageSelection': (BuildContext context) =>
         EasyStageSelectionContainer(),
-    '/Test': (BuildContext context) => Test()
+    '/Test': (BuildContext context) => Test(),
+    '/StageOneRevision': (BuildContext context) => StageOneRevision()
   };
 }
