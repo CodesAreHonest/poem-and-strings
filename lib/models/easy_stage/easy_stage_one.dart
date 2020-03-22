@@ -29,7 +29,7 @@ class EasyStageOne {
   final String background =
       "王安石此时身为宰相,正在大刀阔斧地进行改革.所以这首诗的字里行间都洋溢着他对革除时弊、推行新法的坚定信念及乐观情绪.抒发了他春风得意踌躇满志的心情. 还能体现出他的执政态度.";
   final String youtubeLink = 'assets/video/easy_stage_one.mp4';
-  final String originalText = '爆竹声中一岁除，春风送暖入屠苏。千门万户曈曈日，总把新桃换旧符。';
+  final String originalText = '爆竹声中一岁除，\n春风送暖入屠苏。\n千门万户曈曈日，\n总把新桃换旧符。';
 
   EasyStageOne();
 }

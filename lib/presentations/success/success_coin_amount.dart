@@ -17,7 +17,7 @@ class SuccessCoinAmount extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/stack-of-coins.png', width: 150, height: 150),
+            Image.asset('assets/stack-of-coins.png', width: 100, height: 100),
             Text('x $goldObtained',
                 style: TextStyle(
                     fontSize: 24,

@@ -30,9 +30,6 @@ class SuccessHeader extends StatelessWidget {
             image: DecorationImage(
                 image: AssetImage('assets/red-banner.png'), fit: BoxFit.fill)),
       ),
-//      child: Text('恭喜过关 ！',
-//          textAlign: TextAlign.center,
-//          style: TextStyle(fontSize: 32, color: Colors.black)),
     );
   }
 }

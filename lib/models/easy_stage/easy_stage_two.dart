@@ -29,7 +29,7 @@ class EasyStageTwo {
   final String background =
       "《望洞庭》是在长庆四年（公元824年）秋天写的，刘禹锡被贬逐南荒，二十年里来去洞庭六次。其中一次，刘禹锡要到和州做官，经过洞庭湖，观望洞庭湖的景色而写下了这首诗。";
   final String youtubeLink = 'assets/video/easy_stage_two.mp4';
-  final String originalText = '爆湖光秋月两相和，潭面无风镜未磨。遥望洞庭山水翠，白银盘里一青螺。';
+  final String originalText = '爆湖光秋月两相和，\n潭面无风镜未磨。\n遥望洞庭山水翠，\n白银盘里一青螺。';
 
   EasyStageTwo();
 }

@@ -9,11 +9,11 @@ class SuccessPoems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: MediaQuery.of(context).size.width,
+        width: double.infinity,
         padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
         decoration: BoxDecoration(color: Colors.grey[200]),
         child: Container(
-          width: MediaQuery.of(context).size.width,
+          width: double.infinity,
           padding: EdgeInsets.all(8.0),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5), color: Colors.white),

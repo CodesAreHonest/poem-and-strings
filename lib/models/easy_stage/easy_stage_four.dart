@@ -29,7 +29,7 @@ class EasyStageFour {
   final String background =
       "这是一首劝诫诗。每年春天转成夏天的时候，鸟儿们正处于繁育时期，不少乡下孩子喜欢掏鸟窝、抓小鸟，甚至不少大人也在田间地头边干活边捕鸟，究其动机，仅仅是出于好玩。一幅幅鸟儿或死去或挣扎的画面让诗人惊讶恐惧，很上心。于是，诗人创作此诗，深情地呼喊与号召人们爱惜小鸟，与它们和谐共处，同时以鸟喻人，劝诫权贵尊重平民。";
   final String youtubeLink = 'assets/video/easy_stage_four.mp4';
-  final String originalText = '谁道群生性命微？一般骨肉一般皮。劝君莫打枝头鸟，子在巢中望母归。';
+  final String originalText = '谁道群生性命微？\n一般骨肉一般皮。\n劝君莫打枝头鸟，\n子在巢中望母归。';
 
   EasyStageFour();
 }

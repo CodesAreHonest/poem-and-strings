@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PageIndicator extends StatelessWidget {
   PageIndicator({Key key, this.currentPage}) : super(key: key);
 
-  final int _numPages = 3;
+  final int _numPages = 5;
   final int currentPage;
 
   List<Widget> _buildPageIndicator(int currentPage) {
@@ -21,7 +21,7 @@ class PageIndicator extends StatelessWidget {
       height: 8.0,
       width: isActive ? 24.0 : 16.0,
       decoration: BoxDecoration(
-        color: isActive ? Colors.white : Colors.blue[300],
+        color: isActive ? Colors.white : Colors.black,
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -29,7 +29,6 @@ class PageIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(currentPage);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: _buildPageIndicator(currentPage),

@@ -96,11 +96,11 @@ class _SuccessPageState extends State<SuccessPage> {
                 translation: widget.translation),
             Container(
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+              padding: EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 16.0),
               decoration: BoxDecoration(color: Colors.grey[200]),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     color: Colors.white),
