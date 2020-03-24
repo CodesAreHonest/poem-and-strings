@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:poem_and_strings/actions/music_actions.dart';
-import 'package:poem_and_strings/presentations/congratulation/congratulation.dart';
-import 'package:poem_and_strings/presentations/revise_poems/guideline.dart';
-import 'package:poem_and_strings/presentations/revise_poems/index.dart';
-import 'package:poem_and_strings/presentations/revise_poems/success.dart';
+import 'package:poem_and_strings/presentations/home/home.dart';
 import 'package:poem_and_strings/routes.dart';
 import "package:poem_and_strings/models/models.dart";
 
@@ -29,7 +26,6 @@ class _ApplicationState extends State<Application> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: "诗词串串乐", routes: Routes().routes, home: Congratulation());
+    return MaterialApp(title: "诗词串串乐", routes: Routes().routes, home: Home());
   }
 }

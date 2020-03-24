@@ -136,7 +136,7 @@ class _SuccessPageState extends State<SuccessPage> {
                 ),
               ),
             ),
-            SuccessFooter()
+            SuccessFooter(stageCount: widget.stageCount)
           ],
         ),
       ),

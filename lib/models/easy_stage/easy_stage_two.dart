@@ -21,7 +21,7 @@ class EasyStageTwo {
 
   final int numOfRows = 2;
   final int maximumSteps = 10;
-  final String stageCount = '第二关';
+  final String stageCount = '简单第二关';
   final String title = '望洞庭';
   final String dynastyWithAuthor = '唐·刘禹锡';
   final String translation =

@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:poem_and_strings/models/difficult_stage/difficult_stage_five.dart';
 
 class SuccessFooter extends StatelessWidget {
-  const SuccessFooter({
-    Key key,
-  }) : super(key: key);
+  final String stageCount;
+
+  const SuccessFooter({Key key, @required this.stageCount}) : super(key: key);
+
+  void conditionalNavigation(BuildContext context) {
+    String routes = '/DifficultySelection';
+    if (stageCount == DifficultStageFive().stageCount) {
+      routes = '/Congratulations';
+    }
+
+    Navigator.pushNamedAndRemoveUntil(context, routes, (e) => false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +22,7 @@ class SuccessFooter extends StatelessWidget {
         alignment: FractionalOffset.bottomCenter,
         child: RaisedButton.icon(
             onPressed: () {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/DifficultySelection', (e) => false);
+              this.conditionalNavigation(context);
             },
             color: Colors.green[500],
             icon: Icon(Icons.thumb_up, size: 12, color: Colors.white),
