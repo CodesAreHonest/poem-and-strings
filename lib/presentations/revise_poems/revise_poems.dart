@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:poem_and_strings/data/ArcKeys.dart';
 import 'package:poem_and_strings/presentations/revise_poems/widgets/fifth_poem.dart';
 import 'package:poem_and_strings/presentations/revise_poems/widgets/first_poem.dart';
 import 'package:poem_and_strings/presentations/revise_poems/widgets/fourth_poem.dart';
@@ -26,25 +25,28 @@ class _RevisePoemsScreenState extends State<RevisePoems> {
           value: SystemUiOverlayStyle.light,
           child: Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0.1, 0.4, 0.7, 0.9],
-                colors: [
-                  Colors.grey[600],
-                  Colors.grey[500],
-                  Colors.grey[400],
-                  Colors.grey[400],
-                ],
-              ),
-            ),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.1, 0.4, 0.7, 0.9],
+                  colors: [
+                    Colors.grey[600],
+                    Colors.grey[500],
+                    Colors.grey[400],
+                    Colors.grey[400],
+                  ],
+                ),
+                image: DecorationImage(
+                    image: AssetImage('assets/background/third_bg.jpg'),
+                    fit: BoxFit.fill)),
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 40.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
+                  SizedBox(height: 150),
                   Container(
-                    height: 600,
+                    height: 450,
                     child: PageView(
                       physics: ClampingScrollPhysics(),
                       controller: _pageController,

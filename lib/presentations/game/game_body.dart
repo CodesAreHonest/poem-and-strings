@@ -123,44 +123,6 @@ class _GameBodyState extends State<GameBody> {
     );
   }
 
-  Color characterBorderColor(
-      bool isSelected, bool isCompleted, bool isSpecial) {
-    Color borderColor = Colors.blue[700];
-
-    if (isCompleted) {
-      return Colors.green[700];
-    }
-
-    if (isSelected) {
-      return Colors.blue[200];
-    }
-
-    if (isSpecial) {
-      borderColor = Colors.pink;
-    }
-
-    return borderColor;
-  }
-
-  Color characterBackgroundColor(
-      bool isSelected, bool isCompleted, bool isSpecial) {
-    Color backgroundColor = Colors.blue[700];
-
-    if (isCompleted) {
-      return Colors.green[700];
-    }
-
-    if (isSelected) {
-      return Colors.blue[500];
-    }
-
-    if (isSpecial) {
-      backgroundColor = Colors.pinkAccent;
-    }
-
-    return backgroundColor;
-  }
-
   void swapCharacter(Character currentCharacter) {
     int characterPosition =
         characterPositionSelector(widget.stageData, currentCharacter);
@@ -219,6 +181,67 @@ class _GameBodyState extends State<GameBody> {
     return;
   }
 
+  BoxDecoration characterDecoration(
+      bool isSelected, bool isCompleted, bool isSpecial) {
+    if (isCompleted) {
+      return BoxDecoration(
+          color: Colors.lightGreen,
+          border: Border(
+              left: BorderSide(color: Colors.black54, width: 2.0),
+              right: BorderSide(color: Colors.black54, width: 3.0),
+              top: BorderSide(color: Colors.black54, width: 2.0),
+              bottom: BorderSide(color: Colors.black54, width: 5.0)));
+    }
+
+    if (isSelected) {
+      return BoxDecoration(
+          color: Color.fromRGBO(239, 239, 239, 1),
+          border: Border(
+              left: BorderSide(color: Colors.black54, width: 2.0),
+              right: BorderSide(color: Colors.black54, width: 3.0),
+              top: BorderSide(color: Colors.black54, width: 2.0),
+              bottom: BorderSide(color: Colors.black54, width: 5.0)));
+    }
+
+    if (isSpecial) {
+      return BoxDecoration(
+          color: Color.fromRGBO(239, 239, 239, 1),
+          border: Border(
+              left: BorderSide(color: Colors.transparent, width: 2.0),
+              right: BorderSide(color: Colors.transparent, width: 3.0),
+              top: BorderSide(color: Colors.transparent, width: 2.0),
+              bottom: BorderSide(color: Colors.transparent, width: 5.0)));
+    }
+
+    return BoxDecoration(
+        color: Color.fromRGBO(239, 239, 239, 1),
+        border: Border(
+            left: BorderSide(color: Colors.transparent, width: 2.0),
+            right: BorderSide(color: Colors.transparent, width: 3.0),
+            top: BorderSide(color: Colors.transparent, width: 2.0),
+            bottom: BorderSide(color: Colors.transparent, width: 5.0)));
+  }
+
+  TextStyle characterText(bool isSelected, bool isCompleted, bool isSpecial) {
+    if (isCompleted) {
+      return TextStyle(
+          color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.bold);
+    }
+
+    if (isSelected) {
+      return TextStyle(
+          color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.bold);
+    }
+
+    if (isSpecial) {
+      return TextStyle(
+          color: Colors.pink[200], fontSize: 16.0, fontWeight: FontWeight.w800);
+    }
+
+    return TextStyle(
+        color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.normal);
+  }
+
   List<Widget> renderCharacters(List<Character> stageData) {
     List<Widget> rowWidgets = [];
     List<Widget> gameCharacters = [];
@@ -231,11 +254,6 @@ class _GameBodyState extends State<GameBody> {
       bool isCompleted = stageData[item].getCompleted();
       bool isSpecial = stageData[item].getSpecial();
 
-      Color borderColor =
-          this.characterBorderColor(isSelected, isCompleted, isSpecial);
-      Color backgroundColor =
-          this.characterBackgroundColor(isSelected, isCompleted, isSpecial);
-
       // map words into character widgets.
       GestureDetector characterWidget = GestureDetector(
         onTap: () {
@@ -243,13 +261,10 @@ class _GameBodyState extends State<GameBody> {
           this.swapCharacter(specificCharacter);
         },
         child: Container(
-            decoration: BoxDecoration(
-                color: backgroundColor,
-                border: Border.all(
-                    color: borderColor, width: 2.0, style: BorderStyle.solid)),
-            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+            decoration: characterDecoration(isSelected, isCompleted, isSpecial),
+            padding: EdgeInsets.all(8.0),
             child: Text(character,
-                style: TextStyle(color: Colors.white, fontSize: 16.0))),
+                style: characterText(isSelected, isCompleted, isSpecial))),
       );
       rowWidgets.add(characterWidget);
 
@@ -275,13 +290,14 @@ class _GameBodyState extends State<GameBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        decoration: BoxDecoration(color: Colors.white),
         child: Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Container(
-        child: Column(
-          children: renderCharacters(widget.stageData),
-        ),
-      ),
-    ));
+          padding: EdgeInsets.all(16.0),
+          child: Container(
+            child: Column(
+              children: renderCharacters(widget.stageData),
+            ),
+          ),
+        ));
   }
 }

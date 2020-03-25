@@ -43,7 +43,11 @@ class RevisionGuideline extends StatelessWidget {
       alignment: Alignment.center,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(color: Colors.grey[100]),
+        decoration: BoxDecoration(
+            color: Colors.grey[100],
+            image: DecorationImage(
+                image: AssetImage('assets/background/third_bg.jpg'),
+                fit: BoxFit.fill)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

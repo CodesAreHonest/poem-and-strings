@@ -30,42 +30,51 @@ class _EasyStageSelectionState extends State<EasyStageSelection> {
     return Scaffold(
       appBar: EasyStageAppBar(),
       backgroundColor: Colors.grey[200],
-      body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-          child: ListView(
-            children: <Widget>[
-              EasyStage(
-                  key: ArcKeys.easyStageList('firstStage'),
-                  stage: EasyStageOne(),
-                  starRating: 1,
-                  level: 1,
-                  pauseMusic: widget.pauseMusic),
-              EasyStage(
-                  key: ArcKeys.easyStageList('secondStage'),
-                  stage: EasyStageTwo(),
-                  starRating: 1,
-                  level: 2,
-                  pauseMusic: widget.pauseMusic),
-              EasyStage(
-                  key: ArcKeys.easyStageList('thirdStage'),
-                  stage: EasyStageThree(),
-                  starRating: 1,
-                  level: 3,
-                  pauseMusic: widget.pauseMusic),
-              EasyStage(
-                  key: ArcKeys.easyStageList('fourStage'),
-                  stage: EasyStageFour(),
-                  starRating: 1,
-                  level: 4,
-                  pauseMusic: widget.pauseMusic),
-              EasyStage(
-                  key: ArcKeys.easyStageList('fiveStage'),
-                  stage: EasyStageFive(),
-                  starRating: 1,
-                  level: 5,
-                  pauseMusic: widget.pauseMusic)
-            ],
-          )),
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  'assets/background/old_fashion.jpeg',
+                ),
+                fit: BoxFit.cover)),
+        child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: ListView(
+              children: <Widget>[
+                EasyStage(
+                    key: ArcKeys.easyStageList('firstStage'),
+                    stage: EasyStageOne(),
+                    starRating: 1,
+                    level: 1,
+                    pauseMusic: widget.pauseMusic),
+                EasyStage(
+                    key: ArcKeys.easyStageList('secondStage'),
+                    stage: EasyStageTwo(),
+                    starRating: 1,
+                    level: 2,
+                    pauseMusic: widget.pauseMusic),
+                EasyStage(
+                    key: ArcKeys.easyStageList('thirdStage'),
+                    stage: EasyStageThree(),
+                    starRating: 1,
+                    level: 3,
+                    pauseMusic: widget.pauseMusic),
+                EasyStage(
+                    key: ArcKeys.easyStageList('fourStage'),
+                    stage: EasyStageFour(),
+                    starRating: 1,
+                    level: 4,
+                    pauseMusic: widget.pauseMusic),
+                EasyStage(
+                    key: ArcKeys.easyStageList('fiveStage'),
+                    stage: EasyStageFive(),
+                    starRating: 1,
+                    level: 5,
+                    pauseMusic: widget.pauseMusic)
+              ],
+            )),
+      ),
     );
   }
 }

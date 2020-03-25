@@ -10,18 +10,13 @@ class DifficultySelectionHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
-        Ink(
-            decoration: ShapeDecoration(
-              color: Colors.lightBlue,
-              shape: CircleBorder(),
-            ),
-            child: IconButton(
-              icon: Icon(Icons.arrow_back),
-              color: Colors.white,
-              onPressed: () {
-                Navigator.pushNamed(context, "/Home");
-              },
-            )),
+        IconButton(
+          icon: Icon(Icons.arrow_back),
+          color: Colors.white,
+          onPressed: () {
+            Navigator.pushNamed(context, "/Home");
+          },
+        ),
         SizedBox(width: 40.0),
         Text('选择游戏难度',
             style: TextStyle(

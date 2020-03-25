@@ -53,11 +53,9 @@ class _DifficultGameContainerState extends State<DifficultGameContainer> {
                     step: vm.step,
                     stageCount: widget.stage.stageCount,
                     enableDescription: vm.enableDescription),
-                SizedBox(height: 18.0),
                 GameTranslation(
                     translation: widget.stage.translation,
                     enableDescription: vm.enableDescription),
-                SizedBox(height: 18.0),
                 GameBody(
                     key: ArcKeys.difficultStageBody(widget.stage.stageCount),
                     originalText: widget.stage.originalText,

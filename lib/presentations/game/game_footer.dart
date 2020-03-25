@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:flutter/widgets.dart';
 import 'package:poem_and_strings/models/models.dart';
 import 'package:poem_and_strings/presentations/game/widgets/BackToHomeDialog.dart';
 import 'package:poem_and_strings/presentations/game/widgets/RestartGameDialog.dart';
@@ -80,65 +81,69 @@ class _GameFooterState extends State<GameFooter> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        decoration: BoxDecoration(color: Colors.white),
+        padding: EdgeInsets.symmetric(vertical: 16.0),
         child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            RawMaterialButton(
-                onPressed: () {
-                  displayLeaveGameDialog(context);
-                },
-                child: Icon(Icons.home, color: Colors.white, size: 32.0),
-                shape: CircleBorder(),
-                elevation: 2.0,
-                fillColor: Colors.red[400],
-                padding: EdgeInsets.all(8.0)),
-            SizedBox(height: 5.0),
-            Text('主页',
-                style: TextStyle(
-                    color: Colors.red[600], fontWeight: FontWeight.bold))
+            Column(
+              children: <Widget>[
+                RawMaterialButton(
+                    onPressed: () {
+                      displayLeaveGameDialog(context);
+                    },
+                    child: Icon(Icons.home, color: Colors.white, size: 32.0),
+                    shape: CircleBorder(),
+                    elevation: 2.0,
+                    fillColor: Colors.red[400],
+                    padding: EdgeInsets.all(8.0)),
+                SizedBox(height: 5.0),
+                Text('主页',
+                    style: TextStyle(
+                        color: Colors.red[600], fontWeight: FontWeight.bold))
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                RawMaterialButton(
+                    onPressed: () {
+                      displayRestartGameDialog(context);
+                    },
+                    child: Icon(Icons.refresh, color: Colors.white, size: 32.0),
+                    shape: CircleBorder(),
+                    elevation: 2.0,
+                    fillColor: Colors.lightBlue[700],
+                    padding: EdgeInsets.all(8.0)),
+                SizedBox(height: 5.0),
+                Text('重新',
+                    style: TextStyle(
+                        color: Colors.lightBlue[700],
+                        fontWeight: FontWeight.bold))
+              ],
+            ),
+            Visibility(
+              visible: !widget.enableDescription && coin >= 2,
+              child: Column(
+                children: <Widget>[
+                  RawMaterialButton(
+                      onPressed: () {
+                        displayUseTipsDialog(context);
+                      },
+                      child: Icon(Icons.lightbulb_outline,
+                          color: Colors.white, size: 32.0),
+                      shape: CircleBorder(),
+                      elevation: 2.0,
+                      fillColor: Colors.green[400],
+                      padding: EdgeInsets.all(8.0)),
+                  SizedBox(height: 5.0),
+                  Text('提示',
+                      style: TextStyle(
+                          color: Colors.green[400],
+                          fontWeight: FontWeight.bold))
+                ],
+              ),
+            ),
           ],
-        ),
-        Column(
-          children: <Widget>[
-            RawMaterialButton(
-                onPressed: () {
-                  displayRestartGameDialog(context);
-                },
-                child: Icon(Icons.refresh, color: Colors.white, size: 32.0),
-                shape: CircleBorder(),
-                elevation: 2.0,
-                fillColor: Colors.lightBlue[700],
-                padding: EdgeInsets.all(8.0)),
-            SizedBox(height: 5.0),
-            Text('重新',
-                style: TextStyle(
-                    color: Colors.lightBlue[700], fontWeight: FontWeight.bold))
-          ],
-        ),
-        Visibility(
-          visible: !widget.enableDescription && coin >= 2,
-          child: Column(
-            children: <Widget>[
-              RawMaterialButton(
-                  onPressed: () {
-                    displayUseTipsDialog(context);
-                  },
-                  child: Icon(Icons.lightbulb_outline,
-                      color: Colors.white, size: 32.0),
-                  shape: CircleBorder(),
-                  elevation: 2.0,
-                  fillColor: Colors.green[400],
-                  padding: EdgeInsets.all(8.0)),
-              SizedBox(height: 5.0),
-              Text('提示',
-                  style: TextStyle(
-                      color: Colors.green[400], fontWeight: FontWeight.bold))
-            ],
-          ),
-        ),
-      ],
-    ));
+        ));
   }
 }

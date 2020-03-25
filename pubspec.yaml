@@ -66,6 +66,12 @@ flutter:
     - assets/video/easy_stage_three.mp4
     - assets/video/easy_stage_four.mp4
     - assets/video/easy_stage_five.mp4
+    - assets/background/water_bg.jpg
+    - assets/background/second_bg.jpeg
+    - assets/background/third_bg.jpg
+    - assets/background/old_fashion.jpeg
+    - assets/background/water_bg.jpg
+    - assets/icon/flower.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

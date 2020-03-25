@@ -34,19 +34,26 @@ class _HomeState extends State<Home> {
       onWillPop: () async => false,
       child: Scaffold(
           body: SafeArea(
-              child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GameTitle(),
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/background/water_bg.jpg'),
+                  fit: BoxFit.cover)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GameTitle(),
 //              PoemFound(totalStageCompleted: totalStageCompleted),
-              AppButtons(),
+                  AppButtons(),
+                ],
+              ),
             ],
           ),
-        ],
-      ))),
+        ),
+      )),
     );
   }
 }

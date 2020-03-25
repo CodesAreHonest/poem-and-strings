@@ -51,10 +51,10 @@ class _GameHeaderState extends State<GameHeader> {
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(colors: <Color>[
-        Colors.lightBlueAccent[100],
-        Colors.lightBlueAccent[200],
-        Colors.blue[300],
-        Colors.lightBlueAccent[400],
+        Colors.black54,
+        Colors.black45,
+        Colors.black54,
+        Colors.black38,
       ])),
       padding: EdgeInsets.all(16.0),
       child: Row(
@@ -62,18 +62,18 @@ class _GameHeaderState extends State<GameHeader> {
         children: <Widget>[
           Text(widget.stageCount,
               style: TextStyle(
-                  color: Colors.blue[800],
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0)),
           Text("$step/10 步",
               style: TextStyle(
-                  color: Colors.blue[800],
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0,
                   letterSpacing: 1.0)),
           Text("金币: $coin",
               style: TextStyle(
-                  color: Colors.yellowAccent,
+                  color: Color.fromRGBO(255, 215, 0, 1),
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0)),
         ],

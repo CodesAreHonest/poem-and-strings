@@ -7,7 +7,7 @@ class FifthPoem extends StatelessWidget {
   final EasyStageFive stageFive = EasyStageFive();
 
   Widget completeMissionContainer(BuildContext context) => RaisedButton(
-      color: Colors.blue[700],
+      color: Colors.white70,
       onPressed: () {
         Navigator.pushNamedAndRemoveUntil(
             context, '/RevisionSuccess', (e) => false);
@@ -16,7 +16,7 @@ class FifthPoem extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 120.0, vertical: 16.0),
       child: Text('结束',
           style: TextStyle(
-              color: Colors.blue[100],
+              color: Colors.blue[800],
               fontSize: 16,
               fontWeight: FontWeight.bold)));
 
