@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:poem_and_strings/containers/difficult_game_container.dart';
+import 'package:poem_and_strings/models/difficult_stage/difficult_stage_one.dart';
 import 'package:poem_and_strings/models/models.dart';
 
 class DifficultStage extends StatelessWidget {
@@ -56,6 +57,11 @@ class DifficultStage extends StatelessWidget {
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
               this.pauseMusic();
+              if (stage is DifficultStageOne) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/DifficultGuideline', (e) => false);
+                return;
+              }
               Navigator.push(
                   context,
                   MaterialPageRoute(

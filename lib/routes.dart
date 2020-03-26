@@ -4,6 +4,7 @@ import 'package:poem_and_strings/containers/difficult_stage_selection_container.
 import 'package:poem_and_strings/containers/easy_game_container.dart';
 import 'package:poem_and_strings/containers/easy_stage_selection_container.dart';
 import 'package:poem_and_strings/presentations/congratulation/congratulation.dart';
+import 'package:poem_and_strings/presentations/difficult_guideline/difficult_guideline.dart';
 import 'package:poem_and_strings/presentations/easy_guideline/easy_guideline.dart';
 import 'package:poem_and_strings/presentations/home/index.dart';
 import 'package:poem_and_strings/presentations/difficulty_selection/difficulty_selection.dart';
@@ -27,6 +28,7 @@ class Routes {
     '/RevisionGuideline': (BuildContext context) => RevisionGuideline(),
     '/RevisePoems': (BuildContext context) => RevisePoems(),
     '/Congratulations': (BuildContext context) => Congratulation(),
-    '/EasyGuideline': (BuildContext context) => EasyGuideLine()
+    '/EasyGuideline': (BuildContext context) => EasyGuideLine(),
+    '/DifficultGuideline': (BuildContext context) => DifficultGuideline()
   };
 }

@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:poem_and_strings/presentations/easy_guideline/first_guideline.dart';
-import 'package:poem_and_strings/presentations/easy_guideline/fourth_guideline.dart';
-import 'package:poem_and_strings/presentations/easy_guideline/second_guideline.dart';
-import 'package:poem_and_strings/presentations/easy_guideline/third_guideline.dart';
+import 'package:poem_and_strings/presentations/difficult_guideline//first_guideline.dart';
+import 'package:poem_and_strings/presentations/difficult_guideline/second_guideline.dart';
+import 'package:poem_and_strings/presentations/difficult_guideline/third_guideline.dart';
 import 'package:poem_and_strings/presentations/revise_poems/widgets/page_indicator.dart';
 
-class EasyGuideLine extends StatefulWidget {
+class DifficultGuideline extends StatefulWidget {
   @override
-  _EasyGuideLineState createState() => _EasyGuideLineState();
+  _DifficultGuidelineState createState() => _DifficultGuidelineState();
 }
 
-class _EasyGuideLineState extends State<EasyGuideLine> {
+class _DifficultGuidelineState extends State<DifficultGuideline> {
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 4;
 
@@ -55,12 +54,11 @@ class _EasyGuideLineState extends State<EasyGuideLine> {
                             FirstGuideline(),
                             SecondGuideline(),
                             ThirdGuideline(),
-                            FourthGuideline(),
                           ],
                         ),
                       ),
                       SizedBox(height: 50),
-                      PageIndicator(currentPage: _currentPage, numPages: 4),
+                      PageIndicator(currentPage: _currentPage, numPages: 3),
                     ],
                   )),
             )),

@@ -29,7 +29,6 @@ class _EasyStageSelectionState extends State<EasyStageSelection> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: EasyStageAppBar(),
-      backgroundColor: Colors.grey[200],
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
