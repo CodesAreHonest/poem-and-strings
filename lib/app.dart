@@ -11,7 +11,13 @@ class Application extends StatefulWidget {
   _ApplicationState createState() => _ApplicationState();
 }
 
-class _ApplicationState extends State<Application> {
+class _ApplicationState extends State<Application> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
   @override
   void didChangeDependencies() {
     StoreProvider.of<AppState>(context).dispatch(StartMusicActions());
@@ -20,14 +26,27 @@ class _ApplicationState extends State<Application> {
   }
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.inactive) {
+      StoreProvider.of<AppState>(context).dispatch(PauseMusicActions());
+      return;
+    }
+
+    if (state == AppLifecycleState.resumed) {
+      StoreProvider.of<AppState>(context).dispatch(ResumeMusicAction());
+      return;
+    }
+  }
+
+  @override
   void dispose() {
     StoreProvider.of<AppState>(context).dispatch(StopMusicActions());
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: "诗词串串乐", routes: Routes().routes, home: RevisionGuideline());
+    return MaterialApp(title: "诗词串串乐", routes: Routes().routes, home: Home());
   }
 }

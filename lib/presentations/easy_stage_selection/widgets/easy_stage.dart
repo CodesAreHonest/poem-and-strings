@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:poem_and_strings/data/ArcKeys.dart';
+import 'package:poem_and_strings/models/easy_stage/easy_stage_one.dart';
 import 'package:poem_and_strings/models/models.dart';
 import 'package:poem_and_strings/containers/easy_game_container.dart';
 import "package:poem_and_strings/widgets/stage_rating.dart";
@@ -57,6 +58,12 @@ class EasyStage extends StatelessWidget {
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
               this.pauseMusic();
+              if (stage is EasyStageOne) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/EasyGuideline', (e) => false);
+                return;
+              }
+
               Navigator.push(
                   context,
                   MaterialPageRoute(

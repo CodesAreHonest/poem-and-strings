@@ -72,6 +72,12 @@ flutter:
     - assets/background/old_fashion.jpeg
     - assets/background/water_bg.jpg
     - assets/icon/flower.png
+    - assets/guideline/first_step.jpeg
+    - assets/guideline/second_step.gif
+    - assets/guideline/second_step_one.jpeg
+    - assets/guideline/second_step_two.jpeg
+    - assets/guideline/third_step.jpeg
+    - assets/guideline/fourth_step.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

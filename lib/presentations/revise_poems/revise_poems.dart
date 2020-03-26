@@ -25,17 +25,6 @@ class _RevisePoemsScreenState extends State<RevisePoems> {
           value: SystemUiOverlayStyle.light,
           child: Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: [0.1, 0.4, 0.7, 0.9],
-                  colors: [
-                    Colors.grey[600],
-                    Colors.grey[500],
-                    Colors.grey[400],
-                    Colors.grey[400],
-                  ],
-                ),
                 image: DecorationImage(
                     image: AssetImage('assets/background/third_bg.jpg'),
                     fit: BoxFit.fill)),
@@ -64,7 +53,7 @@ class _RevisePoemsScreenState extends State<RevisePoems> {
                       ],
                     ),
                   ),
-                  PageIndicator(currentPage: _currentPage),
+                  PageIndicator(currentPage: _currentPage, numPages: 5),
                 ],
               ),
             ),
