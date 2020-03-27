@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import "package:flutter/material.dart";
+import 'package:flutter/painting.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:poem_and_strings/actions/stage_actions.dart';
 import 'package:poem_and_strings/data/ArcKeys.dart';
@@ -53,42 +54,46 @@ class _EasyGameState extends State<EasyGameContainer> {
                     child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
               child: Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/background/success_bg.jpg'),
+                          fit: BoxFit.fill)),
                   child: Column(
-                children: <Widget>[
-                  GameHeader(
-                      step: vm.step,
-                      stageCount: widget.stage.stageCount,
-                      maximumSteps: widget.stage.maximumSteps,
-                      enableDescription: vm.enableDescription),
-                  GameTranslation(
-                      translation: widget.stage.translation,
-                      enableDescription: vm.enableDescription),
-                  GameBody(
-                      key: ArcKeys.easyStageBody(widget.stage.stageCount),
-                      originalText: widget.stage.originalText,
-                      translation: widget.stage.translation,
-                      stageData: vm.stageData,
-                      numOfRow: vm.numOfRow,
-                      itemPerRow: vm.itemPerRow,
-                      onUpdateCharacter: vm.onUpdateCharacter,
-                      isStageCompleted: vm.isStageCompleted,
-                      onSwapCharacter: vm.onSwapCharacter,
-                      onRefreshStage: vm.onRefreshStage,
-                      onResetStage: vm.onResetStage,
-                      step: vm.step,
-                      youtubeLink: widget.stage.youtubeLink,
-                      background: widget.stage.background,
-                      maximumSteps: widget.stage.maximumSteps,
-                      stageCount: widget.stage.stageCount,
-                      isStageIncompleted: isStageIncompletedSelector(
-                          vm.step, widget.stage.maximumSteps)),
-                  SizedBox(height: 24.0),
-                  GameFooter(
-                      onRefreshStage: vm.onRefreshStage,
-                      onEnableDescription: vm.onEnableDescription,
-                      enableDescription: vm.enableDescription)
-                ],
-              )),
+                    children: <Widget>[
+                      GameHeader(
+                          step: vm.step,
+                          stageCount: widget.stage.stageCount,
+                          maximumSteps: widget.stage.maximumSteps,
+                          enableDescription: vm.enableDescription),
+                      GameTranslation(
+                          translation: widget.stage.translation,
+                          enableDescription: vm.enableDescription),
+                      GameBody(
+                          key: ArcKeys.easyStageBody(widget.stage.stageCount),
+                          originalText: widget.stage.originalText,
+                          translation: widget.stage.translation,
+                          stageData: vm.stageData,
+                          numOfRow: vm.numOfRow,
+                          itemPerRow: vm.itemPerRow,
+                          onUpdateCharacter: vm.onUpdateCharacter,
+                          isStageCompleted: vm.isStageCompleted,
+                          onSwapCharacter: vm.onSwapCharacter,
+                          onRefreshStage: vm.onRefreshStage,
+                          onResetStage: vm.onResetStage,
+                          step: vm.step,
+                          youtubeLink: widget.stage.youtubeLink,
+                          background: widget.stage.background,
+                          maximumSteps: widget.stage.maximumSteps,
+                          stageCount: widget.stage.stageCount,
+                          isStageIncompleted: isStageIncompletedSelector(
+                              vm.step, widget.stage.maximumSteps)),
+                      SizedBox(height: 24.0),
+                      GameFooter(
+                          onRefreshStage: vm.onRefreshStage,
+                          onEnableDescription: vm.onEnableDescription,
+                          enableDescription: vm.enableDescription)
+                    ],
+                  )),
             ))),
           );
         });

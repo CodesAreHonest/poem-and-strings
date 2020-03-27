@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_five.dart';
+import 'package:poem_and_strings/models/easy_stage/easy_stage_five.dart';
 
 class SuccessFooter extends StatelessWidget {
   final String stageCount;
@@ -8,7 +9,8 @@ class SuccessFooter extends StatelessWidget {
 
   void conditionalNavigation(BuildContext context) {
     String routes = '/DifficultySelection';
-    if (stageCount == DifficultStageFive().stageCount) {
+    if (stageCount == DifficultStageFive().stageCount ||
+        stageCount == EasyStageFive().stageCount) {
       routes = '/Congratulations';
     }
 

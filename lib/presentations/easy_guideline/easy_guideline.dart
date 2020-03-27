@@ -24,17 +24,10 @@ class _EasyGuideLineState extends State<EasyGuideLine> {
             value: SystemUiOverlayStyle.dark,
             child: Container(
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0.1, 0.4, 0.7, 0.9],
-                colors: [
-                  Colors.grey[600],
-                  Colors.grey[500],
-                  Colors.grey[400],
-                  Colors.grey[400],
-                ],
-              )),
+                image: DecorationImage(
+                    image: AssetImage('assets/background/success_bg.jpg'),
+                    fit: BoxFit.fill),
+              ),
               child: Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Column(
