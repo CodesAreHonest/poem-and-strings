@@ -5,12 +5,14 @@ import 'package:poem_and_strings/models/player.dart';
 class GameHeader extends StatefulWidget {
   final int step;
   final String stageCount;
+  final int maximumSteps;
   final Player player = Player();
   final bool enableDescription;
 
   GameHeader(
       {@required this.step,
       @required this.stageCount,
+      @required this.maximumSteps,
       @required this.enableDescription});
 
   @override
@@ -48,6 +50,7 @@ class _GameHeaderState extends State<GameHeader> {
   @override
   Widget build(BuildContext context) {
     int step = widget.step;
+    int maximumStep = widget.maximumSteps;
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(colors: <Color>[
@@ -65,7 +68,7 @@ class _GameHeaderState extends State<GameHeader> {
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0)),
-          Text("$step/10 步",
+          Text("$step/$maximumStep 步",
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

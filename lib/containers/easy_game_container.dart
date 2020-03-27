@@ -58,6 +58,7 @@ class _EasyGameState extends State<EasyGameContainer> {
                   GameHeader(
                       step: vm.step,
                       stageCount: widget.stage.stageCount,
+                      maximumSteps: widget.stage.maximumSteps,
                       enableDescription: vm.enableDescription),
                   GameTranslation(
                       translation: widget.stage.translation,

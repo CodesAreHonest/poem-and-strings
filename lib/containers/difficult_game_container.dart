@@ -52,6 +52,7 @@ class _DifficultGameContainerState extends State<DifficultGameContainer> {
                 GameHeader(
                     step: vm.step,
                     stageCount: widget.stage.stageCount,
+                    maximumSteps: widget.stage.maximumSteps,
                     enableDescription: vm.enableDescription),
                 GameTranslation(
                     translation: widget.stage.translation,
