@@ -102,7 +102,7 @@ class Player {
   Future<int> getCoinBalance() async {
     final SharedPreferences _localStorage = await localStorage;
     int coinBalance = _localStorage.getInt('coinBalance');
-    return coinBalance ?? 2;
+    return coinBalance < 0 ? 2 : coinBalance;
   }
 
   /// Increment player coin based on type of steps completed.
