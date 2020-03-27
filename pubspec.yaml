@@ -71,6 +71,7 @@ flutter:
     - assets/background/third_bg.jpg
     - assets/background/old_fashion.jpeg
     - assets/background/water_bg.jpg
+    - assets/background/success_bg.jpg
     - assets/icon/flower.png
     - assets/guideline/first_step.jpeg
     - assets/guideline/second_step.gif

@@ -32,7 +32,7 @@ class Congratulation extends StatelessWidget {
           padding: EdgeInsets.fromLTRB(8.0, 40.0, 8.0, 8.0),
           height: 300,
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(16.0)),
+              borderRadius: BorderRadius.circular(16.0), color: Colors.white),
           child: Column(
             children: <Widget>[
               SizedBox(height: 8.0),
@@ -69,7 +69,12 @@ class Congratulation extends StatelessWidget {
       alignment: Alignment.center,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(color: Colors.grey[100]),
+        decoration: BoxDecoration(
+          color: Colors.grey[100],
+          image: DecorationImage(
+              image: AssetImage('assets/background/success_bg.jpg'),
+              fit: BoxFit.fill),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

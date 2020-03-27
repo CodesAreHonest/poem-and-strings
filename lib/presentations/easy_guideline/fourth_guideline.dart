@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:poem_and_strings/containers/easy_game_container.dart';
-import 'package:poem_and_strings/models/difficult_stage/difficult_stage_one.dart';
+import 'package:poem_and_strings/models/easy_stage/easy_stage_one.dart';
 import 'package:poem_and_strings/models/models.dart';
 
 class FourthGuideline extends StatelessWidget {
-  final DifficultStageOne diffStageOne = DifficultStageOne();
+  final EasyStageOne easyStageOne = EasyStageOne();
 
   @override
   Widget build(BuildContext context) {
-    int numOfRows = diffStageOne.numOfRows;
-    List<Character> stageData = diffStageOne.stageData;
-    String stageCount = diffStageOne.stageCount;
-    int maximumSteps = diffStageOne.maximumSteps;
-    String translation = diffStageOne.translation;
-    String background = diffStageOne.background;
-    String youtubeLink = diffStageOne.youtubeLink;
-    String originalText = diffStageOne.originalText;
+    int numOfRows = easyStageOne.numOfRows;
+    List<Character> stageData = easyStageOne.stageData;
+    String stageCount = easyStageOne.stageCount;
+    int maximumSteps = easyStageOne.maximumSteps;
+    String translation = easyStageOne.translation;
+    String background = easyStageOne.background;
+    String youtubeLink = easyStageOne.youtubeLink;
+    String originalText = easyStageOne.originalText;
 
     return Container(
       color: Colors.white,

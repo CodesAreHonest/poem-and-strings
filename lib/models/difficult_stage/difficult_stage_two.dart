@@ -9,7 +9,7 @@ class DifficultStageTwo {
     Character("庭", false, false, 3),
     Character("山", false, false, 4),
     Character("水", false, false, 5),
-    Character("'翠", false, false, 6),
+    Character("翠", false, false, 6),
     Character("白", false, false, 7),
     Character("银", false, false, 8),
     Character("盘", false, false, 9),
