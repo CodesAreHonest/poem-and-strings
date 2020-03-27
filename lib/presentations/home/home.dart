@@ -43,9 +43,10 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GameTitle(),
+                  SizedBox(height: 50),
 //              PoemFound(totalStageCompleted: totalStageCompleted),
                   AppButtons(),
                 ],
