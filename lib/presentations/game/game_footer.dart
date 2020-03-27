@@ -122,7 +122,7 @@ class _GameFooterState extends State<GameFooter> {
               ],
             ),
             Visibility(
-              visible: !widget.enableDescription && coin >= 2,
+              visible: !widget.enableDescription && coin >= 5,
               child: Column(
                 children: <Widget>[
                   RawMaterialButton(
