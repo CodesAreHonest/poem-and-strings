@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:poem_and_strings/models/models.dart';
 import 'package:poem_and_strings/presentations/success/success_poems.dart';
-import 'package:poem_and_strings/widgets/youtube_video.dart';
+
 import 'success_header.dart';
 import 'success_message.dart';
 import 'success_rating.dart';
 import 'success_coin_amount.dart';
 import 'success_footer.dart';
+
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_youtube/flutter_youtube.dart';
 
 class SuccessPage extends StatefulWidget {
   final String youtubeLink;
@@ -69,11 +72,8 @@ class _SuccessPageState extends State<SuccessPage> {
   }
 
   showYoutubeVideo(context) {
-    Navigator.push(
-        context,
-        CupertinoPageRoute(
-            builder: (context) =>
-                YoutubeVideo(youtubeLink: widget.youtubeLink)));
+    FlutterYoutube.playYoutubeVideoById(
+        apiKey: DotEnv().env['YOUTUBE_API_KEY'], videoId: widget.youtubeLink);
   }
 
   @override

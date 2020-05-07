@@ -28,7 +28,7 @@ class DifficultStageTwo {
       "洞庭湖的水光与秋月交相融和，水面波平浪静就好像铜镜未磨。远远望去洞庭湖山水一片翠 绿，恰似白银盘子托着青青的田螺。";
   final String background =
       "《望洞庭》是在长庆四年（公元824年）秋天写的，刘禹锡被贬逐南荒，二十年里来去洞庭六次。其中一次，刘禹锡要到和州做官，经过洞庭湖，观望洞庭湖的景色而写下了这首诗。";
-  final String youtubeLink = 'assets/video/easy_stage_two.mp4';
+  final String youtubeLink = 'cN2WEAjBEuw';
   final String originalText = '爆湖光秋月两相和，\n潭面无风镜未磨。\n遥望洞庭山水翠，\n白银盘里一青螺。';
 
   DifficultStageTwo();

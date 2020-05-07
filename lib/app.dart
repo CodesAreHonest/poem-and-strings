@@ -4,6 +4,7 @@ import 'package:poem_and_strings/actions/music_actions.dart';
 import 'package:poem_and_strings/presentations/home/home.dart';
 import 'package:poem_and_strings/routes.dart';
 import "package:poem_and_strings/models/models.dart";
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Application extends StatefulWidget {
   @override
@@ -14,6 +15,7 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+    this.loadEnvironment();
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -42,6 +44,10 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
     StoreProvider.of<AppState>(context).dispatch(StopMusicActions());
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
+  }
+
+  void loadEnvironment() async {
+    await DotEnv().load('.env');
   }
 
   @override

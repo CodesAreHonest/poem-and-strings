@@ -1,7 +1,8 @@
-import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter_youtube/flutter_youtube.dart';
 
 class YoutubeVideo extends StatefulWidget {
   final String youtubeLink;
@@ -15,46 +16,31 @@ class YoutubeVideo extends StatefulWidget {
 }
 
 class _YoutubeVideoState extends State<YoutubeVideo> {
-  VideoPlayerController _videoPlayerController;
-  ChewieController _chewieController;
+  YoutubePlayerController _youtubePlayerController;
+
+  void playYoutubeVideo() {
+    FlutterYoutube.playYoutubeVideoById(
+        apiKey: DotEnv().env['YOUTUBE_API_KEY'], videoId: widget.youtubeLink);
+  }
 
   @override
   void initState() {
     super.initState();
-    _videoPlayerController = VideoPlayerController.asset(widget.youtubeLink);
-    _chewieController = ChewieController(
-      videoPlayerController: _videoPlayerController,
-      aspectRatio: 3 / 2,
-      autoPlay: true,
-      looping: true,
-      // Try playing around with some of these other options:
-
-      // showControls: false,
-      // materialProgressColors: ChewieProgressColors(
-      //   playedColor: Colors.red,
-      //   handleColor: Colors.blue,
-      //   backgroundColor: Colors.grey,
-      //   bufferedColor: Colors.lightGreen,
-      // ),
-      // placeholder: Container(
-      //   color: Colors.grey,
-      // ),
-      autoInitialize: true,
-    );
   }
 
   @override
   void dispose() {
-    _videoPlayerController.dispose();
-    _chewieController.dispose();
+    _youtubePlayerController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Chewie(
-        controller: _chewieController,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: new RaisedButton(
+            child: new Text("Play Default Video"), onPressed: playYoutubeVideo),
       ),
     );
   }
