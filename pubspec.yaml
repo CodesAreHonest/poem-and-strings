@@ -23,10 +23,8 @@ dependencies:
   flutter_redux: ^0.6.0
   meta: ^1.1.8
   youtube_player_flutter: ^6.1.1
-  assets_audio_player: ^1.2.3
   shared_preferences: ^0.5.6+3
-  chewie: ^0.9.10
-  video_player: ^0.10.8+1
+  assets_audio_player: ^1.4.0+1
   flutter_youtube: ^2.0.0
   flutter_dotenv: ^2.1.0
 
@@ -62,7 +60,7 @@ flutter:
     - assets/stack-of-coins.png
     - assets/red-banner.png
     - assets/icon/trophie.png
-    - assets/musics/background_music.mp3
+    - assets/musics/
     - assets/background/water_bg.jpg
     - assets/background/second_bg.jpeg
     - assets/background/third_bg.jpg

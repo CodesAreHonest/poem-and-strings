@@ -12,7 +12,7 @@ final musicReducer = combineReducers<MusicState>([
 
 MusicState _startMusic(MusicState musicState, StartMusicActions action) {
   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
-  _assetsAudioPlayer.open('assets/musics/background_music.mp3');
+  _assetsAudioPlayer.open(Audio('assets/musics/background_music.mp3'));
   _assetsAudioPlayer.loop = true;
   _assetsAudioPlayer.play();
   return musicState.copyWith(assetsAudioPlayer: _assetsAudioPlayer);
