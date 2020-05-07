@@ -1,11 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:poem_and_strings/models/models.dart';
 import 'widgets/game_title.dart';
-import 'widgets/poem_found.dart';
 import 'widgets/app_buttons/index.dart';
 
 class Home extends StatefulWidget {
-  Player player = Player();
+  final Player player = Player();
 
   @override
   _HomeState createState() => _HomeState();

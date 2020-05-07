@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import 'difficulty_selection_header.dart';
 import 'difficult_selection_body/index.dart';
 
 class DifficultySelection extends StatefulWidget {
