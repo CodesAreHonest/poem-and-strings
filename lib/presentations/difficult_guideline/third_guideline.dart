@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poem_and_strings/containers/difficult_game_container.dart';
-import 'package:poem_and_strings/containers/easy_game_container.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_one.dart';
-import 'package:poem_and_strings/models/easy_stage/easy_stage_one.dart';
 import 'package:poem_and_strings/models/models.dart';
 
 class ThirdGuideline extends StatelessWidget {

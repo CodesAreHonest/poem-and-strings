@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:poem_and_strings/data/StageLevel.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_record.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_record.dart';
 import 'package:shared_preferences/shared_preferences.dart';

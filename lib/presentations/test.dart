@@ -9,6 +9,7 @@ class Test extends StatelessWidget {
     return RaisedButton.icon(
         onPressed: () async {
           Map<String, int> data = await player.getEasyStageProgress();
+		  print (data); 
         },
         icon: Icon(Icons.ondemand_video),
         label: Text('Get Stage'));
