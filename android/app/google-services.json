@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "221765501301",
+    "firebase_url": "https://poem-and-string.firebaseio.com",
+    "project_id": "poem-and-string",
+    "storage_bucket": "poem-and-string.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221765501301:android:9a230a961594686d7dd33c",
+        "android_client_info": {
+          "package_name": "com.yinghua.poem_and_strings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221765501301-gj9e6b5jnrlfohh2v6ta5oqfd1mvi789.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvaBJRSGWnQUD6IeijRuwr1nGIzqY02dQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "221765501301-gj9e6b5jnrlfohh2v6ta5oqfd1mvi789.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
