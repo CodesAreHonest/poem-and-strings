@@ -22,8 +22,15 @@ Getting Started
 Download the application in play store:    
 https://play.google.com/store/apps/details?id=com.yinghua.poem_and_strings
 
-Software Resources
-==================
+Tool and Technologies
+=====================
 1. Linux Ubuntu 20.04 LTS (Focal Fossa) AMD64 Desktop OS
 2. Flutter 1.17.1 SDK
 3. Dart 2.8.2 Programming Language
+
+About
+=====
+
+Contributor
+-----------
+- **Yinghua Chai**
