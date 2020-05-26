@@ -8,14 +8,15 @@ Table Of Contents
   * [About This Project](#about-this-project)
   * [Technical Discussion](#technical-discussion)
   * [Getting Started](#getting-started)
+    * [Installation](#installation)
   * [Tools and Technologies](#tool-and-technologies)
   * [About](#about)
     * [Author](#author)
     * [License](#license)
 
 
-About This Project
-==================
+Motivation
+========== 
 Poem and Strings is an Game-based learning application **that help recite ancient poems correctly and understand the content and creative background of ancient poems**. Player is required to complete the game by rearrange the characters initialize in wrong orders intocorrect sequences to form a poem within a given amount of steps based on the stage difficulty. Player can use hints in order to assist on rearrange the poems. 
 
 Upon complete the stage, player can understand the meaning of the full poems, background stories of the poems with Youtube videos. The application attempts to help student acquire desired chinese poem knowledge through **meaning to action**. 
@@ -30,8 +31,30 @@ Getting Started
 Download the application in play store:    
 https://play.google.com/store/apps/details?id=com.yinghua.poem_and_strings
 
-Tool and Technologies
-=====================
+Installation
+------------
+1. Clone the repository
+```git
+git clone https://github.com/CodesAreHonest/poem-and-strings.git
+```
+
+2. Fetch all the packages into the directory
+```pub
+flutter pub get
+```
+
+3. Show the information and verify the status about the installed tooling
+```pub
+flutter doctor
+```
+
+4. Run the flutter application in debug mode
+```pub
+flutter run
+```
+
+Tools and Technologies
+======================
 1. Linux Ubuntu 20.04 LTS (Focal Fossa) AMD64 Desktop OS
 2. Flutter 1.17.1 SDK
 3. Dart 2.8.2 Programming Language
