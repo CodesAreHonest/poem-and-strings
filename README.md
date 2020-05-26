@@ -5,7 +5,6 @@ Poem and Strings
 Table Of Contents 
 =================
 
-  * [About This Project](#about-this-project)
   * [Motivation](#motivation)
   * [Technical Discussion](#technical-discussion)
   * [Getting Started](#getting-started)
