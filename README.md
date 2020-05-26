@@ -28,8 +28,6 @@ The project *pub package manager* to integrate game background musics and Youtub
 
 Getting Started
 ===============
-Download the application in play store:    
-https://play.google.com/store/apps/details?id=com.yinghua.poem_and_strings
 
 Installation
 ------------
@@ -61,6 +59,9 @@ Tools and Technologies
 
 About
 =====
+
+Application available in play store:    
+https://play.google.com/store/apps/details?id=com.yinghua.poem_and_strings
 
 Author
 -----------
