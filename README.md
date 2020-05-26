@@ -1,6 +1,6 @@
 Poem and Strings
 ================
-My first mobile application playground that attempt to gain exposure on Flutter's SDK, expressive and flexible Material's API, understand the concept of Reactive Programming with Dart's programming language and it's CLI to perform build and release to an Android application.
+> My first mobile application playground that attempt to gain exposure on Flutter's SDK, expressive and flexible Material's API, understand the concept of Reactive Programming with Dart's programming language and it's CLI to perform build and release to an Android application.
 
 Table Of Contents 
 =================
