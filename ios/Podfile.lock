@@ -1,0 +1,47 @@
+PODS:
+  - assets_audio_player (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - flutter_youtube (0.0.1):
+    - Flutter
+    - XCDYouTubeKit
+  - shared_preferences (0.0.1):
+    - Flutter
+  - webview_media (0.0.1):
+    - Flutter
+  - XCDYouTubeKit (2.15.2)
+
+DEPENDENCIES:
+  - assets_audio_player (from `.symlinks/plugins/assets_audio_player/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_youtube (from `.symlinks/plugins/flutter_youtube/ios`)
+  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - webview_media (from `.symlinks/plugins/webview_media/ios`)
+
+SPEC REPOS:
+  trunk:
+    - XCDYouTubeKit
+
+EXTERNAL SOURCES:
+  assets_audio_player:
+    :path: ".symlinks/plugins/assets_audio_player/ios"
+  Flutter:
+    :path: Flutter
+  flutter_youtube:
+    :path: ".symlinks/plugins/flutter_youtube/ios"
+  shared_preferences:
+    :path: ".symlinks/plugins/shared_preferences/ios"
+  webview_media:
+    :path: ".symlinks/plugins/webview_media/ios"
+
+SPEC CHECKSUMS:
+  assets_audio_player: 828c5761d1e51c569f40e622db3a2cbfd61ecb7d
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  flutter_youtube: 142f8d5af0a11963bdc73e13bcae6eb78db746c2
+  shared_preferences: 430726339841afefe5142b9c1f50cb6bd7793e01
+  webview_media: 33604c2c1805f41bd0c6749c4d7de24b8cb4d81d
+  XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.10.1

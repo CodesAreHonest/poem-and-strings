@@ -2,6 +2,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:poem_and_strings/actions/music_actions.dart';
 import 'package:poem_and_strings/states/states.dart';
 import 'package:redux/redux.dart';
+import 'package:rxdart/rxdart.dart';
 
 final musicReducer = combineReducers<MusicState>([
   TypedReducer<MusicState, StartMusicActions>(_startMusic),
@@ -13,7 +14,7 @@ final musicReducer = combineReducers<MusicState>([
 MusicState _startMusic(MusicState musicState, StartMusicActions action) {
   AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer();
   _assetsAudioPlayer.open(Audio('assets/musics/background_music.mp3'));
-  _assetsAudioPlayer.loop = true;
+  _assetsAudioPlayer.setLoopMode(LoopMode.single);
   _assetsAudioPlayer.play();
   return musicState.copyWith(assetsAudioPlayer: _assetsAudioPlayer);
 }
