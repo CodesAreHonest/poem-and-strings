@@ -7,14 +7,16 @@ class DifficultButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
         onPressed: () {
           navigateToSubPage(context);
         },
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-        textColor: Colors.white,
-        padding: EdgeInsets.all(0.0),
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0))),
+            textStyle:
+                MaterialStateProperty.all(TextStyle(color: Colors.white)),
+            padding: MaterialStateProperty.all(EdgeInsets.all(0))),
         child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16.0),

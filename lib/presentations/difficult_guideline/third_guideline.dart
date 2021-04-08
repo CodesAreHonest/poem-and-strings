@@ -27,9 +27,11 @@ class ThirdGuideline extends StatelessWidget {
         SizedBox(height: 20),
         Image.asset('assets/guideline/fourth_step.jpeg', width: 225),
         SizedBox(height: 20),
-        RaisedButton(
-          color: Colors.green[700],
-          padding: EdgeInsets.symmetric(horizontal: 80.0),
+        TextButton(
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.green[700]),
+              padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(horizontal: 8.0))),
           onPressed: () {
             Navigator.push(
                 context,

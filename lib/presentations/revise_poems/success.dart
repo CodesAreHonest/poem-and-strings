@@ -3,15 +3,17 @@ import 'package:flutter/painting.dart';
 
 class RevisionSuccess extends StatelessWidget {
   Widget successContainer(context) {
-    Widget backToHomeButton = RaisedButton(
-        color: Colors.blue[700],
+    Widget backToHomeButton = ElevatedButton(
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0))),
+            backgroundColor: MaterialStateProperty.all(Colors.blue[700]),
+            padding: MaterialStateProperty.all(
+                EdgeInsets.symmetric(horizontal: 80.0, vertical: 16.0))),
         onPressed: () {
           Navigator.pushNamedAndRemoveUntil(
               context, '/DifficultySelection', (e) => false);
         },
-        padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 16.0),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
         child:
             Text('回到主页', style: TextStyle(color: Colors.white, fontSize: 16)));
 
@@ -56,7 +58,7 @@ class RevisionSuccess extends StatelessWidget {
           children: <Widget>[
             Container(
               padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Stack(overflow: Overflow.visible, children: <Widget>[
+              child: Stack(clipBehavior: Clip.none, children: <Widget>[
                 successContainer(context),
               ]),
             )

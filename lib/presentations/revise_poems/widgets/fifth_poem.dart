@@ -4,21 +4,26 @@ import 'package:poem_and_strings/presentations/revise_poems/utilities/styles.dar
 
 @immutable
 class FifthPoem extends StatelessWidget {
-  final EasyStageFive stageFive = EasyStageFive();
-
-  Widget completeMissionContainer(BuildContext context) => RaisedButton(
-      color: Colors.white70,
+  Widget completeMissionContainer(BuildContext context) => ElevatedButton(
+      style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.white70),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          ),
+          padding: MaterialStateProperty.all(
+            EdgeInsets.symmetric(horizontal: 120.0, vertical: 16.0),
+          )),
       onPressed: () {
         Navigator.pushNamedAndRemoveUntil(
             context, '/RevisionSuccess', (e) => false);
       },
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      padding: EdgeInsets.symmetric(horizontal: 120.0, vertical: 16.0),
       child: Text('结束',
           style: TextStyle(
               color: Colors.blue[800],
               fontSize: 16,
               fontWeight: FontWeight.bold)));
+
+  final EasyStageFive stageFive = EasyStageFive();
 
   @override
   Widget build(BuildContext context) {

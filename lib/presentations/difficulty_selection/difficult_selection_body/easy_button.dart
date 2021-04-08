@@ -12,14 +12,16 @@ class _State extends State<EasyButton> {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
         onPressed: () {
           navigateToSubPage(context);
         },
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-        textColor: Colors.white,
-        padding: EdgeInsets.all(0.0),
+        style: ButtonStyle(
+            textStyle:
+                MaterialStateProperty.all(TextStyle(color: Colors.white)),
+            padding: MaterialStateProperty.all(EdgeInsets.zero),
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0)))),
         child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16.0),
@@ -38,7 +40,6 @@ class _State extends State<EasyButton> {
                 children: <Widget>[
                   Text("简单", style: TextStyle(fontSize: 32)),
                   SizedBox(height: 8.0),
-//                  Text("1/10", style: TextStyle(fontSize: 16, color: Colors.white70))
                 ])));
   }
 }

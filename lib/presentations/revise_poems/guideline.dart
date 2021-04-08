@@ -25,14 +25,17 @@ class RevisionGuideline extends StatelessWidget {
                     height: 1.6))
           ])));
 
-  Widget enterChallengeButton(BuildContext context) => RaisedButton(
-      color: Colors.blue[700],
+  Widget enterChallengeButton(BuildContext context) => ElevatedButton(
+      style: ButtonStyle(
+          padding: MaterialStateProperty.all(
+              EdgeInsets.symmetric(horizontal: 80.0, vertical: 16.0)),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0))),
+          backgroundColor: MaterialStateProperty.all(Colors.blue[700])),
       onPressed: () {
         Navigator.pushNamedAndRemoveUntil(
             context, '/RevisePoems', (e) => false);
       },
-      padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 16.0),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Text('进入挑战', style: TextStyle(color: Colors.white, fontSize: 16)));
 
   @override

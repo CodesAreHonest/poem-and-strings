@@ -3,26 +3,32 @@ import 'package:flutter/painting.dart';
 
 class Congratulation extends StatelessWidget {
   Widget successContainer(context) {
-    Widget nextActivityButton = RaisedButton(
+    Widget nextActivityButton = ElevatedButton(
       onPressed: () {
         Navigator.pushNamed(context, '/RevisionGuideline');
       },
-      color: Colors.blue[700],
-      padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 16.0),
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-          side: BorderSide(color: Colors.blue[800])),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.blue[700]),
+        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+            EdgeInsets.symmetric(horizontal: 80.0, vertical: 16.0)),
+        shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+            side: BorderSide(color: Colors.blue[800]))),
+      ),
       child: Text('下一个活动', style: TextStyle(color: Colors.white, fontSize: 16)),
     );
 
-    Widget backToHomeButton = FlatButton(
+    Widget backToHomeButton = TextButton(
         onPressed: () {
           Navigator.pushNamedAndRemoveUntil(
               context, '/DifficultySelection', (e) => false);
         },
-        padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 16.0),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+        style: ButtonStyle(
+            padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                EdgeInsets.symmetric(horizontal: 80.0, vertical: 16.0)),
+            shape: MaterialStateProperty.all<OutlinedBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)))),
         child: Text('回到主页',
             style: TextStyle(color: Colors.blue[800], fontSize: 16)));
 
@@ -30,6 +36,7 @@ class Congratulation extends StatelessWidget {
       child: Container(
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.fromLTRB(8.0, 40.0, 8.0, 8.0),
+          margin: EdgeInsets.symmetric(horizontal: 16.0),
           height: 300,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16.0), color: Colors.white),
@@ -80,7 +87,7 @@ class Congratulation extends StatelessWidget {
           children: <Widget>[
             Container(
               padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Stack(overflow: Overflow.visible, children: <Widget>[
+              child: Stack(clipBehavior: Clip.none, children: <Widget>[
                 successContainer(context),
                 trophieImage(context),
               ]),

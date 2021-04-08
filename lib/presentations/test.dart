@@ -6,17 +6,17 @@ class Test extends StatelessWidget {
   final Player player = Player();
 
   Widget getEasyStageButton() {
-    return RaisedButton.icon(
+    return ElevatedButton.icon(
         onPressed: () async {
           Map<String, int> data = await player.getEasyStageProgress();
-		  print (data); 
+          print(data);
         },
         icon: Icon(Icons.ondemand_video),
         label: Text('Get Stage'));
   }
 
   Widget setEasyStageButton() {
-    return RaisedButton.icon(
+    return ElevatedButton.icon(
         onPressed: () {
           String firstLevel = EasyLevel.second.toString();
           player.setEasyStageProgress(firstLevel, 3);
@@ -26,12 +26,15 @@ class Test extends StatelessWidget {
   }
 
   Widget removeEasyStageButton() {
-    return RaisedButton.icon(
-        onPressed: () {
-          player.removeEasyStageProgress();
-        },
-        icon: Icon(Icons.ondemand_video),
-        label: Text('Delete Stage'));
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 8.0),
+      child: ElevatedButton.icon(
+          onPressed: () {
+            player.removeEasyStageProgress();
+          },
+          icon: Icon(Icons.ondemand_video),
+          label: Text('Delete Stage')),
+    );
   }
 
   @override

@@ -46,7 +46,7 @@ class _SuccessPageState extends State<SuccessPage> {
   }
 
   showBackgroundDialog(BuildContext context) {
-    Widget closeButton = FlatButton(
+    Widget closeButton = TextButton(
       child: Text("我明白了", style: TextStyle(color: Colors.blue)),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop('dialog');
@@ -107,23 +107,32 @@ class _SuccessPageState extends State<SuccessPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    RaisedButton(
-                        onPressed: () {
-                          showBackgroundDialog(context);
-                        },
-                        textColor: Colors.white,
-                        child: Text('创作背景', style: TextStyle(fontSize: 16.0)),
-                        color: Colors.blue[600],
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 24.0, vertical: 16.0)),
-                    RaisedButton(
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.blue[600]),
+                          padding: MaterialStateProperty.all(
+                              EdgeInsets.symmetric(
+                                  horizontal: 24.0, vertical: 16.0)),
+                          textStyle: MaterialStateProperty.all(
+                              TextStyle(color: Colors.white))),
+                      onPressed: () {
+                        showBackgroundDialog(context);
+                      },
+                      child: Text('创作背景', style: TextStyle(fontSize: 16.0)),
+                    ),
+                    ElevatedButton(
+                        style: ButtonStyle(
+                            textStyle: MaterialStateProperty.all(
+                                TextStyle(color: Colors.white)),
+                            padding: MaterialStateProperty.all(
+                                EdgeInsets.symmetric(
+                                    horizontal: 24.0, vertical: 16.0)),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.red[700])),
                         onPressed: () {
                           showYoutubeVideo(context);
                         },
-                        textColor: Colors.white,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 24.0, vertical: 16.0),
-                        color: Colors.red[700],
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[

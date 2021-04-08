@@ -22,11 +22,12 @@ class SuccessFooter extends StatelessWidget {
     return Expanded(
       child: Align(
         alignment: FractionalOffset.bottomCenter,
-        child: RaisedButton.icon(
+        child: ElevatedButton.icon(
             onPressed: () {
               this.conditionalNavigation(context);
             },
-            color: Colors.green[500],
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.green[500])),
             icon: Icon(Icons.thumb_up, size: 12, color: Colors.white),
             label: Text('完成', style: TextStyle(color: Colors.white))),
       ),

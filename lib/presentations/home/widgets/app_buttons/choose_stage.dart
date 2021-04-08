@@ -7,15 +7,16 @@ class ChooseStage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
         onPressed: () {
           navigateToSubPage(context);
         },
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        textColor: Colors.white,
-        padding: const EdgeInsets.all(0.0),
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0))),
+            padding: MaterialStateProperty.all(EdgeInsets.zero),
+            textStyle:
+                MaterialStateProperty.all(TextStyle(color: Colors.white))),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.0),

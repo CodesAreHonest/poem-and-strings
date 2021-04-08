@@ -39,7 +39,7 @@ class _YoutubeVideoState extends State<YoutubeVideo> {
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: new RaisedButton(
+        child: new ElevatedButton(
             child: new Text("Play Default Video"), onPressed: playYoutubeVideo),
       ),
     );

@@ -5,7 +5,7 @@ class RestartGameDialog extends StatelessWidget {
 
   RestartGameDialog({@required this.onRefreshStage});
 
-  Widget confirmButton(BuildContext context) => FlatButton(
+  Widget confirmButton(BuildContext context) => TextButton(
         child: Text("重新游戏", style: TextStyle(color: Colors.blue)),
         onPressed: () {
           this.onRefreshStage();
@@ -13,7 +13,7 @@ class RestartGameDialog extends StatelessWidget {
         },
       );
 
-  Widget cancelButton(BuildContext context) => FlatButton(
+  Widget cancelButton(BuildContext context) => TextButton(
         child: Text("取消", style: TextStyle(color: Colors.grey)),
         onPressed: () {
           Navigator.of(context, rootNavigator: true).pop('dialog');
