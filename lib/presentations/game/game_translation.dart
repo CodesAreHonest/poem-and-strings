@@ -9,25 +9,24 @@ class GameTranslation extends StatelessWidget {
 
   Widget description(context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.white),
-      padding: EdgeInsets.all(16.0),
+      decoration: BoxDecoration(color: Colors.transparent),
+      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       width: MediaQuery.of(context).size.width,
       child: Container(
-        width: 100,
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(2.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-                padding: EdgeInsets.all(12.0),
+                padding: EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: <Color>[
-                      Colors.grey[100],
                       Colors.grey[200],
                       Colors.grey[300],
+                      Colors.grey[350],
                     ])),
                 child: Column(
                   children: <Widget>[
@@ -55,7 +54,7 @@ class GameTranslation extends StatelessWidget {
 
   Widget blankDescription(context) {
     return Container(
-        decoration: BoxDecoration(color: Colors.white70),
+        decoration: BoxDecoration(color: Colors.transparent),
         padding: EdgeInsets.all(64.0),
         width: MediaQuery.of(context).size.width,
         child: Container());

@@ -81,7 +81,6 @@ class _GameFooterState extends State<GameFooter> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(color: Colors.white),
         padding: EdgeInsets.symmetric(vertical: 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

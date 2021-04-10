@@ -223,23 +223,32 @@ class _GameBodyState extends State<GameBody> {
   }
 
   TextStyle characterText(bool isSelected, bool isCompleted, bool isSpecial) {
+    double characterFontSize = 24.0;
     if (isCompleted) {
       return TextStyle(
-          color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.bold);
+          color: Colors.white,
+          fontSize: characterFontSize,
+          fontWeight: FontWeight.bold);
     }
 
     if (isSelected) {
       return TextStyle(
-          color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.bold);
+          color: Colors.black,
+          fontSize: characterFontSize,
+          fontWeight: FontWeight.bold);
     }
 
     if (isSpecial) {
       return TextStyle(
-          color: Colors.pink[200], fontSize: 16.0, fontWeight: FontWeight.w800);
+          color: Colors.pink[200],
+          fontSize: characterFontSize,
+          fontWeight: FontWeight.w800);
     }
 
     return TextStyle(
-        color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.normal);
+        color: Colors.black,
+        fontSize: characterFontSize,
+        fontWeight: FontWeight.normal);
   }
 
   List<Widget> renderCharacters(List<Character> stageData) {
@@ -290,9 +299,12 @@ class _GameBodyState extends State<GameBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(color: Colors.white),
+        width: MediaQuery.of(context).size.width,
+        margin: EdgeInsets.symmetric(horizontal: 16.0),
+        decoration: BoxDecoration(
+            color: Colors.white70, borderRadius: BorderRadius.circular(8.0)),
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Container(
             child: Column(
               children: renderCharacters(widget.stageData),

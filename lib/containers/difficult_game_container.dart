@@ -57,6 +57,7 @@ class _DifficultGameContainerState extends State<DifficultGameContainer> {
                 GameTranslation(
                     translation: widget.stage.translation,
                     enableDescription: vm.enableDescription),
+                SizedBox(height: 16.0),
                 GameBody(
                     key: ArcKeys.difficultStageBody(widget.stage.stageCount),
                     originalText: widget.stage.originalText,
@@ -76,7 +77,7 @@ class _DifficultGameContainerState extends State<DifficultGameContainer> {
                     stageCount: widget.stage.stageCount,
                     isStageIncompleted: isStageIncompletedSelector(
                         vm.step, widget.stage.maximumSteps)),
-                SizedBox(height: 32.0),
+                SizedBox(height: 16.0),
                 GameFooter(
                     onRefreshStage: vm.onRefreshStage,
                     onEnableDescription: vm.onEnableDescription,

@@ -68,6 +68,7 @@ class _EasyGameState extends State<EasyGameContainer> {
                       GameTranslation(
                           translation: widget.stage.translation,
                           enableDescription: vm.enableDescription),
+                      SizedBox(height: 16.0),
                       GameBody(
                           key: ArcKeys.easyStageBody(widget.stage.stageCount),
                           originalText: widget.stage.originalText,
@@ -87,7 +88,7 @@ class _EasyGameState extends State<EasyGameContainer> {
                           stageCount: widget.stage.stageCount,
                           isStageIncompleted: isStageIncompletedSelector(
                               vm.step, widget.stage.maximumSteps)),
-                      SizedBox(height: 24.0),
+                      SizedBox(height: 16.0),
                       GameFooter(
                           onRefreshStage: vm.onRefreshStage,
                           onEnableDescription: vm.onEnableDescription,
