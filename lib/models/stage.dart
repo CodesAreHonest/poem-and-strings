@@ -10,7 +10,6 @@ class Stage {
   final String stageCount;
   final List<Character> stageData;
   final String translation;
-  final String background;
   final String youtubeLink;
   final String originalText;
 
@@ -21,7 +20,6 @@ class Stage {
       @required this.stageCount,
       @required this.maximumSteps,
       @required this.translation,
-      @required this.background,
       @required this.youtubeLink,
       @required this.originalText});
 

@@ -26,14 +26,13 @@ class EasyStage extends StatelessWidget {
     String stageCount = stage.stageCount;
     int maximumSteps = stage.maximumSteps;
     String translation = stage.translation;
-    String background = stage.background;
     String youtubeLink = stage.youtubeLink;
     String originalText = stage.originalText;
 
     return Column(
       children: <Widget>[
         Card(
-          elevation: 3.0,
+          elevation: 7.0,
           child: ListTile(
             leading: CircleAvatar(
               backgroundColor: Colors.green[400],
@@ -72,7 +71,6 @@ class EasyStage extends StatelessWidget {
                               stageCount: stageCount,
                               maximumSteps: maximumSteps,
                               translation: translation,
-                              background: background,
                               youtubeLink: youtubeLink,
                               originalText: originalText))));
             },

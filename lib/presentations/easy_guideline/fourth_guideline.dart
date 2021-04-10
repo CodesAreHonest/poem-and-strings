@@ -13,7 +13,6 @@ class FourthGuideline extends StatelessWidget {
     String stageCount = easyStageOne.stageCount;
     int maximumSteps = easyStageOne.maximumSteps;
     String translation = easyStageOne.translation;
-    String background = easyStageOne.background;
     String youtubeLink = easyStageOne.youtubeLink;
     String originalText = easyStageOne.originalText;
 
@@ -43,7 +42,6 @@ class FourthGuideline extends StatelessWidget {
                             stageCount: stageCount,
                             maximumSteps: maximumSteps,
                             translation: translation,
-                            background: background,
                             youtubeLink: youtubeLink,
                             originalText: originalText))));
           },

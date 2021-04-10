@@ -3,33 +3,29 @@ import 'package:poem_and_strings/models/models.dart';
 
 class EasyStageOne {
   final List<Character> stageData = [
-    Character("爆", false, false, 0),
-    Character("竹", false, false, 1),
-    Character("声", false, false, 2),
-    Character("中", false, false, 3),
-    Character("一", false, false, 4),
-    Character("岁", false, false, 5),
-    Character("除", false, false, 6),
-    Character("春", false, false, 7),
-    Character("风", false, false, 8),
-    Character("送", false, false, 9),
-    Character("暖", false, false, 10),
-    Character("入", false, false, 11),
-    Character("屠", false, false, 12),
-    Character("苏", false, false, 13)
+    Character("意", false, false, 0),
+    Character("欲", false, false, 1),
+    Character("捕", false, false, 2),
+    Character("鸣", false, false, 3),
+    Character("蝉", false, false, 4),
+    Character("忽", false, false, 5),
+    Character("然", false, false, 6),
+    Character("闭", false, false, 7),
+    Character("口", false, false, 8),
+    Character("立", false, false, 9),
   ];
 
   final int numOfRows = 2;
   final int maximumSteps = 8;
   final String stageCount = '简单第一关';
-  final String title = '元日';
-  final String dynastyWithAuthor = '宋·王安石';
+  final String title = '所见';
+  final String dynastyWithAuthor = '清·袁枚';
   final String translation =
-      "爆竹声中旧的一年已经过去，迎着和暖的春风开怀畅饮屠苏酒。初升的太阳照耀着千家万户，都把旧的桃符取下换上新的桃符。";
-  final String background =
-      "王安石此时身为宰相,正在大刀阔斧地进行改革.所以这首诗的字里行间都洋溢着他对革除时弊、推行新法的坚定信念及乐观情绪.抒发了他春风得意踌躇满志的心情. 还能体现出他的执政态度.";
+      "牧童骑在黄牛背上，嘹亮的歌声在林中回荡。忽然想要捕捉树上鸣叫的知了，就马上停止唱歌，一声不响地站立在树旁。";
+
+  // https://www.iqiyi.com/v_zxak1wkvj8.html
   final String youtubeLink = 'jRq2F8G1iWU';
-  final String originalText = '爆竹声中一岁除，\n春风送暖入屠苏。\n千门万户曈曈日，\n总把新桃换旧符。';
+  final String originalText = '意欲捕鸣蝉，\n忽然闭口立。';
 
   EasyStageOne();
 }

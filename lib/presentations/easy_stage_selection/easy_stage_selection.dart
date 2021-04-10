@@ -1,6 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:poem_and_strings/data/ArcKeys.dart';
+import 'package:poem_and_strings/models/easy_stage/easy_stage_eight.dart';
+import 'package:poem_and_strings/models/easy_stage/easy_stage_nine.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_one.dart';
+import 'package:poem_and_strings/models/easy_stage/easy_stage_seven.dart';
+import 'package:poem_and_strings/models/easy_stage/easy_stage_six.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_two.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_three.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_four.dart';
@@ -31,11 +35,15 @@ class _EasyStageSelectionState extends State<EasyStageSelection> {
       appBar: EasyStageAppBar(),
       body: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                  'assets/background/old_fashion.jpeg',
-                ),
-                fit: BoxFit.cover)),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[
+              Colors.green.shade600,
+              Colors.green.shade500,
+              Colors.green.shade400,
+              Colors.green.shade300,
+            ])),
         child: Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
@@ -70,6 +78,30 @@ class _EasyStageSelectionState extends State<EasyStageSelection> {
                     stage: EasyStageFive(),
                     starRating: 1,
                     level: 5,
+                    pauseMusic: widget.pauseMusic),
+                EasyStage(
+                    key: ArcKeys.easyStageList('sixStage'),
+                    stage: EasyStageSix(),
+                    starRating: 1,
+                    level: 6,
+                    pauseMusic: widget.pauseMusic),
+                EasyStage(
+                    key: ArcKeys.easyStageList('sevenStage'),
+                    stage: EasyStageSeven(),
+                    starRating: 1,
+                    level: 7,
+                    pauseMusic: widget.pauseMusic),
+                EasyStage(
+                    key: ArcKeys.easyStageList('eightStage'),
+                    stage: EasyStageEight(),
+                    starRating: 1,
+                    level: 8,
+                    pauseMusic: widget.pauseMusic),
+                EasyStage(
+                    key: ArcKeys.easyStageList('nineStage'),
+                    stage: EasyStageNine(),
+                    starRating: 1,
+                    level: 9,
                     pauseMusic: widget.pauseMusic)
               ],
             )),

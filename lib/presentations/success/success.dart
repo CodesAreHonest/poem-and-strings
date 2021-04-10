@@ -108,20 +108,6 @@ class _SuccessPageState extends State<SuccessPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.blue[600]),
-                          padding: MaterialStateProperty.all(
-                              EdgeInsets.symmetric(
-                                  horizontal: 24.0, vertical: 16.0)),
-                          textStyle: MaterialStateProperty.all(
-                              TextStyle(color: Colors.white))),
-                      onPressed: () {
-                        showBackgroundDialog(context);
-                      },
-                      child: Text('创作背景', style: TextStyle(fontSize: 16.0)),
-                    ),
-                    ElevatedButton(
                         style: ButtonStyle(
                             textStyle: MaterialStateProperty.all(
                                 TextStyle(color: Colors.white)),

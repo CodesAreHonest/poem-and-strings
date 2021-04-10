@@ -83,7 +83,6 @@ class _EasyGameState extends State<EasyGameContainer> {
                           onResetStage: vm.onResetStage,
                           step: vm.step,
                           youtubeLink: widget.stage.youtubeLink,
-                          background: widget.stage.background,
                           maximumSteps: widget.stage.maximumSteps,
                           stageCount: widget.stage.stageCount,
                           isStageIncompleted: isStageIncompletedSelector(

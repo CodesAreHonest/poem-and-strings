@@ -43,7 +43,6 @@ class ThirdGuideline extends StatelessWidget {
                             stageCount: stageCount,
                             maximumSteps: maximumSteps,
                             translation: translation,
-                            background: background,
                             youtubeLink: youtubeLink,
                             originalText: originalText))));
           },

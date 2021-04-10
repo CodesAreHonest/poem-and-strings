@@ -1,35 +1,36 @@
 import 'package:poem_and_strings/models/character.dart';
 import 'package:poem_and_strings/models/models.dart';
 
+// 江南可采莲，莲叶何田田，鱼戏莲叶间。
 class EasyStageThree {
   final List<Character> stageData = [
-    Character("寒", false, false, 0),
-    Character("雨", false, false, 1),
-    Character("连", false, false, 2),
-    Character("江", false, false, 3),
-    Character("夜", false, false, 4),
-    Character("入", false, false, 5),
-    Character("吴", false, false, 6),
-    Character("平", false, false, 7),
-    Character("明", false, false, 8),
-    Character("送", false, false, 9),
-    Character("客", false, false, 10),
-    Character("楚", false, false, 11),
-    Character("山", false, false, 12),
-    Character("孤", false, false, 13)
+    Character("江", false, false, 0),
+    Character("南", false, false, 1),
+    Character("可", false, false, 2),
+    Character("采", false, false, 3),
+    Character("莲", false, false, 4),
+    Character("莲", false, false, 5),
+    Character("叶", false, false, 6),
+    Character("何", false, false, 7),
+    Character("田", false, false, 8),
+    Character("田", false, false, 9),
+    Character("鱼", false, false, 10),
+    Character("戏", false, false, 11),
+    Character("莲", false, false, 12),
+    Character("叶", false, false, 13),
+    Character("间", false, false, 14)
   ];
 
-  final int numOfRows = 2;
+  final int numOfRows = 3;
   final int maximumSteps = 8;
   final String stageCount = '简单第三关';
-  final String title = '芙蓉楼送辛渐';
-  final String dynastyWithAuthor = '唐·王昌龄';
+  final String title = '江南';
+  final String dynastyWithAuthor = '汉·乐府';
   final String translation =
-      "冷雨连夜洒遍吴地江天，清晨送走你后，独自面对着楚山离愁无限！到了洛阳，如果洛阳亲友问起我来，就请转告他们，我的心依然像玉壶里的冰那样晶莹纯洁！";
-  final String background =
-      "此诗当作于天宝元年（公元742年），王昌龄当时为江宁丞。辛渐是王昌龄的朋友，这次拟由润州渡江，取道扬州，北上洛阳。王昌龄可能陪他从江宁到润州，然后在此分手。这首诗为在江边离别时所写。";
-  final String youtubeLink = '5Jb8dq9291E';
-  final String originalText = '寒雨连江夜入吴，\n平明送客楚山孤。\n洛阳亲友如相问，\n一片冰心在玉壶。';
+      "江南水上可以采莲，莲叶多么茂盛，鱼儿在莲叶间嬉戏。鱼在莲叶的东边游戏，鱼在莲叶的西边游戏，鱼在莲叶的的南边游戏，鱼在莲叶的北边游戏。";
+  final String background = '';
+  final String youtubeLink = 'P7pXyLT8DY4';
+  final String originalText = '江南可采莲，\n莲叶何田田，\n鱼戏莲叶间。';
 
   EasyStageThree();
 }

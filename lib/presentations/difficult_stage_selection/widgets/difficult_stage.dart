@@ -26,7 +26,6 @@ class DifficultStage extends StatelessWidget {
     String stageCount = stage.stageCount;
     int maximumSteps = stage.maximumSteps;
     String translation = stage.translation;
-    String background = stage.background;
     String youtubeLink = stage.youtubeLink;
     String originalText = stage.originalText;
 
@@ -72,7 +71,6 @@ class DifficultStage extends StatelessWidget {
                               stageCount: stageCount,
                               maximumSteps: maximumSteps,
                               translation: translation,
-                              background: background,
                               youtubeLink: youtubeLink,
                               originalText: originalText))));
             },
