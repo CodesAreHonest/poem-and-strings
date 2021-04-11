@@ -39,10 +39,8 @@ class _EasyStageSelectionState extends State<EasyStageSelection> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: <Color>[
-              Colors.green.shade600,
-              Colors.green.shade500,
-              Colors.green.shade400,
               Colors.green.shade300,
+              Colors.green.shade400,
             ])),
         child: Padding(
             padding:

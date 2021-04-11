@@ -13,7 +13,6 @@ class ThirdGuideline extends StatelessWidget {
     String stageCount = difficultStageOne.stageCount;
     int maximumSteps = difficultStageOne.maximumSteps;
     String translation = difficultStageOne.translation;
-    String background = difficultStageOne.background;
     String youtubeLink = difficultStageOne.youtubeLink;
     String originalText = difficultStageOne.originalText;
 

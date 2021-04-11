@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:poem_and_strings/data/ArcKeys.dart';
+import 'package:poem_and_strings/models/difficult_stage/difficult_stage_eight.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_five.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_four.dart';
+import 'package:poem_and_strings/models/difficult_stage/difficult_stage_nine.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_one.dart';
+import 'package:poem_and_strings/models/difficult_stage/difficult_stage_seven.dart';
+import 'package:poem_and_strings/models/difficult_stage/difficult_stage_six.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_three.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_two.dart';
 import 'widgets/appbar.dart';
@@ -33,11 +37,13 @@ class _DifficultStageSelectionState extends State<DifficultStageSelection> {
       appBar: DifficultStageAppBar(),
       body: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                  'assets/background/old_fashion.jpeg',
-                ),
-                fit: BoxFit.cover)),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[
+              Colors.red.shade100,
+              Colors.red.shade200,
+            ])),
         child: Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
@@ -72,6 +78,30 @@ class _DifficultStageSelectionState extends State<DifficultStageSelection> {
                     stage: DifficultStageFive(),
                     starRating: 1,
                     level: 5,
+                    pauseMusic: widget.pauseMusic),
+                DifficultStage(
+                    key: ArcKeys.difficultStageList('sixStage'),
+                    stage: DifficultStageSix(),
+                    starRating: 1,
+                    level: 6,
+                    pauseMusic: widget.pauseMusic),
+                DifficultStage(
+                    key: ArcKeys.difficultStageList('sevenStage'),
+                    stage: DifficultStageSeven(),
+                    starRating: 1,
+                    level: 7,
+                    pauseMusic: widget.pauseMusic),
+                DifficultStage(
+                    key: ArcKeys.difficultStageList('eightStage'),
+                    stage: DifficultStageEight(),
+                    starRating: 1,
+                    level: 8,
+                    pauseMusic: widget.pauseMusic),
+                DifficultStage(
+                    key: ArcKeys.difficultStageList('nineStage'),
+                    stage: DifficultStageNine(),
+                    starRating: 1,
+                    level: 9,
                     pauseMusic: widget.pauseMusic),
               ],
             )),
