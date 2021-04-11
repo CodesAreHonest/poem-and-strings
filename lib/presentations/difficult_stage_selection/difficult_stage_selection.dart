@@ -7,6 +7,7 @@ import 'package:poem_and_strings/models/difficult_stage/difficult_stage_nine.dar
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_one.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_seven.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_six.dart';
+import 'package:poem_and_strings/models/difficult_stage/difficult_stage_ten.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_three.dart';
 import 'package:poem_and_strings/models/difficult_stage/difficult_stage_two.dart';
 import 'widgets/appbar.dart';
@@ -102,6 +103,12 @@ class _DifficultStageSelectionState extends State<DifficultStageSelection> {
                     stage: DifficultStageNine(),
                     starRating: 1,
                     level: 9,
+                    pauseMusic: widget.pauseMusic),
+                DifficultStage(
+                    key: ArcKeys.difficultStageList('tenStage'),
+                    stage: DifficultStageTen(),
+                    starRating: 1,
+                    level: 10,
                     pauseMusic: widget.pauseMusic),
               ],
             )),

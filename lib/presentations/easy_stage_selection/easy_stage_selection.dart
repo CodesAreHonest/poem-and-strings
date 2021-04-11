@@ -5,6 +5,7 @@ import 'package:poem_and_strings/models/easy_stage/easy_stage_nine.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_one.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_seven.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_six.dart';
+import 'package:poem_and_strings/models/easy_stage/easy_stage_ten.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_two.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_three.dart';
 import 'package:poem_and_strings/models/easy_stage/easy_stage_four.dart';
@@ -100,6 +101,12 @@ class _EasyStageSelectionState extends State<EasyStageSelection> {
                     stage: EasyStageNine(),
                     starRating: 1,
                     level: 9,
+                    pauseMusic: widget.pauseMusic),
+                EasyStage(
+                    key: ArcKeys.easyStageList('tenStage'),
+                    stage: EasyStageTen(),
+                    starRating: 1,
+                    level: 10,
                     pauseMusic: widget.pauseMusic)
               ],
             )),

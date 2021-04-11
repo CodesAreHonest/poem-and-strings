@@ -3,16 +3,16 @@ import 'package:poem_and_strings/models/models.dart';
 
 class DifficultStageSeven {
   final List<Character> stageData = [
-    Character("夕", false, false, 0),
-    Character("阳", false, false, 1),
-    Character("无", false, false, 2),
-    Character("限", false, false, 3),
-    Character("好", false, false, 4),
-    Character("只", false, false, 5),
-    Character("是", false, false, 6),
-    Character("近", false, false, 7),
-    Character("黄", false, false, 8),
-    Character("昏", false, false, 9),
+    Character("向", false, false, 0),
+    Character("晚", false, false, 1),
+    Character("意", false, false, 2),
+    Character("不", false, false, 3),
+    Character("适", false, false, 4),
+    Character("驱", false, false, 5),
+    Character("车", false, false, 6),
+    Character("登", false, false, 7),
+    Character("古", false, false, 8),
+    Character("原", false, false, 9),
   ];
 
   final int numOfRows = 2;
@@ -23,9 +23,8 @@ class DifficultStageSeven {
 
   final String translation = "傍晚时心情不快，驾着车登上古原。夕阳啊无限美好，只不过接近黄昏。";
 
-  //  https://v.qq.com/x/page/q0904v196cn.html
   final String youtubeLink = 'PAkdBDl7YzU';
-  final String originalText = '夕阳无限好，\n只是近黄昏。';
+  final String originalText = '向晚意不适，\n驱车登古原。\n夕阳无限好，\n只是近黄昏。';
 
   DifficultStageSeven();
 }
