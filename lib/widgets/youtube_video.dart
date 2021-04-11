@@ -20,7 +20,7 @@ class _YoutubeVideoState extends State<YoutubeVideo> {
 
   void playYoutubeVideo() {
     FlutterYoutube.playYoutubeVideoById(
-        apiKey: DotEnv().env['YOUTUBE_API_KEY'], videoId: widget.youtubeLink);
+        apiKey: env['YOUTUBE_API_KEY'], videoId: widget.youtubeLink);
   }
 
   @override

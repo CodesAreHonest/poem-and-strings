@@ -73,7 +73,7 @@ class _SuccessPageState extends State<SuccessPage> {
 
   showYoutubeVideo(context) {
     FlutterYoutube.playYoutubeVideoById(
-        apiKey: DotEnv().env['YOUTUBE_API_KEY'], videoId: widget.youtubeLink);
+        apiKey: env['YOUTUBE_API_KEY'], videoId: widget.youtubeLink);
   }
 
   @override
