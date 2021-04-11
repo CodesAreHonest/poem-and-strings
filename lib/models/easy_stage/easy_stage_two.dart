@@ -1,7 +1,6 @@
 import 'package:poem_and_strings/models/character.dart';
 import 'package:poem_and_strings/models/models.dart';
 
-// 桃花潭水深千尺，不及汪伦送我情。
 class EasyStageTwo {
   final List<Character> stageData = [
     Character("桃", false, false, 0),
@@ -28,9 +27,8 @@ class EasyStageTwo {
   final String translation =
       "我乘船将要远行，忽然听见岸上踏地为节拍，有人边走边唱前来送行。即使桃花潭水深至千尺，也比不上汪伦送我之情。";
 
-  final String background = '';
   final String youtubeLink = 'BTafOBs7y4c';
-  final String originalText = '桃花潭水深千尺，不及汪伦送我情。';
+  final String originalText = '李白乘舟将欲行，\n忽闻岸上踏歌声。\n桃花潭水深千尺，\n不及汪伦送我情。';
 
   EasyStageTwo();
 }

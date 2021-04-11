@@ -27,9 +27,8 @@ class EasyStageSix {
 
   final String translation = "蔚蓝的天空一望无际，碧绿的原野茫茫不尽。一阵风吹过，牧草低伏，露出一群群正在吃草的牛羊。";
 
-  //  https://v.qq.com/x/page/q0904v196cn.html
-  final String youtubeLink = 'XZXhfFC5TmE';
-  final String originalText = '天苍苍，野茫茫，\n风吹草低见牛羊。';
+  final String youtubeLink = 'i9uIDOBowfI';
+  final String originalText = '敕勒川，阴山下。\n天似穹庐，笼盖四野，\n天苍苍，野茫茫，\n风吹草低见牛羊。';
 
   EasyStageSix();
 }

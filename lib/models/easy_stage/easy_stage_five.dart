@@ -23,7 +23,7 @@ class EasyStageFive {
 
   final String translation = "山中空旷寂静看不见人，只听得说话的人语声响。夕阳的金光直射入深林，又照在幽暗处的青苔上。";
   final String youtubeLink = 'XZXhfFC5TmE';
-  final String originalText = '空山不见人，\n但闻人语响。';
+  final String originalText = '空山不见人，\n但闻人语响。\n返景入深林，\n复照青苔上。';
 
   EasyStageFive();
 }

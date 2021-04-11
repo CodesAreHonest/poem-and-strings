@@ -28,9 +28,8 @@ class EasyStageNine {
   final String translation =
       "泉眼悄然无声是因舍不得细细的水流，树阴倒映水面是喜爱晴天和风的轻柔。娇嫩的小荷叶刚从水面露出尖尖的角，早有一只调皮的小蜻蜓立在它的上头。";
 
-  //  https://v.qq.com/x/page/q0904v196cn.html
-  final String youtubeLink = 'iWt-VtKdOLY';
-  final String originalText = '小荷才露尖尖角，早有蜻蜓立上头。';
+  final String youtubeLink = 'oeUHRP12JxA';
+  final String originalText = '泉眼无声惜细流，\n树阴照水爱晴柔。\n小荷才露尖尖角，\n早有蜻蜓立上头。';
 
   EasyStageNine();
 }

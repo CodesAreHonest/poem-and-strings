@@ -23,9 +23,8 @@ class EasyStageEight {
 
   final String translation = "所有的山，飞鸟全都断绝；所有的路，不见人影踪迹。江上孤舟，渔翁披蓑戴笠；独自垂钓，不怕冰雪侵袭。";
 
-  //  https://v.qq.com/x/page/q0904v196cn.html
   final String youtubeLink = 'iWt-VtKdOLY';
-  final String originalText = '千山鸟飞绝，\n万径人踪灭';
+  final String originalText = '千山鸟飞绝，\n万径人踪灭。\n千山鸟飞绝，\n万径人踪灭';
 
   EasyStageEight();
 }

@@ -23,9 +23,8 @@ class EasyStageOne {
   final String translation =
       "牧童骑在黄牛背上，嘹亮的歌声在林中回荡。忽然想要捕捉树上鸣叫的知了，就马上停止唱歌，一声不响地站立在树旁。";
 
-  // https://www.iqiyi.com/v_zxak1wkvj8.html
-  final String youtubeLink = 'jRq2F8G1iWU';
-  final String originalText = '意欲捕鸣蝉，\n忽然闭口立。';
+  final String youtubeLink = 'R1Fsn-OQzUA';
+  final String originalText = '牧童骑黄牛，\n歌声振林樾。\n意欲捕鸣蝉，\n忽然闭口立。';
 
   EasyStageOne();
 }

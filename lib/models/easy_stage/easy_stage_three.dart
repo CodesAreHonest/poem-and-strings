@@ -30,7 +30,8 @@ class EasyStageThree {
       "江南水上可以采莲，莲叶多么茂盛，鱼儿在莲叶间嬉戏。鱼在莲叶的东边游戏，鱼在莲叶的西边游戏，鱼在莲叶的的南边游戏，鱼在莲叶的北边游戏。";
   final String background = '';
   final String youtubeLink = 'P7pXyLT8DY4';
-  final String originalText = '江南可采莲，\n莲叶何田田，\n鱼戏莲叶间。';
+  final String originalText =
+      '江南可采莲，\n莲叶何田田。\n鱼戏莲叶间。\n鱼戏莲叶东，\n鱼戏莲叶西，\n鱼戏莲叶南，\n鱼戏莲叶北。';
 
   EasyStageThree();
 }

@@ -23,9 +23,8 @@ class EasyStageSeven {
 
   final String translation = "傍晚时心情不快，驾着车登上古原。夕阳啊无限美好，只不过接近黄昏。";
 
-  //  https://v.qq.com/x/page/q0904v196cn.html
   final String youtubeLink = 'PAkdBDl7YzU';
-  final String originalText = '夕阳无限好，\n只是近黄昏。';
+  final String originalText = '向晚意不适，\n驱车登古原。\n夕阳无限好，\n只是近黄昏。';
 
   EasyStageSeven();
 }
