@@ -13,8 +13,9 @@ import 'package:redux/redux.dart';
 
 class DifficultGameContainer extends StatefulWidget {
   final dynamic stage;
+  final int level;
 
-  DifficultGameContainer({this.stage});
+  DifficultGameContainer({this.stage, this.level});
 
   @override
   _DifficultGameContainerState createState() => _DifficultGameContainerState();

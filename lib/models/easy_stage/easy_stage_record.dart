@@ -1,20 +1,19 @@
 import 'dart:convert';
 
+import 'package:poem_and_strings/models/models.dart';
+
 class EasyStageRecord {
-  final Map<String, int> easyStage;
+  final Map<int, Map<String, int>> record;
+  PlayerStageRecord playerStageRecord;
 
-  EasyStageRecord({this.easyStage});
+  EasyStageRecord({this.record});
 
-  void setEasyStageRecord(String stage, int rating) {
-    this.easyStage[stage] = rating;
+  void setEasyStageRecord(int stage, Map<String, int> playerStageRecord) {
+    this.record[stage] = playerStageRecord;
   }
 
   @override
   String toString() {
-    return jsonEncode(this.easyStage);
-  }
-
-  factory EasyStageRecord.fromJson(String playerRecord) {
-    return EasyStageRecord(easyStage: jsonDecode(playerRecord));
+    return jsonEncode(this.record);
   }
 }

@@ -1,40 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:poem_and_strings/data/StageLevel.dart';
 import 'package:poem_and_strings/models/models.dart';
 
 class Test extends StatelessWidget {
   final Player player = Player();
 
-  Widget getEasyStageButton() {
-    return ElevatedButton.icon(
-        onPressed: () async {
-          Map<String, int> data = await player.getEasyStageProgress();
-          print(data);
-        },
-        icon: Icon(Icons.ondemand_video),
-        label: Text('Get Stage'));
-  }
-
   Widget setEasyStageButton() {
     return ElevatedButton.icon(
         onPressed: () {
-          String firstLevel = EasyLevel.second.toString();
-          player.setEasyStageProgress(firstLevel, 3);
+          player.setEasyStageProgress(1, 3);
         },
         icon: Icon(Icons.ondemand_video),
         label: Text('Set Stage'));
-  }
-
-  Widget removeEasyStageButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 8.0),
-      child: ElevatedButton.icon(
-          onPressed: () {
-            player.removeEasyStageProgress();
-          },
-          icon: Icon(Icons.ondemand_video),
-          label: Text('Delete Stage')),
-    );
   }
 
   @override
@@ -44,9 +20,7 @@ class Test extends StatelessWidget {
       child: Container(
           child: Column(
         children: <Widget>[
-          getEasyStageButton(),
           setEasyStageButton(),
-          removeEasyStageButton(),
         ],
       )),
     ));

@@ -11,20 +11,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int totalStageCompleted;
-
   @override
   void initState() {
-    this.getTotalStageCompleted();
     super.initState();
-  }
-
-  void getTotalStageCompleted() async {
-    int totalStageCompletedCount =
-        await widget.player.getTotalCompletedStageCount();
-    setState(() {
-      totalStageCompleted = totalStageCompletedCount;
-    });
   }
 
   @override
@@ -46,7 +35,6 @@ class _HomeState extends State<Home> {
                 children: [
                   GameTitle(),
                   SizedBox(height: 50),
-//              PoemFound(totalStageCompleted: totalStageCompleted),
                   AppButtons(),
                 ],
               ),

@@ -16,8 +16,9 @@ import 'package:redux/redux.dart';
 
 class EasyGameContainer extends StatefulWidget {
   final dynamic stage;
+  final int level;
 
-  EasyGameContainer({this.stage});
+  EasyGameContainer({this.stage, this.level});
 
   @override
   _EasyGameState createState() => _EasyGameState();
