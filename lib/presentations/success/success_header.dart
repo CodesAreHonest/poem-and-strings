@@ -18,7 +18,7 @@ class SuccessHeader extends StatelessWidget {
         child: Center(
             child: Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
-          child: Text('挑战成功',
+          child: Text('挑战成功！',
               style: TextStyle(
                   color: Colors.amber,
                   fontSize: 16,

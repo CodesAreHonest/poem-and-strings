@@ -10,7 +10,7 @@ class SuccessPoems extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+        padding: EdgeInsets.all(8.0),
         decoration: BoxDecoration(color: Colors.grey[200]),
         child: Container(
           width: double.infinity,
@@ -23,13 +23,16 @@ class SuccessPoems extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(this.originalText,
                     style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold)),
+                        color: Colors.black87,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600)),
               ),
               SizedBox(height: 8.0),
-              Text(this.translation,
-                  style: TextStyle(color: Colors.black54, fontSize: 12)),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text(this.translation,
+                    style: TextStyle(color: Colors.black54, fontSize: 16)),
+              ),
             ],
           ),
         ));

@@ -14,7 +14,6 @@ class SuccessMessage extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         alignment: Alignment.center,
         padding: EdgeInsets.all(8.0),
-        decoration: BoxDecoration(color: Colors.grey[300]),
         child: Container(
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(8.0),
@@ -24,8 +23,8 @@ class SuccessMessage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 16,
-                  color: Colors.black54,
-                  fontWeight: FontWeight.bold)),
+                  color: Colors.black87,
+                  fontWeight: FontWeight.normal)),
         ));
   }
 }

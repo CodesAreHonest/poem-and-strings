@@ -11,11 +11,8 @@ class SuccessRating extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-          decoration: BoxDecoration(color: Colors.white),
-          padding: EdgeInsets.all(8.0),
-          child: StageRating(value: goldObtained, size: 45)),
-    );
+    return Container(
+        decoration: BoxDecoration(color: Colors.transparent),
+        child: StageRating(value: goldObtained, size: 40));
   }
 }

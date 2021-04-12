@@ -11,19 +11,13 @@ class SuccessCoinAmount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(horizontal: 8.0),
-        decoration: BoxDecoration(color: Colors.white24),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset('assets/stack-of-coins.png', width: 100, height: 100),
-            Text('x $goldObtained',
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold))
-          ],
-        ));
+      children: <Widget>[
+        Image.asset('assets/stack-of-coins.png', width: 80, height: 80),
+        Text('x $goldObtained',
+            style: TextStyle(
+                fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold))
+      ],
+    ));
   }
 }

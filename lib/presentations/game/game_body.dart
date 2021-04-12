@@ -22,6 +22,7 @@ class GameBody extends StatefulWidget {
   final String stageCount;
   final String originalText;
   final String translation;
+  final String difficulty;
 
   GameBody(
       {Key key,
@@ -40,7 +41,8 @@ class GameBody extends StatefulWidget {
       this.maximumSteps,
       this.stageCount,
       this.translation,
-      this.originalText})
+      this.originalText,
+      this.difficulty})
       : super(key: key);
 
   @override
@@ -62,6 +64,7 @@ class _GameBodyState extends State<GameBody> {
             context,
             MaterialPageRoute(
                 builder: (context) => SuccessPage(
+                    difficulty: widget.difficulty,
                     youtubeLink: widget.youtubeLink,
                     background: widget.background,
                     goldObtained: goldObtained,
@@ -223,7 +226,7 @@ class _GameBodyState extends State<GameBody> {
   }
 
   TextStyle characterText(bool isSelected, bool isCompleted, bool isSpecial) {
-    double characterFontSize = 24.0;
+    double characterFontSize = 16.0;
     if (isCompleted) {
       return TextStyle(
           color: Colors.white,
@@ -271,7 +274,7 @@ class _GameBodyState extends State<GameBody> {
         },
         child: Container(
             decoration: characterDecoration(isSelected, isCompleted, isSpecial),
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
             child: Text(character,
                 style: characterText(isSelected, isCompleted, isSpecial))),
       );
@@ -283,7 +286,7 @@ class _GameBodyState extends State<GameBody> {
         Widget rowOfCharacters = Container(
           padding: EdgeInsets.symmetric(vertical: 4.0),
           child: Wrap(
-            spacing: 8.0,
+            spacing: 4.0,
             children: [...rowWidgets],
           ),
         );
@@ -304,7 +307,7 @@ class _GameBodyState extends State<GameBody> {
         decoration: BoxDecoration(
             color: Colors.white70, borderRadius: BorderRadius.circular(8.0)),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
           child: Container(
             child: Column(
               children: renderCharacters(widget.stageData),

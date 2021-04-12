@@ -85,6 +85,7 @@ class _EasyGameState extends State<EasyGameContainer> {
                           youtubeLink: widget.stage.youtubeLink,
                           maximumSteps: widget.stage.maximumSteps,
                           stageCount: widget.stage.stageCount,
+                          difficulty: 'easy',
                           isStageIncompleted: isStageIncompletedSelector(
                               vm.step, widget.stage.maximumSteps)),
                       SizedBox(height: 16.0),
