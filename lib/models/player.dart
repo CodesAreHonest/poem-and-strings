@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Player {
@@ -9,7 +10,15 @@ class Player {
     localStorage = SharedPreferences.getInstance();
   }
 
-  void setEasyStageProgress(int level, int rating) {}
+  void setEasyStageProgress(int level, int rating) {
+    PlayerStageRecord stageRecord = new PlayerStageRecord(rating: 1);
+
+    final Map<int, PlayerStageRecord> newRecord = {};
+    newRecord[rating] = stageRecord;
+    EasyStageRecords easyStageRecords =
+        new EasyStageRecords(stageRecords: newRecord);
+    print(easyStageRecords.stageRecords);
+  }
 
   /// Increment player coin based on type of steps completed.
   Future<int> getCoinBalance() async {
@@ -38,18 +47,17 @@ class Player {
 }
 
 class PlayerStageRecord {
-  Map<String, int> playerRecord;
+  final int rating;
 
-  void setRating(int rating) {
-    this.playerRecord = {"rating": rating};
-  }
+  PlayerStageRecord({this.rating = 0});
+}
 
-  Map<String, int> get collection {
-    return playerRecord;
-  }
+class EasyStageRecords {
+  Map<num, PlayerStageRecord> stageRecords;
 
-  @override
-  String toString() {
-    return jsonEncode(this.playerRecord);
+  EasyStageRecords({@required this.stageRecords});
+
+  void setRecords(num stageNumber, PlayerStageRecord records) {
+    this.stageRecords[stageNumber] = records;
   }
 }
