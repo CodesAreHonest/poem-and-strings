@@ -29,10 +29,10 @@ class _State extends State<EasyButton> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: <Color>[
-                      Colors.green[800],
-                      Colors.green[700],
-                      Colors.green[600],
-                      Colors.green[500],
+                      Colors.green.shade800,
+                      Colors.green.shade700,
+                      Colors.green.shade600,
+                      Colors.green.shade500,
                     ])),
             padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
             child: Column(

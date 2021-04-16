@@ -14,7 +14,7 @@ description: "An application to rearrange the sequence of poem and strings."
 version: 1.0.1
 
 environment:
-  sdk: ">=2.2.2 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -27,6 +27,9 @@ dependencies:
   assets_audio_player: ^3.0.3+1
   flutter_youtube: ^2.0.0
   flutter_dotenv: ^3.1.0
+  json_serializable: ^4.0.0
+  json_annotation: ^4.0.0
+  build_runner: ^1.12.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

@@ -3,7 +3,7 @@ import 'dart:convert';
 class DifficultStageRecord {
   final Map<String, int> difficultStage;
 
-  DifficultStageRecord({this.difficultStage});
+  DifficultStageRecord({required this.difficultStage});
 
   void setDifficultStageRecord(String stage, int rating) {
     this.difficultStage[stage] = rating;

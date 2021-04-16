@@ -3,7 +3,7 @@ import "package:flutter/material.dart";
 class PoemFound extends StatelessWidget {
   final int totalStageCompleted;
 
-  PoemFound({this.totalStageCompleted});
+  PoemFound({required this.totalStageCompleted});
 
   @override
   Widget build(BuildContext context) {

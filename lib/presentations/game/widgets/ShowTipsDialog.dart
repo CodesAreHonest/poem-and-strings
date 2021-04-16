@@ -5,7 +5,7 @@ class ShowTipsDialog extends StatelessWidget {
   final Player player = Player();
   final Function onEnableDescription;
 
-  ShowTipsDialog({@required this.onEnableDescription});
+  ShowTipsDialog({required this.onEnableDescription});
 
   Widget confirmButton(BuildContext context) => TextButton(
         child: Text("显示提示", style: TextStyle(color: Colors.green[700])),

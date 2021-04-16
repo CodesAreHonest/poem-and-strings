@@ -10,10 +10,10 @@ class DifficultStageAppBar extends StatelessWidget
       flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: <Color>[
-        Colors.red[800],
-        Colors.red[700],
-        Colors.red[600],
-        Colors.red[500],
+        Colors.red.shade800,
+        Colors.red.shade700,
+        Colors.red.shade600,
+        Colors.red.shade500,
       ]))),
       actions: <Widget>[
         Container(

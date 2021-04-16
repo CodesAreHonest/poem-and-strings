@@ -12,9 +12,9 @@ class GameFooter extends StatefulWidget {
   final Player player = Player();
 
   GameFooter(
-      {@required this.onRefreshStage,
-      @required this.onEnableDescription,
-      @required this.enableDescription});
+      {required this.onRefreshStage,
+      required this.onEnableDescription,
+      required this.enableDescription});
 
   @override
   _GameFooterState createState() => _GameFooterState();

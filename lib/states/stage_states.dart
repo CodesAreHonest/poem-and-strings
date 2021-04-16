@@ -19,12 +19,12 @@ class StageState {
       this.enableDescription = false});
 
   StageState copyWith(
-      {List<Character> data,
-      double itemPerRow,
-      int numOfRow,
-      int step,
-      int maximumStep,
-      bool enableDescription}) {
+      {List<Character>? data,
+      double? itemPerRow,
+      int? numOfRow,
+      int? step,
+      int? maximumSteps,
+      bool? enableDescription}) {
     return StageState(
         data: data ?? this.data,
         itemPerRow: itemPerRow ?? this.itemPerRow,

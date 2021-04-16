@@ -18,7 +18,7 @@ class EasyGameContainer extends StatefulWidget {
   final dynamic stage;
   final int level;
 
-  EasyGameContainer({this.stage, this.level});
+  EasyGameContainer({this.stage, this.level = 1});
 
   @override
   _EasyGameState createState() => _EasyGameState();
@@ -116,17 +116,17 @@ class _ViewModel {
   final bool enableDescription;
 
   _ViewModel(
-      {@required this.stageData,
-      @required this.numOfRow,
-      @required this.step,
-      @required this.itemPerRow,
-      @required this.isStageCompleted,
-      @required this.onUpdateCharacter,
-      @required this.onSwapCharacter,
-      @required this.onRefreshStage,
-      @required this.onResetStage,
-      @required this.onEnableDescription,
-      @required this.enableDescription});
+      {required this.stageData,
+      required this.numOfRow,
+      required this.step,
+      required this.itemPerRow,
+      required this.isStageCompleted,
+      required this.onUpdateCharacter,
+      required this.onSwapCharacter,
+      required this.onRefreshStage,
+      required this.onResetStage,
+      required this.onEnableDescription,
+      required this.enableDescription});
 
   factory _ViewModel.from(Store<AppState> store, dynamic currentStage) {
     return _ViewModel(

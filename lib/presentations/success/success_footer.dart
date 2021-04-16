@@ -7,7 +7,7 @@ class SuccessFooter extends StatelessWidget {
   final String difficulty;
 
   const SuccessFooter(
-      {Key key, @required this.stageCount, @required this.difficulty})
+      {Key? key, required this.stageCount, required this.difficulty})
       : super(key: key);
 
   void conditionalNavigation(BuildContext context) {

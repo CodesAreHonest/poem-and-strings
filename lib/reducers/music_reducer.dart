@@ -1,6 +1,6 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:poem_and_strings/actions/music_actions.dart';
-import 'package:poem_and_strings/states/states.dart';
+import 'package:poem_and_strings/states/music_states.dart';
 import 'package:redux/redux.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -20,25 +20,25 @@ MusicState _startMusic(MusicState musicState, StartMusicActions action) {
 }
 
 MusicState _stopMusic(MusicState musicStates, StopMusicActions action) {
-  AssetsAudioPlayer _assetsAudioPlayer = musicStates.assetsAudioPlayer;
-  _assetsAudioPlayer.stop();
+  AssetsAudioPlayer? _assetsAudioPlayer = musicStates.assetsAudioPlayer;
+  _assetsAudioPlayer?.stop();
   return musicStates.copyWith(assetsAudioPlayer: _assetsAudioPlayer);
 }
 
 MusicState _pauseMusic(MusicState musicState, PauseMusicActions action) {
-  AssetsAudioPlayer _assetsAudioPlayer = musicState.assetsAudioPlayer;
-  _assetsAudioPlayer.pause();
+  AssetsAudioPlayer? _assetsAudioPlayer = musicState.assetsAudioPlayer;
+  _assetsAudioPlayer?.pause();
   return musicState.copyWith(assetsAudioPlayer: _assetsAudioPlayer);
 }
 
 MusicState _resumeMusic(MusicState musicState, ResumeMusicAction action) {
-  AssetsAudioPlayer _assetsAudioPlayer = musicState.assetsAudioPlayer;
-  bool isMusicPlaying = _assetsAudioPlayer.isPlaying.value;
+  AssetsAudioPlayer? _assetsAudioPlayer = musicState.assetsAudioPlayer;
+  bool? isMusicPlaying = _assetsAudioPlayer?.isPlaying.value;
 
-  if (isMusicPlaying) {
+  if (isMusicPlaying == null) {
+    _assetsAudioPlayer?.play();
     return musicState.copyWith(assetsAudioPlayer: _assetsAudioPlayer);
   }
 
-  _assetsAudioPlayer.play();
   return musicState.copyWith(assetsAudioPlayer: _assetsAudioPlayer);
 }

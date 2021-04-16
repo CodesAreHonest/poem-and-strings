@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SuccessHeader extends StatelessWidget {
   const SuccessHeader({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   Image redBannerImage() =>

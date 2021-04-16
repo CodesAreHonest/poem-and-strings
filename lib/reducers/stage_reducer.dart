@@ -1,6 +1,6 @@
 import 'package:poem_and_strings/actions/stage_actions.dart';
 import 'package:poem_and_strings/models/character.dart';
-import 'package:poem_and_strings/states/states.dart';
+import 'package:poem_and_strings/states/stage_states.dart';
 import "package:redux/redux.dart";
 
 final stageReducer = combineReducers<StageState>([

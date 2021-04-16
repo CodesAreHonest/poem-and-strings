@@ -5,14 +5,14 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 class Youtube extends StatefulWidget {
   final String youtubeLink;
 
-  Youtube({@required this.youtubeLink});
+  Youtube({required this.youtubeLink});
 
   @override
   _YoutubePlayerState createState() => _YoutubePlayerState();
 }
 
 class _YoutubePlayerState extends State<Youtube> {
-  YoutubePlayerController _controller;
+  late YoutubePlayerController _controller;
 
   @override
   void initState() {

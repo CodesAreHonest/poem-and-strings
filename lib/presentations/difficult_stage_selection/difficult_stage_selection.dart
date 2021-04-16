@@ -18,7 +18,7 @@ class DifficultStageSelection extends StatefulWidget {
   final Function resumeMusic;
 
   DifficultStageSelection(
-      {@required this.pauseMusic, @required this.resumeMusic});
+      {required this.pauseMusic, required this.resumeMusic});
 
   @override
   _DifficultStageSelectionState createState() =>

@@ -16,10 +16,10 @@ class _DifficultySelectionState extends State<DifficultySelection> {
           flexibleSpace: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: <Color>[
-              Colors.orange[700],
-              Colors.orange[600],
-              Colors.orange[500],
-              Colors.orange[400]
+              Colors.orange.shade700,
+              Colors.orange.shade600,
+              Colors.orange.shade500,
+              Colors.orange.shade400
             ])),
           ),
           elevation: 0,

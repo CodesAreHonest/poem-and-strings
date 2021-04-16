@@ -9,7 +9,7 @@ import "package:flutter/services.dart";
 class ReduxStore extends StatelessWidget {
   final Store<AppState> store;
 
-  ReduxStore({this.store});
+  ReduxStore({required this.store});
 
   @override
   Widget build(BuildContext context) {

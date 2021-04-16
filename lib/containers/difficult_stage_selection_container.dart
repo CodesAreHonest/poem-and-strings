@@ -21,7 +21,7 @@ class _ViewModel {
   final Function resumeMusic;
   final Function pauseMusic;
 
-  _ViewModel({@required this.resumeMusic, @required this.pauseMusic});
+  _ViewModel({required this.resumeMusic, required this.pauseMusic});
 
   factory _ViewModel.from(Store<AppState> store) {
     return _ViewModel(

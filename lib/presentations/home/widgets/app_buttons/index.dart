@@ -13,11 +13,7 @@ class _AppButtonsState extends State<AppButtons> {
     return Container(
       margin: EdgeInsets.only(bottom: 24.0),
       child: Column(
-        children: <Widget>[
-          ChooseStage(),
-          SizedBox(height: 12.0),
-          LeaveGame()
-        ],
+        children: <Widget>[ChooseStage(), SizedBox(height: 12.0), LeaveGame()],
       ),
     );
   }

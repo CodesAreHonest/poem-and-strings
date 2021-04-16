@@ -24,10 +24,10 @@ class DifficultButton extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: <Color>[
-                      Colors.red[800],
-                      Colors.red[700],
-                      Colors.red[600],
-                      Colors.red[500],
+                      Colors.red.shade800,
+                      Colors.red.shade700,
+                      Colors.red.shade600,
+                      Colors.red.shade500,
                     ])),
             padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
             child: Column(

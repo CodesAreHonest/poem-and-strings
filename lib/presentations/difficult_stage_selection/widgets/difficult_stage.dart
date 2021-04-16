@@ -5,11 +5,11 @@ import 'package:poem_and_strings/models/models.dart';
 
 class DifficultStage extends StatelessWidget {
   DifficultStage(
-      {Key key,
+      {required Key key,
       @required this.stage,
-      @required this.starRating,
-      @required this.level,
-      @required this.pauseMusic})
+      required this.starRating,
+      required this.level,
+      required this.pauseMusic})
       : super(key: key);
 
   final dynamic stage;

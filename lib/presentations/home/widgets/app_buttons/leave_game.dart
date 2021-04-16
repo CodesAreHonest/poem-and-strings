@@ -6,10 +6,10 @@ import 'package:poem_and_strings/models/models.dart';
 
 class LeaveGame extends StatelessWidget {
   final redGradient = <Color>[
-    Colors.red[800],
-    Colors.red[700],
-    Colors.red[600],
-    Colors.red[500],
+    Colors.red.shade800,
+    Colors.red.shade700,
+    Colors.red.shade600,
+    Colors.red.shade500,
   ];
 
   @override

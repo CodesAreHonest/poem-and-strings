@@ -4,8 +4,7 @@ class GameTranslation extends StatelessWidget {
   final String translation;
   final bool enableDescription;
 
-  GameTranslation(
-      {@required this.translation, @required this.enableDescription});
+  GameTranslation({required this.translation, required this.enableDescription});
 
   Widget description(context) {
     return Container(
@@ -24,9 +23,9 @@ class GameTranslation extends StatelessWidget {
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: <Color>[
-                      Colors.grey[200],
-                      Colors.grey[300],
-                      Colors.grey[350],
+                      Colors.grey.shade200,
+                      Colors.grey.shade300,
+                      Colors.grey.shade400,
                     ])),
                 child: Column(
                   children: <Widget>[

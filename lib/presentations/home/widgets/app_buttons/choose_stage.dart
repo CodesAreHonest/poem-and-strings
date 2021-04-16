@@ -21,10 +21,10 @@ class ChooseStage extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.0),
             gradient: LinearGradient(colors: <Color>[
-              Colors.blue[800],
-              Colors.blue[700],
-              Colors.blue[600],
-              Colors.blue[500],
+              Colors.blue.shade800,
+              Colors.blue.shade700,
+              Colors.blue.shade600,
+              Colors.blue.shade500,
             ]),
           ),
           padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),

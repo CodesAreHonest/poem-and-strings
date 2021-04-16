@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 import 'package:poem_and_strings/models/player.dart';
 
 class GameHeader extends StatefulWidget {
@@ -10,10 +9,10 @@ class GameHeader extends StatefulWidget {
   final bool enableDescription;
 
   GameHeader(
-      {@required this.step,
-      @required this.stageCount,
-      @required this.maximumSteps,
-      @required this.enableDescription});
+      {required this.step,
+      required this.stageCount,
+      required this.maximumSteps,
+      required this.enableDescription});
 
   @override
   _GameHeaderState createState() => _GameHeaderState();

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TitleStyleContainer extends StatelessWidget {
   final String title;
 
-  TitleStyleContainer({@required this.title});
+  TitleStyleContainer({required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class TitleStyleContainer extends StatelessWidget {
 class PoemStyleContainer extends StatelessWidget {
   final String poems;
 
-  PoemStyleContainer({@required this.poems});
+  PoemStyleContainer({required this.poems});
 
   @override
   Widget build(BuildContext context) {

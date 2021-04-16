@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_youtube/flutter_youtube.dart';
 
 class YoutubeVideo extends StatefulWidget {
   final String youtubeLink;
 
-  YoutubeVideo({@required this.youtubeLink});
+  YoutubeVideo({required this.youtubeLink});
 
   @override
   State<StatefulWidget> createState() {
@@ -16,7 +18,7 @@ class YoutubeVideo extends StatefulWidget {
 }
 
 class _YoutubeVideoState extends State<YoutubeVideo> {
-  YoutubePlayerController _youtubePlayerController;
+  late YoutubePlayerController _youtubePlayerController;
 
   void playYoutubeVideo() {
     FlutterYoutube.playYoutubeVideoById(

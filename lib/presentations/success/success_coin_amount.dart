@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class SuccessCoinAmount extends StatelessWidget {
   const SuccessCoinAmount({
-    Key key,
-    @required this.goldObtained,
+    Key? key,
+    required this.goldObtained,
   }) : super(key: key);
 
   final int goldObtained;

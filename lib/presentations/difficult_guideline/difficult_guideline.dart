@@ -28,10 +28,10 @@ class _DifficultGuidelineState extends State<DifficultGuideline> {
                 end: Alignment.bottomCenter,
                 stops: [0.1, 0.4, 0.7, 0.9],
                 colors: [
-                  Colors.grey[600],
-                  Colors.grey[500],
-                  Colors.grey[400],
-                  Colors.grey[400],
+                  Colors.grey.shade600,
+                  Colors.grey.shade500,
+                  Colors.grey.shade400,
+                  Colors.grey.shade300,
                 ],
               )),
               child: Padding(

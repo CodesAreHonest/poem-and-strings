@@ -9,10 +9,10 @@ class EasyStageAppBar extends StatelessWidget implements PreferredSizeWidget {
       flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: <Color>[
-        Colors.green[800],
-        Colors.green[700],
-        Colors.green[600],
-        Colors.green[500],
+        Colors.green.shade800,
+        Colors.green.shade700,
+        Colors.green.shade600,
+        Colors.green.shade500,
       ]))),
       actions: <Widget>[
         Container(

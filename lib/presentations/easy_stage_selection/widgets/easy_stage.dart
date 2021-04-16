@@ -4,18 +4,18 @@ import 'package:poem_and_strings/models/models.dart';
 import 'package:poem_and_strings/containers/easy_game_container.dart';
 
 class EasyStage extends StatelessWidget {
-  EasyStage(
-      {Key key,
-      @required this.stage,
-      @required this.starRating,
-      @required this.level,
-      @required this.pauseMusic})
-      : super(key: key);
-
   final dynamic stage;
   final int level;
   final int starRating;
   final Function pauseMusic;
+
+  EasyStage(
+      {Key? key,
+      required this.stage,
+      required this.starRating,
+      required this.level,
+      required this.pauseMusic})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

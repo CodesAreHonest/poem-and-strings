@@ -5,7 +5,7 @@ import './easy_button.dart';
 
 class DifficultySelectionBody extends StatelessWidget {
   const DifficultySelectionBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

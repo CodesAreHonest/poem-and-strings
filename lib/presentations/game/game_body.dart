@@ -18,31 +18,29 @@ class GameBody extends StatefulWidget {
   final int step;
   final int maximumSteps;
   final String youtubeLink;
-  final String background;
   final String stageCount;
   final String originalText;
   final String translation;
   final String difficulty;
 
   GameBody(
-      {Key key,
-      this.stageData,
-      this.itemPerRow,
-      this.numOfRow,
+      {Key? key,
+      required this.stageData,
+      required this.itemPerRow,
+      required this.numOfRow,
       this.isStageCompleted = false,
-      this.onUpdateCharacter,
-      this.onSwapCharacter,
-      this.onResetStage,
+      required this.onUpdateCharacter,
+      required this.onSwapCharacter,
+      required this.onResetStage,
       this.isStageIncompleted = false,
-      this.onRefreshStage,
-      this.step,
-      this.youtubeLink,
-      this.background,
-      this.maximumSteps,
-      this.stageCount,
-      this.translation,
-      this.originalText,
-      this.difficulty})
+      required this.onRefreshStage,
+      required this.step,
+      required this.youtubeLink,
+      required this.maximumSteps,
+      required this.stageCount,
+      required this.translation,
+      required this.originalText,
+      required this.difficulty})
       : super(key: key);
 
   @override
@@ -50,7 +48,7 @@ class GameBody extends StatefulWidget {
 }
 
 class _GameBodyState extends State<GameBody> {
-  int previousTargetPosition;
+  int? previousTargetPosition;
 
   @override
   void didUpdateWidget(GameBody oldWidget) {
@@ -66,7 +64,6 @@ class _GameBodyState extends State<GameBody> {
                 builder: (context) => SuccessPage(
                     difficulty: widget.difficulty,
                     youtubeLink: widget.youtubeLink,
-                    background: widget.background,
                     goldObtained: goldObtained,
                     rating: rating,
                     stageCount: widget.stageCount,
@@ -144,7 +141,7 @@ class _GameBodyState extends State<GameBody> {
     }
 
     Character previousTarget =
-        widget.stageData.elementAt(previousTargetPosition);
+        widget.stageData.elementAt(previousTargetPosition!);
     bool isSameTarget = identical(currentCharacter, previousTarget);
 
     if (isSameTarget == true) {

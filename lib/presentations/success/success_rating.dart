@@ -3,8 +3,8 @@ import 'package:poem_and_strings/widgets/stage_rating.dart';
 
 class SuccessRating extends StatelessWidget {
   const SuccessRating({
-    Key key,
-    @required this.goldObtained,
+    Key? key,
+    required this.goldObtained,
   }) : super(key: key);
 
   final int goldObtained;

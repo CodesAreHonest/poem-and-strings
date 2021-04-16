@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PageIndicator extends StatelessWidget {
-  PageIndicator({Key key, this.currentPage, this.numPages}) : super(key: key);
+  PageIndicator({Key? key, required this.currentPage, required this.numPages})
+      : super(key: key);
 
   final int numPages;
   final int currentPage;

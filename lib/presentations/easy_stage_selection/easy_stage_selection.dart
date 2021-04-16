@@ -17,7 +17,7 @@ class EasyStageSelection extends StatefulWidget {
   final Function pauseMusic;
   final Function resumeMusic;
 
-  EasyStageSelection({@required this.resumeMusic, @required this.pauseMusic});
+  EasyStageSelection({required this.resumeMusic, required this.pauseMusic});
 
   @override
   _EasyStageSelectionState createState() => _EasyStageSelectionState();

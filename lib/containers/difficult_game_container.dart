@@ -13,7 +13,7 @@ import 'package:redux/redux.dart';
 
 class DifficultGameContainer extends StatefulWidget {
   final dynamic stage;
-  final int level;
+  final int? level;
 
   DifficultGameContainer({this.stage, this.level});
 
@@ -104,17 +104,17 @@ class _ViewModel {
   final bool enableDescription;
 
   _ViewModel(
-      {@required this.stageData,
-      @required this.numOfRow,
-      @required this.step,
-      @required this.itemPerRow,
-      @required this.isStageCompleted,
-      @required this.onUpdateCharacter,
-      @required this.onSwapCharacter,
-      @required this.onRefreshStage,
-      @required this.onResetStage,
-      @required this.onEnableDescription,
-      @required this.enableDescription});
+      {required this.stageData,
+      required this.numOfRow,
+      required this.step,
+      required this.itemPerRow,
+      required this.isStageCompleted,
+      required this.onUpdateCharacter,
+      required this.onSwapCharacter,
+      required this.onRefreshStage,
+      required this.onResetStage,
+      required this.onEnableDescription,
+      required this.enableDescription});
 
   factory _ViewModel.from(Store<AppState> store, dynamic currentStage) {
     return _ViewModel(

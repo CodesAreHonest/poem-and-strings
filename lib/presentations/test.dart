@@ -13,15 +13,22 @@ class Test extends StatelessWidget {
         label: Text('Set Stage'));
   }
 
+  Widget getEasyStageButton() {
+    return ElevatedButton.icon(
+        onPressed: () {
+          player.getEasyStageProgress();
+        },
+        icon: Icon(Icons.ondemand_video),
+        label: Text('Get Stage'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
       child: Container(
           child: Column(
-        children: <Widget>[
-          setEasyStageButton(),
-        ],
+        children: <Widget>[setEasyStageButton(), getEasyStageButton()],
       )),
     ));
   }

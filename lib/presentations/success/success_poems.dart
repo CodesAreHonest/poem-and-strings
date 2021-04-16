@@ -4,7 +4,7 @@ class SuccessPoems extends StatelessWidget {
   final String originalText;
   final String translation;
 
-  SuccessPoems({@required this.originalText, @required this.translation});
+  SuccessPoems({required this.originalText, required this.translation});
 
   @override
   Widget build(BuildContext context) {

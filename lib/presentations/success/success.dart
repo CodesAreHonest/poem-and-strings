@@ -10,12 +10,13 @@ import 'success_rating.dart';
 import 'success_coin_amount.dart';
 import 'success_footer.dart';
 
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_youtube/flutter_youtube.dart';
 
 class SuccessPage extends StatefulWidget {
   final String youtubeLink;
-  final String background;
   final String stageCount;
   final String originalText;
   final String translation;
@@ -26,15 +27,14 @@ class SuccessPage extends StatefulWidget {
   final Player player = Player();
 
   SuccessPage(
-      {@required this.youtubeLink,
-      @required this.background,
-      @required this.goldObtained,
-      @required this.rating,
-      @required this.stageCount,
-      @required this.onRefreshStage,
-      @required this.originalText,
-      @required this.difficulty,
-      @required this.translation});
+      {required this.youtubeLink,
+      required this.goldObtained,
+      required this.rating,
+      required this.stageCount,
+      required this.onRefreshStage,
+      required this.originalText,
+      required this.difficulty,
+      required this.translation});
 
   @override
   _SuccessPageState createState() => _SuccessPageState();
@@ -45,32 +45,6 @@ class _SuccessPageState extends State<SuccessPage> {
   void initState() {
     widget.player.incrementCoin(widget.goldObtained);
     super.initState();
-  }
-
-  showBackgroundDialog(BuildContext context) {
-    Widget closeButton = TextButton(
-      child: Text("我明白了", style: TextStyle(color: Colors.blue)),
-      onPressed: () {
-        Navigator.of(context, rootNavigator: true).pop('dialog');
-      },
-    );
-
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text("创作背景"),
-      content: Text(widget.background),
-      actions: [
-        closeButton,
-      ],
-    );
-
-    // show the dialog
-    showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (BuildContext context) =>
-          WillPopScope(onWillPop: () async => false, child: alert),
-    );
   }
 
   showYoutubeVideo(context) {

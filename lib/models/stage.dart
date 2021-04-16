@@ -14,14 +14,14 @@ class Stage {
   final String originalText;
 
   Stage(
-      {Key key,
-      @required this.numOfRows,
-      @required this.stageData,
-      @required this.stageCount,
-      @required this.maximumSteps,
-      @required this.translation,
-      @required this.youtubeLink,
-      @required this.originalText});
+      {Key? key,
+      required this.numOfRows,
+      required this.stageData,
+      required this.stageCount,
+      required this.maximumSteps,
+      required this.translation,
+      required this.youtubeLink,
+      required this.originalText});
 
   double getItemsPerRow() => stageData.length / this.numOfRows;
 

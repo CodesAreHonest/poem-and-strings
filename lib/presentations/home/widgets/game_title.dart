@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
 final Shader linearGradient = LinearGradient(
-  colors: <Color>[Colors.red, Colors.red[800]],
+  colors: <Color>[Colors.red, Colors.red.shade800],
 ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 
 class GameTitle extends StatelessWidget {

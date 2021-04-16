@@ -6,12 +6,11 @@ class StarDisplay extends StatelessWidget {
   final Widget unfilledStar;
 
   const StarDisplay({
-    Key key,
+    Key? key,
     this.value = 0,
-    @required this.filledStar,
-    @required this.unfilledStar,
-  })  : assert(value != null),
-        super(key: key);
+    required this.filledStar,
+    required this.unfilledStar,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class StageRating extends StatelessWidget {
   final int value;
   final double size;
 
-  const StageRating({this.value = 0, this.size = 16}) : assert(value != null);
+  const StageRating({this.value = 0, this.size = 16});
 
   @override
   Widget build(BuildContext context) {
