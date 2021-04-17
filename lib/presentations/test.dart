@@ -7,7 +7,7 @@ class Test extends StatelessWidget {
   Widget setEasyStageButton() {
     return ElevatedButton.icon(
         onPressed: () {
-          player.setEasyStageProgress(1, 4);
+          player.setEasyStageProgress(1, 3);
         },
         icon: Icon(Icons.ondemand_video),
         label: Text('Set Easy Stage'));

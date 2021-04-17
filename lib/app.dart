@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:poem_and_strings/actions/music_actions.dart';
+import 'package:poem_and_strings/presentations/home/index.dart';
 import 'package:poem_and_strings/presentations/test.dart';
 import 'package:poem_and_strings/routes.dart';
 import "package:poem_and_strings/models/models.dart";
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 class Application extends StatefulWidget {
@@ -53,6 +53,6 @@ class _ApplicationState extends State<Application> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: "诗词串串乐", routes: Routes().routes, home: Test());
+    return MaterialApp(title: "诗词串串乐", routes: Routes().routes, home: Home());
   }
 }

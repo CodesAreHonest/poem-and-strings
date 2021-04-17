@@ -20,7 +20,8 @@ Map<String, dynamic> _$PlayerStageRecordToJson(PlayerStageRecord instance) =>
 StageRecords _$StageRecordsFromJson(Map<String, dynamic> json) {
   return StageRecords(
     collection: (json['collection'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(int.parse(k), e as Object),
+      (k, e) => MapEntry(
+          int.parse(k), PlayerStageRecord.fromJson(e as Map<String, dynamic>)),
     ),
   );
 }
@@ -28,7 +29,7 @@ StageRecords _$StageRecordsFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$StageRecordsToJson(StageRecords instance) =>
     <String, dynamic>{
       'collection':
-          instance.collection.map((k, e) => MapEntry(k.toString(), e)),
+          instance.collection.map((k, e) => MapEntry(k.toString(), e.toJson())),
     };
 
 EasyStageRecords _$EasyStageRecordsFromJson(Map<String, dynamic> json) {

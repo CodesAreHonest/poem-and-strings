@@ -14,8 +14,8 @@ class Player {
     PlayerStage playerStage = new PlayerStage();
 
     if (easyStageRecords == null) {
-      final Map<int, Object> newRecord = {};
-      newRecord[level] = stageRecord.toJson();
+      final Map<int, PlayerStageRecord> newRecord = {};
+      newRecord[level] = stageRecord;
       StageRecords stageRecords = new StageRecords(collection: newRecord);
 
       playerStage.setEasyStageRecord(stageRecords.toJson());
@@ -35,8 +35,8 @@ class Player {
     PlayerStage playerStage = new PlayerStage();
 
     if (hardStageRecords == null) {
-      final Map<int, Object> newRecord = {};
-      newRecord[level] = stageRecord.toJson();
+      final Map<int, PlayerStageRecord> newRecord = {};
+      newRecord[level] = stageRecord;
       StageRecords stageRecords = new StageRecords(collection: newRecord);
 
       playerStage.setHardStageRecord(stageRecords.toJson());
@@ -110,7 +110,7 @@ class PlayerStageRecord {
 @JsonSerializable(explicitToJson: true)
 class StageRecords {
   @JsonKey(name: 'collection')
-  Map<int, Object> collection;
+  Map<int, PlayerStageRecord> collection;
 
   StageRecords({required this.collection});
 
