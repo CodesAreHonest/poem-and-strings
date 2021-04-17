@@ -58,19 +58,19 @@ class _EasyStageSelectionState extends State<EasyStageSelection> {
         return EasyStage(
           key: stageConstant.key,
           stage: stageConstant.stage,
-          starRating: stageConstant.starRating,
           level: stageConstant.level,
           pauseMusic: widget.pauseMusic,
+          unlock: false,
         );
       }
 
       return EasyStage(
-        key: stageConstant.key,
-        stage: stageConstant.stage,
-        starRating: stageRecord.rating,
-        level: stageConstant.level,
-        pauseMusic: widget.pauseMusic,
-      );
+          key: stageConstant.key,
+          stage: stageConstant.stage,
+          starRating: stageRecord.rating,
+          level: stageConstant.level,
+          pauseMusic: widget.pauseMusic,
+          unlock: true);
     }).toList();
 
     setState(() {

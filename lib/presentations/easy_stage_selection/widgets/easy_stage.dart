@@ -2,19 +2,22 @@ import "package:flutter/material.dart";
 import 'package:poem_and_strings/models/easy_stage/easy_stage_one.dart';
 import 'package:poem_and_strings/models/models.dart';
 import 'package:poem_and_strings/containers/easy_game_container.dart';
+import 'package:poem_and_strings/widgets/stage_rating.dart';
 
 class EasyStage extends StatelessWidget {
   final dynamic stage;
   final int level;
-  final int starRating;
+  final int? starRating;
   final Function pauseMusic;
+  final bool unlock;
 
   EasyStage(
       {Key? key,
       required this.stage,
-      required this.starRating,
+      this.starRating,
       required this.level,
-      required this.pauseMusic})
+      required this.pauseMusic,
+      this.unlock = true})
       : super(key: key);
 
   @override
@@ -47,7 +50,9 @@ class EasyStage extends StatelessWidget {
                 style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.normal))
           ],
         ),
-        subtitle: null,
+        subtitle: this.starRating != null
+            ? StageRating(value: this.starRating ?? 0, size: 16)
+            : null,
         trailing: Icon(Icons.keyboard_arrow_right),
         onTap: () {
           this.pauseMusic();
@@ -74,8 +79,34 @@ class EasyStage extends StatelessWidget {
       ),
     );
 
+    Widget inactiveCard = Card(
+      child: Container(
+        color: Colors.grey[800],
+        child: ListTile(
+          leading: CircleAvatar(
+            backgroundColor: Colors.grey[700],
+            child: Icon(Icons.lock_rounded, color: Colors.grey[400]),
+          ),
+          title: Row(
+            children: [
+              Text("关卡 未解锁",
+                  style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[400]))
+            ],
+          ),
+          contentPadding:
+              EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+        ),
+      ),
+    );
+
     return Column(
-      children: <Widget>[activeCard, SizedBox(height: 8.0)],
+      children: <Widget>[
+        this.unlock ? activeCard : inactiveCard,
+        SizedBox(height: 8.0)
+      ],
     );
   }
 }
