@@ -1,27 +1,67 @@
 import 'dart:convert';
 
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'player.g.dart';
 
 class Player {
   Future<SharedPreferences> localStorage = SharedPreferences.getInstance();
 
-  void setEasyStageProgress(int level, int rating) {
-    PlayerStageRecord stageRecord = new PlayerStageRecord(rating: 1);
-
-    final Map<int, PlayerStageRecord> newRecord = {};
-    newRecord[rating] = stageRecord;
-    StageRecords easyStageRecords = new StageRecords(collection: newRecord);
-
+  void setEasyStageProgress(int level, int rating) async {
+    StageRecords? easyStageRecords = await getEasyStageProgress();
+    PlayerStageRecord stageRecord = new PlayerStageRecord(rating: rating);
     PlayerStage playerStage = new PlayerStage();
-    playerStage.setEasyStageRecord(easyStageRecords.collection);
+
+    if (easyStageRecords == null) {
+      final Map<int, Object> newRecord = {};
+      newRecord[level] = stageRecord.toJson();
+      StageRecords stageRecords = new StageRecords(collection: newRecord);
+
+      playerStage.setEasyStageRecord(stageRecords.toJson());
+      return;
+    }
+
+    StageRecords stageRecords =
+        new StageRecords(collection: easyStageRecords.collection);
+    stageRecords.setRecords(level, stageRecord);
+    playerStage.setEasyStageRecord(stageRecords.toJson());
+    return;
   }
 
-  void getEasyStageProgress() {
+  void setHardStageProgress(int level, int rating) async {
+    StageRecords? hardStageRecords = await getHardStageProgress();
+    PlayerStageRecord stageRecord = new PlayerStageRecord(rating: rating);
     PlayerStage playerStage = new PlayerStage();
-    playerStage.getEasyStage();
+
+    if (hardStageRecords == null) {
+      final Map<int, Object> newRecord = {};
+      newRecord[level] = stageRecord.toJson();
+      StageRecords stageRecords = new StageRecords(collection: newRecord);
+
+      playerStage.setHardStageRecord(stageRecords.toJson());
+      return;
+    }
+
+    StageRecords stageRecords =
+        new StageRecords(collection: hardStageRecords.collection);
+    stageRecords.setRecords(level, stageRecord);
+    playerStage.setHardStageRecord(stageRecords.toJson());
+    return;
+  }
+
+  Future<StageRecords?> getEasyStageProgress() async {
+    PlayerStage playerStage = new PlayerStage();
+    StageRecords? _easyStageRecords = await playerStage.getEasyStage();
+
+    return _easyStageRecords;
+  }
+
+  Future<StageRecords?> getHardStageProgress() async {
+    PlayerStage playerStage = new PlayerStage();
+    StageRecords? _easyStageRecords = await playerStage.getHardStage();
+
+    return _easyStageRecords;
   }
 
   /// Increment player coin based on type of steps completed.
@@ -48,10 +88,16 @@ class Player {
     int addedBalance = coinBalance - coin;
     _localStorage.setInt('coinBalance', addedBalance);
   }
+
+  Future<void> clearStorage() async {
+    final SharedPreferences _localStorage = await localStorage;
+    _localStorage.clear();
+  }
 }
 
 @JsonSerializable()
 class PlayerStageRecord {
+  @JsonKey(name: 'rating')
   final int rating;
 
   PlayerStageRecord({this.rating = 0});
@@ -61,47 +107,99 @@ class PlayerStageRecord {
   Map<String, dynamic> toJson() => _$PlayerStageRecordToJson(this);
 }
 
+@JsonSerializable(explicitToJson: true)
 class StageRecords {
-  Map<num, PlayerStageRecord> collection;
+  @JsonKey(name: 'collection')
+  Map<int, Object> collection;
 
   StageRecords({required this.collection});
 
-  void setRecords(num stageNumber, PlayerStageRecord records) {
+  void setRecords(int stageNumber, PlayerStageRecord records) {
     this.collection[stageNumber] = records;
   }
+
+  factory StageRecords.fromJson(Map<String, dynamic> json) =>
+      _$StageRecordsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$StageRecordsToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class EasyStageRecords {
+  @JsonKey(name: 'easy')
+  Map<String, dynamic> easy;
+
+  EasyStageRecords({required this.easy});
+
+  factory EasyStageRecords.fromJson(Map<String, dynamic> json) =>
+      _$EasyStageRecordsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EasyStageRecordsToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class HardStageRecords {
+  @JsonKey(name: 'hard')
+  Map<String, dynamic> hard;
+
+  HardStageRecords({required this.hard});
+
+  factory HardStageRecords.fromJson(Map<String, dynamic> json) =>
+      _$HardStageRecordsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$HardStageRecordsToJson(this);
 }
 
 class PlayerStage {
   Future<SharedPreferences> localStorage = SharedPreferences.getInstance();
 
-  Future<String> getEasyStage() async {
+  Future<StageRecords?> getEasyStage() async {
     final SharedPreferences _localStorage = await localStorage;
-    String? stageContent = _localStorage.getString('stage');
+    String? stageContent = _localStorage.getString('easy');
 
     if (stageContent == null) {
-      return '';
+      return null;
     }
 
-    return stageContent;
+    Map<String, dynamic> encodedStageRecord = json.decode(stageContent);
+    EasyStageRecords stageRecord =
+        EasyStageRecords.fromJson(encodedStageRecord);
+
+    StageRecords easyStageRecords = StageRecords.fromJson(stageRecord.easy);
+    return easyStageRecords;
   }
 
-  void setEasyStageRecord(Map<num, PlayerStageRecord> stageRecords) async {
+  Future<StageRecords?> getHardStage() async {
     final SharedPreferences _localStorage = await localStorage;
-    final Map<String, Map<num, PlayerStageRecord>> easyStageRecords = {
-      "easy": stageRecords
-    };
+    String? stageContent = _localStorage.getString('hard');
 
-    String encodedStageRecord = json.encode(easyStageRecords);
-    _localStorage.setString("stage", encodedStageRecord);
+    if (stageContent == null) {
+      return null;
+    }
+
+    Map<String, dynamic> encodedStageRecord = json.decode(stageContent);
+    HardStageRecords stageRecord =
+        HardStageRecords.fromJson(encodedStageRecord);
+
+    StageRecords hardStageRecords = StageRecords.fromJson(stageRecord.hard);
+    return hardStageRecords;
   }
 
-  void setHardStageRecord(StageRecords stageRecords) async {
+  void setEasyStageRecord(Map<String, dynamic> stageRecords) async {
     final SharedPreferences _localStorage = await localStorage;
-    final Map<String, StageRecords> difficultStageRecord = {
-      "hard": stageRecords
-    };
+    final EasyStageRecords easyStageRecords =
+        EasyStageRecords(easy: stageRecords);
 
-    String encodedStageRecord = json.encode(difficultStageRecord);
-    _localStorage.setString("stage", encodedStageRecord);
+    String encodedStageRecord = json.encode(easyStageRecords.toJson());
+    _localStorage.setString("easy", encodedStageRecord);
+  }
+
+  void setHardStageRecord(Map<String, dynamic> stageRecords) async {
+    final SharedPreferences _localStorage = await localStorage;
+    final HardStageRecords hardStageRecords =
+        HardStageRecords(hard: stageRecords);
+
+    String encodedStageRecord = json.encode(hardStageRecords.toJson());
+    _localStorage.setString("hard", encodedStageRecord);
   }
 }
