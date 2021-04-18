@@ -55,13 +55,25 @@ class _EasyStageSelectionState extends State<EasyStageSelection> {
           easyStageRecords.collection[stageConstant.level];
 
       if (stageRecord == null) {
+        PlayerStageRecord? previousStageRecord =
+            easyStageRecords.collection[stageConstant.level - 1];
+
+        if (previousStageRecord == null) {
+          return EasyStage(
+            key: stageConstant.key,
+            stage: stageConstant.stage,
+            level: stageConstant.level,
+            pauseMusic: widget.pauseMusic,
+            unlock: false,
+          );
+        }
+
         return EasyStage(
-          key: stageConstant.key,
-          stage: stageConstant.stage,
-          level: stageConstant.level,
-          pauseMusic: widget.pauseMusic,
-          unlock: false,
-        );
+            key: stageConstant.key,
+            stage: stageConstant.stage,
+            level: stageConstant.level,
+            pauseMusic: widget.pauseMusic,
+            unlock: true);
       }
 
       return EasyStage(
