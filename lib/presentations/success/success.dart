@@ -1,6 +1,12 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:share/share.dart';
 import 'package:poem_and_strings/models/models.dart';
 import 'package:poem_and_strings/presentations/success/success_poems.dart';
 
@@ -43,6 +49,9 @@ class SuccessPage extends StatefulWidget {
 }
 
 class _SuccessPageState extends State<SuccessPage> {
+  // Create an instance of ScrenshotController
+  ScreenshotController screenshotController = ScreenshotController();
+
   @override
   void initState() {
     widget.player.incrementCoin(widget.goldObtained);
@@ -59,9 +68,25 @@ class _SuccessPageState extends State<SuccessPage> {
     widget.player.setHardStageProgress(widget.level, widget.rating);
   }
 
-  showYoutubeVideo(context) {
+  void showYoutubeVideo(context) {
     FlutterYoutube.playYoutubeVideoById(
         apiKey: env['YOUTUBE_API_KEY'], videoId: widget.youtubeLink);
+  }
+
+  void share(BuildContext context) async {
+    final RenderBox box = context.findRenderObject() as RenderBox;
+
+    Directory tempDir = await getTemporaryDirectory();
+    String tempPath = tempDir.path;
+    String fileName = 'success.jpg';
+
+    screenshotController.captureAndSave(tempPath,
+        fileName: fileName, delay: Duration(milliseconds: 10));
+
+    Share.shareFiles(['$tempPath/$fileName'],
+        subject: "我闯关了！",
+        text: "我在诗词串串乐的成绩！",
+        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 
   @override
@@ -76,22 +101,29 @@ class _SuccessPageState extends State<SuccessPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            SuccessHeader(),
-            SuccessMessage(stageCount: stageCount),
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(5)),
-              margin: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    SuccessRating(rating: widget.rating),
-                    SuccessCoinAmount(goldObtained: goldObtained),
-                  ]),
-            ),
-            SuccessPoems(
-                originalText: widget.originalText,
-                translation: widget.translation),
+            Screenshot(
+                controller: screenshotController,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SuccessHeader(),
+                      SuccessMessage(stageCount: stageCount),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5)),
+                        margin: EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              SuccessRating(rating: widget.rating),
+                              SuccessCoinAmount(goldObtained: goldObtained),
+                            ]),
+                      ),
+                      SuccessPoems(
+                          originalText: widget.originalText,
+                          translation: widget.translation),
+                    ])),
             Container(
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.all(8.0),
@@ -110,7 +142,9 @@ class _SuccessPageState extends State<SuccessPage> {
                                   horizontal: 24.0, vertical: 8.0)),
                           backgroundColor:
                               MaterialStateProperty.all(Colors.green[600])),
-                      onPressed: () {},
+                      onPressed: () {
+                        share(context);
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[

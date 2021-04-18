@@ -20,11 +20,11 @@ int ratingSelector(int stepRemaining) {
     return 1;
   }
 
-  if (stepRemaining <= 3) {
+  if (stepRemaining <= 4) {
     return 2;
   }
 
-  if (stepRemaining <= 5) {
+  if (stepRemaining <= 6) {
     return 3;
   }
 

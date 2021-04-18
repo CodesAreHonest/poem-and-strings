@@ -11,7 +11,6 @@ class SuccessPoems extends StatelessWidget {
     return Container(
         width: double.infinity,
         padding: EdgeInsets.all(8.0),
-        decoration: BoxDecoration(color: Colors.grey[200]),
         child: Container(
           width: double.infinity,
           padding: EdgeInsets.all(8.0),
