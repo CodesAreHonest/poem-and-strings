@@ -52,10 +52,11 @@ class _SuccessPageState extends State<SuccessPage> {
 
   void setGameProgress() {
     if (widget.difficulty == 'easy') {
-      print(widget.rating);
       widget.player.setEasyStageProgress(widget.level, widget.rating);
       return;
     }
+
+    widget.player.setHardStageProgress(widget.level, widget.rating);
   }
 
   showYoutubeVideo(context) {

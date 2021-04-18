@@ -13,9 +13,9 @@ import 'package:redux/redux.dart';
 
 class DifficultGameContainer extends StatefulWidget {
   final dynamic stage;
-  final int? level;
+  final int level;
 
-  DifficultGameContainer({this.stage, this.level});
+  DifficultGameContainer({this.stage, this.level = 1});
 
   @override
   _DifficultGameContainerState createState() => _DifficultGameContainerState();
@@ -75,7 +75,7 @@ class _DifficultGameContainerState extends State<DifficultGameContainer> {
                     youtubeLink: widget.stage.youtubeLink,
                     maximumSteps: widget.stage.maximumSteps,
                     stageCount: widget.stage.stageCount,
-                    level: 0,
+                    level: widget.level,
                     difficulty: 'hard',
                     isStageIncompleted: isStageIncompletedSelector(
                         vm.step, widget.stage.maximumSteps)),
