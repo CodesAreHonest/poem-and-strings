@@ -36,6 +36,7 @@ class FourthGuideline extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => EasyGameContainer(
+                        level: 1,
                         stage: Stage(
                             numOfRows: numOfRows,
                             stageData: stageData,

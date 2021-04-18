@@ -22,6 +22,7 @@ class SuccessPage extends StatefulWidget {
   final String translation;
   final int goldObtained;
   final int rating;
+  final int level;
   final Function onRefreshStage;
   final String difficulty;
   final Player player = Player();
@@ -34,7 +35,8 @@ class SuccessPage extends StatefulWidget {
       required this.onRefreshStage,
       required this.originalText,
       required this.difficulty,
-      required this.translation});
+      required this.translation,
+      required this.level});
 
   @override
   _SuccessPageState createState() => _SuccessPageState();
@@ -44,7 +46,16 @@ class _SuccessPageState extends State<SuccessPage> {
   @override
   void initState() {
     widget.player.incrementCoin(widget.goldObtained);
+    setGameProgress();
     super.initState();
+  }
+
+  void setGameProgress() {
+    if (widget.difficulty == 'easy') {
+      print(widget.rating);
+      widget.player.setEasyStageProgress(widget.level, widget.rating);
+      return;
+    }
   }
 
   showYoutubeVideo(context) {
@@ -73,7 +84,7 @@ class _SuccessPageState extends State<SuccessPage> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    SuccessRating(goldObtained: goldObtained),
+                    SuccessRating(rating: widget.rating),
                     SuccessCoinAmount(goldObtained: goldObtained),
                   ]),
             ),

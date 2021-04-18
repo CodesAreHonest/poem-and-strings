@@ -66,6 +66,7 @@ class EasyStage extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => EasyGameContainer(
+                      level: this.level,
                       stage: Stage(
                           numOfRows: numOfRows,
                           stageData: stageData,

@@ -4,7 +4,6 @@ import 'package:poem_and_strings/models/easy_stage/easy_stage_constants.dart';
 import 'package:poem_and_strings/models/player.dart';
 import 'widgets/appbar.dart';
 import 'widgets/easy_stage.dart';
-import 'dart:convert';
 
 class EasyStageSelection extends StatefulWidget {
   final Function pauseMusic;
@@ -37,9 +36,9 @@ class _EasyStageSelectionState extends State<EasyStageSelection> {
         return EasyStage(
           key: stageConstant.key,
           stage: stageConstant.stage,
-          starRating: stageConstant.starRating,
           level: stageConstant.level,
           pauseMusic: widget.pauseMusic,
+          unlock: stageConstant.level == 1,
         );
       }).toList();
       setState(() {

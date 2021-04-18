@@ -87,6 +87,7 @@ class _EasyGameState extends State<EasyGameContainer> {
                           maximumSteps: widget.stage.maximumSteps,
                           stageCount: widget.stage.stageCount,
                           difficulty: 'easy',
+                          level: widget.level,
                           isStageIncompleted: isStageIncompletedSelector(
                               vm.step, widget.stage.maximumSteps)),
                       SizedBox(height: 16.0),

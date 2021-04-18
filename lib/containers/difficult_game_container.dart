@@ -75,6 +75,7 @@ class _DifficultGameContainerState extends State<DifficultGameContainer> {
                     youtubeLink: widget.stage.youtubeLink,
                     maximumSteps: widget.stage.maximumSteps,
                     stageCount: widget.stage.stageCount,
+                    level: 0,
                     difficulty: 'hard',
                     isStageIncompleted: isStageIncompletedSelector(
                         vm.step, widget.stage.maximumSteps)),

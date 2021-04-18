@@ -17,6 +17,7 @@ class GameBody extends StatefulWidget {
 
   final int step;
   final int maximumSteps;
+  final int level;
   final String youtubeLink;
   final String stageCount;
   final String originalText;
@@ -40,6 +41,7 @@ class GameBody extends StatefulWidget {
       required this.stageCount,
       required this.translation,
       required this.originalText,
+      required this.level,
       required this.difficulty})
       : super(key: key);
 
@@ -69,6 +71,7 @@ class _GameBodyState extends State<GameBody> {
                     stageCount: widget.stageCount,
                     onRefreshStage: widget.onRefreshStage,
                     originalText: widget.originalText,
+                    level: widget.level,
                     translation: widget.translation)));
         widget.onResetStage();
         return;
