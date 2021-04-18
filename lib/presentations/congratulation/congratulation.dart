@@ -9,20 +9,21 @@ class Congratulation extends StatelessWidget {
               context, '/DifficultySelection', (e) => false);
         },
         style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.blue[800]),
             padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
                 EdgeInsets.symmetric(horizontal: 80.0, vertical: 16.0)),
             shape: MaterialStateProperty.all<OutlinedBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0)))),
-        child: Text('回到主页',
-            style: TextStyle(color: Colors.blue[800], fontSize: 16)));
+        child:
+            Text('回到主页', style: TextStyle(color: Colors.white, fontSize: 16)));
 
     return Positioned(
       child: Container(
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.fromLTRB(8.0, 40.0, 8.0, 8.0),
           margin: EdgeInsets.symmetric(horizontal: 16.0),
-          height: 300,
+          height: 225,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16.0), color: Colors.white),
           child: Column(
@@ -33,7 +34,7 @@ class Congratulation extends StatelessWidget {
                       fontSize: 24,
                       color: Colors.black,
                       fontWeight: FontWeight.bold)),
-              SizedBox(height: 60.0),
+              SizedBox(height: 30.0),
               backToHomeButton
             ],
           )),
@@ -42,7 +43,7 @@ class Congratulation extends StatelessWidget {
 
   Widget trophieImage(context) {
     return Positioned(
-      bottom: 225,
+      bottom: 165,
       child: Container(
           width: MediaQuery.of(context).size.width,
           child: Center(

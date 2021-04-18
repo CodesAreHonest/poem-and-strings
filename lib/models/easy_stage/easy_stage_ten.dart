@@ -29,7 +29,7 @@ class EasyStageTen {
       "太阳照耀香炉峰生出袅袅紫烟，远远望去瀑布像长河悬挂山前。仿佛三干尺水流飞奔直冲而下，莫非是银河从九天垂落山崖间。";
 
   final String youtubeLink = 'ZfI_VoXGark';
-  final String originalText = "日照香炉生紫烟，遥看瀑布挂前川。\n飞流直下三千尺，疑是银河落九天。";
+  final String originalText = "日照香炉生紫烟，\n遥看瀑布挂前川。\n飞流直下三千尺，\n疑是银河落九天。";
 
   EasyStageTen();
 }
