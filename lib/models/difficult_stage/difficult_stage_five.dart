@@ -7,10 +7,10 @@ class DifficultStageFive {
     Character("山", false, false, 1),
     Character("不", false, false, 2),
     Character("见", false, false, 3),
-    Character("人", false, false, 4),
+    Character("人1", false, false, 4),
     Character("但", false, false, 5),
     Character("闻", false, false, 6),
-    Character("人", false, false, 7),
+    Character("人2", false, false, 7),
     Character("语", false, false, 8),
     Character("响", false, false, 9),
   ];

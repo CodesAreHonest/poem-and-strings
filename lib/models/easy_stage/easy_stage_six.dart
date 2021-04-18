@@ -4,12 +4,12 @@ import 'package:poem_and_strings/models/models.dart';
 class EasyStageSix {
   final List<Character> stageData = [
     Character("天", false, false, 0),
-    Character("苍", false, false, 1),
-    Character("苍", false, false, 2),
+    Character("苍1", false, false, 1),
+    Character("苍2", false, false, 2),
     Character("，", false, false, 3),
     Character("野", false, false, 4),
-    Character("茫", false, false, 5),
-    Character("茫", false, false, 6),
+    Character("茫1", false, false, 5),
+    Character("茫2", false, false, 6),
     Character("风", false, false, 7),
     Character("吹", false, false, 8),
     Character("草", false, false, 9),

@@ -254,6 +254,36 @@ class _GameBodyState extends State<GameBody> {
         fontWeight: FontWeight.normal);
   }
 
+  TextStyle indexCharacterText(
+      bool isSelected, bool isCompleted, bool isSpecial) {
+    double characterFontSize = 12.0;
+    if (isCompleted) {
+      return TextStyle(
+          color: Colors.white,
+          fontSize: characterFontSize,
+          fontWeight: FontWeight.bold);
+    }
+
+    if (isSelected) {
+      return TextStyle(
+          color: Colors.black,
+          fontSize: characterFontSize,
+          fontWeight: FontWeight.bold);
+    }
+
+    if (isSpecial) {
+      return TextStyle(
+          color: Colors.pink[200],
+          fontSize: characterFontSize,
+          fontWeight: FontWeight.w800);
+    }
+
+    return TextStyle(
+        color: Colors.black,
+        fontSize: characterFontSize,
+        fontWeight: FontWeight.normal);
+  }
+
   List<Widget> renderCharacters(List<Character> stageData) {
     List<Widget> rowWidgets = [];
     List<Widget> gameCharacters = [];
@@ -266,18 +296,33 @@ class _GameBodyState extends State<GameBody> {
       bool isCompleted = stageData[item].getCompleted();
       bool isSpecial = stageData[item].getSpecial();
 
+      Map<int, String> splitedCharacter = character.split('').asMap();
+      String firstChar = splitedCharacter[0] ?? '';
+      String secondChar = splitedCharacter[1] ?? '';
+
+      Positioned characterNumber = Positioned(
+          right: 5,
+          top: 2,
+          child: Text(secondChar,
+              style: indexCharacterText(isSelected, isCompleted, isSpecial)));
+
       // map words into character widgets.
       GestureDetector characterWidget = GestureDetector(
         onTap: () {
           Character specificCharacter = stageData[item];
           this.swapCharacter(specificCharacter);
         },
-        child: Container(
-            decoration: characterDecoration(isSelected, isCompleted, isSpecial),
-            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-            child: Text(character,
-                style: characterText(isSelected, isCompleted, isSpecial))),
+        child: Stack(children: <Widget>[
+          Container(
+              decoration:
+                  characterDecoration(isSelected, isCompleted, isSpecial),
+              padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+              child: Text(firstChar,
+                  style: characterText(isSelected, isCompleted, isSpecial))),
+          characterNumber
+        ]),
       );
+
       rowWidgets.add(characterWidget);
 
       // when item position reach specific count, split to another row.
