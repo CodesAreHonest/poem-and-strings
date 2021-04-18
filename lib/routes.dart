@@ -8,9 +8,6 @@ import 'package:poem_and_strings/presentations/difficult_guideline/difficult_gui
 import 'package:poem_and_strings/presentations/easy_guideline/easy_guideline.dart';
 import 'package:poem_and_strings/presentations/home/index.dart';
 import 'package:poem_and_strings/presentations/difficulty_selection/difficulty_selection.dart';
-import 'package:poem_and_strings/presentations/revise_poems/guideline.dart';
-import 'package:poem_and_strings/presentations/revise_poems/index.dart';
-import 'package:poem_and_strings/presentations/revise_poems/success.dart';
 import 'package:poem_and_strings/presentations/test.dart';
 
 class Routes {
@@ -24,9 +21,6 @@ class Routes {
     '/EasyStageSelection': (BuildContext context) =>
         EasyStageSelectionContainer(),
     '/Test': (BuildContext context) => Test(),
-    '/RevisionSuccess': (BuildContext context) => RevisionSuccess(),
-    '/RevisionGuideline': (BuildContext context) => RevisionGuideline(),
-    '/RevisePoems': (BuildContext context) => RevisePoems(),
     '/Congratulations': (BuildContext context) => Congratulation(),
     '/EasyGuideline': (BuildContext context) => EasyGuideLine(),
     '/DifficultGuideline': (BuildContext context) => DifficultGuideline()

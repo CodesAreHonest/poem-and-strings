@@ -3,21 +3,6 @@ import 'package:flutter/painting.dart';
 
 class Congratulation extends StatelessWidget {
   Widget successContainer(context) {
-    Widget nextActivityButton = ElevatedButton(
-      onPressed: () {
-        Navigator.pushNamed(context, '/RevisionGuideline');
-      },
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color?>(Colors.blue[700]),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-            EdgeInsets.symmetric(horizontal: 80.0, vertical: 16.0)),
-        shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
-            side: BorderSide(color: Colors.blue.shade800))),
-      ),
-      child: Text('下一个活动', style: TextStyle(color: Colors.white, fontSize: 16)),
-    );
-
     Widget backToHomeButton = TextButton(
         onPressed: () {
           Navigator.pushNamedAndRemoveUntil(
@@ -49,8 +34,6 @@ class Congratulation extends StatelessWidget {
                       color: Colors.black,
                       fontWeight: FontWeight.bold)),
               SizedBox(height: 60.0),
-              nextActivityButton,
-              SizedBox(height: 8.0),
               backToHomeButton
             ],
           )),
