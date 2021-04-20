@@ -9,7 +9,7 @@ bool isStageCompletedSelector(List<Character> stageData) {
   List<Character> containIncompleted =
       stageData.where((item) => item.completed == false).toList();
 
-  return containIncompleted.length == 0;
+  return stageData.length != 0 && containIncompleted.length == 0;
 }
 
 bool isStageIncompletedSelector(int stepPerformed, int maximumSteps) =>

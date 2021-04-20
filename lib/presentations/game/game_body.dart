@@ -59,7 +59,8 @@ class _GameBodyState extends State<GameBody> {
       int goldObtained = stepRemaining;
 
       int rating = ratingSelector(stepRemaining);
-      Future.delayed(const Duration(milliseconds: 1000), () {
+
+      Future.delayed(Duration.zero, () {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -74,6 +75,7 @@ class _GameBodyState extends State<GameBody> {
                     level: widget.level,
                     translation: widget.translation)));
         widget.onResetStage();
+
         return;
       });
     }
@@ -171,7 +173,7 @@ class _GameBodyState extends State<GameBody> {
 
   void onSwapCharacter(
       Character previousCharacter, Character currentCharacter) async {
-    await Future.delayed(const Duration(milliseconds: 150), () {
+    await Future.delayed(Duration(milliseconds: 150), () {
       previousCharacter.setSelected(false);
       currentCharacter.setSelected(false);
       widget.onUpdateCharacter(previousCharacter);
