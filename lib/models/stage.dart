@@ -54,7 +54,7 @@ class Stage {
      *  2. obtain the intended location of target element and perform swapping.
      *  3. perform the actions until 6 completed character are formed.
      */
-    while (completedCount <= 6) {
+    while (completedCount < 6) {
       List<Character> _uncompletedCharacter = stageData
           .where((character) => character.getCompleted() == false)
           .toList();
@@ -99,7 +99,7 @@ class Stage {
      *  2. obtain the intended location of target element and perform swapping.
      *  3. perform the actions until 6 completed character are formed.
      */
-    while (completedCount <= 6) {
+    while (completedCount < 6) {
       List<Character> _uncompletedCharacter = stageData
           .where((character) => character.getCompleted() == false)
           .toList();
