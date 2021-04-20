@@ -171,7 +171,7 @@ class _GameBodyState extends State<GameBody> {
 
   void onSwapCharacter(
       Character previousCharacter, Character currentCharacter) async {
-    await Future.delayed(const Duration(milliseconds: 300), () {
+    await Future.delayed(const Duration(milliseconds: 150), () {
       previousCharacter.setSelected(false);
       currentCharacter.setSelected(false);
       widget.onUpdateCharacter(previousCharacter);

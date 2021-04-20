@@ -66,6 +66,7 @@ class DifficultStage extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => DifficultGameContainer(
+                      level: this.level,
                       stage: Stage(
                           numOfRows: numOfRows,
                           stageData: stageData,

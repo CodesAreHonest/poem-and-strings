@@ -20,7 +20,7 @@ class FourthGuideline extends StatelessWidget {
       color: Colors.white,
       padding: EdgeInsets.all(16.0),
       child: Column(children: <Widget>[
-        Text("技巧：\n你可以通过译方提示，从中找出与古诗的对应的译方，并以此推测拼诗句。（此操作将被扣金币）",
+        Text("技巧：\n你可以通过译文提示，从中找出与古诗的对应的译文，并以此推测拼诗句。（此操作将被扣金币）",
             style: TextStyle(
                 color: Colors.black87, fontSize: 13.0, letterSpacing: 1.1)),
         SizedBox(height: 20),
