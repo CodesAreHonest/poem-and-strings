@@ -16,7 +16,7 @@ class DifficultStageSeven {
   ];
 
   final int numOfRows = 2;
-  final int maximumSteps = 12;
+  final int maximumSteps = 6;
   final String stageCount = '困难第七关';
   final String title = '登乐游原';
   final String dynastyWithAuthor = '唐·李商隐';

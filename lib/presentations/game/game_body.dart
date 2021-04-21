@@ -61,22 +61,24 @@ class _GameBodyState extends State<GameBody> {
       int rating = ratingSelector(stepRemaining);
 
       Future.delayed(Duration.zero, () {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => SuccessPage(
-                    difficulty: widget.difficulty,
-                    youtubeLink: widget.youtubeLink,
-                    goldObtained: goldObtained,
-                    rating: rating,
-                    stageCount: widget.stageCount,
-                    onRefreshStage: widget.onRefreshStage,
-                    originalText: widget.originalText,
-                    level: widget.level,
-                    translation: widget.translation)));
-        widget.onResetStage();
+        if (this.mounted) {
+          widget.onResetStage();
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => SuccessPage(
+                      difficulty: widget.difficulty,
+                      youtubeLink: widget.youtubeLink,
+                      goldObtained: goldObtained,
+                      rating: rating,
+                      stageCount: widget.stageCount,
+                      onRefreshStage: widget.onRefreshStage,
+                      originalText: widget.originalText,
+                      level: widget.level,
+                      translation: widget.translation)));
 
-        return;
+          return;
+        }
       });
     }
 

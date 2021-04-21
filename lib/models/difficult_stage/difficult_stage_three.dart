@@ -26,7 +26,7 @@ class DifficultStageThree {
   ];
 
   final int numOfRows = 4;
-  final int maximumSteps = 15;
+  final int maximumSteps = 20;
   final String stageCount = '困难第三关';
   final String title = '江南';
   final String dynastyWithAuthor = '汉·乐府';

@@ -10,14 +10,15 @@ class DifficultStageSix {
     Character("阴", false, false, 4),
     Character("山", false, false, 5),
     Character("下", false, false, 6),
-    Character("天", false, false, 7),
-    Character("似", false, false, 8),
-    Character("穹", false, false, 9),
-    Character("庐", false, false, 10),
-    Character("笼", false, false, 11),
-    Character("盖", false, false, 12),
-    Character("四", false, false, 13),
-    Character("野", false, false, 14),
+    Character("。", false, false, 7),
+    Character("天", false, false, 8),
+    Character("似", false, false, 9),
+    Character("穹", false, false, 10),
+    Character("庐", false, false, 11),
+    Character("笼", false, false, 12),
+    Character("盖", false, false, 13),
+    Character("四", false, false, 14),
+    Character("野", false, false, 15),
   ];
 
   final int numOfRows = 2;
