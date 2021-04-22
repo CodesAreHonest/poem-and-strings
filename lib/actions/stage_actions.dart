@@ -203,21 +203,9 @@ class SwapEasyCharacterAction {
     if (character.getSpecial() && isCharacterInCorrectPosition) {
       character.setSpecial(false);
 
-      int firstRow = (data.length / 2 - 1).toInt();
-      int secondRow = (data.length - 1).toInt();
-
-      if (character.getLocation() <= firstRow) {
-        for (int index = 0; index <= firstRow; index++) {
-          Character targetCharacter = data[index];
-          this.swapCharacterToComplete(targetCharacter);
-        }
-      }
-
-      if (character.getLocation() <= secondRow) {
-        for (int index = firstRow; index <= secondRow; index++) {
-          Character targetCharacter = data[index];
-          this.swapCharacterToComplete(targetCharacter);
-        }
+      for (int index = 0; index < data.length; index++) {
+        Character targetCharacter = data[index];
+        this.swapCharacterToComplete(targetCharacter);
       }
     }
   }
@@ -262,8 +250,8 @@ class SwapEasyCharacterAction {
         currentCharacter, currentCharacterCompleteLocation);
     this.updateCharacterWithPosition(targetCharacter, currentCharacterLocation);
 
-    this.isCharacterCompleted(currentCharacter);
-    this.isCharacterCompleted(targetCharacter);
+    currentCharacter.setCompleted(true);
+    targetCharacter.setCompleted(true);
 
     return data;
   }
