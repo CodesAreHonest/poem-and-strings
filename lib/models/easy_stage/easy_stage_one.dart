@@ -16,7 +16,7 @@ class EasyStageOne {
   ];
 
   final int numOfRows = 2;
-  final int maximumSteps = 8;
+  final int maximumSteps = 3;
   final String stageCount = '简单第一关';
   final String title = '所见';
   final String dynastyWithAuthor = '清·袁枚';

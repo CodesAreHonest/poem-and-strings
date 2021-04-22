@@ -209,18 +209,14 @@ class SwapEasyCharacterAction {
       if (character.getLocation() <= firstRow) {
         for (int index = 0; index <= firstRow; index++) {
           Character targetCharacter = data[index];
-          if (targetCharacter.completed == false) {
-            this.swapCharacterToComplete(targetCharacter);
-          }
+          this.swapCharacterToComplete(targetCharacter);
         }
       }
 
       if (character.getLocation() <= secondRow) {
         for (int index = firstRow; index <= secondRow; index++) {
           Character targetCharacter = data[index];
-          if (targetCharacter.completed == false) {
-            this.swapCharacterToComplete(targetCharacter);
-          }
+          this.swapCharacterToComplete(targetCharacter);
         }
       }
     }

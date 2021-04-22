@@ -20,7 +20,7 @@ class EasyStageSix {
   ];
 
   final int numOfRows = 2;
-  final int maximumSteps = 8;
+  final int maximumSteps = 6;
   final String stageCount = '简单第六关';
   final String title = '敕勒歌';
   final String dynastyWithAuthor = '北朝·乐府';
