@@ -14,6 +14,9 @@ PODS:
   - flutter_youtube (0.0.1):
     - Flutter
     - XCDYouTubeKit
+  - flutter_youtube_view (1.1.4):
+    - Flutter
+    - YoutubeKit
   - OrderedSet (5.0.0)
   - path_provider (0.0.1):
     - Flutter
@@ -22,6 +25,7 @@ PODS:
   - shared_preferences (0.0.1):
     - Flutter
   - XCDYouTubeKit (2.15.2)
+  - YoutubeKit (0.5.0)
 
 DEPENDENCIES:
   - assets_audio_player (from `.symlinks/plugins/assets_audio_player/ios`)
@@ -29,6 +33,7 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_inappwebview (from `.symlinks/plugins/flutter_inappwebview/ios`)
   - flutter_youtube (from `.symlinks/plugins/flutter_youtube/ios`)
+  - flutter_youtube_view (from `.symlinks/plugins/flutter_youtube_view/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - share (from `.symlinks/plugins/share/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
@@ -37,6 +42,7 @@ SPEC REPOS:
   trunk:
     - OrderedSet
     - XCDYouTubeKit
+    - YoutubeKit
 
 EXTERNAL SOURCES:
   assets_audio_player:
@@ -49,6 +55,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_inappwebview/ios"
   flutter_youtube:
     :path: ".symlinks/plugins/flutter_youtube/ios"
+  flutter_youtube_view:
+    :path: ".symlinks/plugins/flutter_youtube_view/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   share:
@@ -62,11 +70,13 @@ SPEC CHECKSUMS:
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   flutter_inappwebview: bfd58618f49dc62f2676de690fc6dcda1d6c3721
   flutter_youtube: 142f8d5af0a11963bdc73e13bcae6eb78db746c2
+  flutter_youtube_view: ea93f139b374c5e2b869b3e84190c4ba9668601b
   OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   share: 0b2c3e82132f5888bccca3351c504d0003b3b410
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
   XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
+  YoutubeKit: 9f66eba839211158f2aac7ad3833593bd56fa8f9
 
 PODFILE CHECKSUM: ac18d8c2735430a8cfba53e9cb362aceac9751ae
 
