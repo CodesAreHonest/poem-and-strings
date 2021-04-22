@@ -262,8 +262,8 @@ class SwapEasyCharacterAction {
         currentCharacter, currentCharacterCompleteLocation);
     this.updateCharacterWithPosition(targetCharacter, currentCharacterLocation);
 
-    currentCharacter.setCompleted(true);
-    targetCharacter.setCompleted(true);
+    this.isCharacterCompleted(currentCharacter);
+    this.isCharacterCompleted(targetCharacter);
 
     return data;
   }
