@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yinghua.poem_and_strings"
-    android:versionCode="2"
-    android:versionName="1.0.0-beta">
+    android:versionCode="3"
+    android:versionName="1.0.2">
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
          In most cases you can leave this as-is, but you if you want to provide
